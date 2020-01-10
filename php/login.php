@@ -8,7 +8,7 @@ if ($results && $results->num_rows > 0) {
 	if (intval($row["account_type"]) == 1 && intval($row["minimum_amount_paid"]) == 0) {
 		echo -2;
 	} else {
-		echo $results->fetch_assoc()["id"];
+		echo $row["id"];
 	}
 } else {
 	$c->query("INSERT INTO users (phone, uid) VALUES ('" . $phone . "', '" . $uid . "')");
