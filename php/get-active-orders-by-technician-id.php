@@ -2,7 +2,8 @@
 include 'db.php';
 $start = intval($_POST["start"]);
 $length = intval($_POST["length"]);
-$results = $c->query("SELECT * FROM orders WHERE active=0 LIMIT " . $start . "," . $length);
+$technicianID = intval($_POST["technician_id"]);
+$results = $c->query("SELECT * FROM orders WHERE active=1 AND technician_id=" . $technicianID  . " LIMIT " . $start . "," . $length);
 $orders = [];
 if ($results && $results->num_rows > 0) {
 	while ($row = $results->fetch_assoc()) {
