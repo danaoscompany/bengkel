@@ -6,7 +6,6 @@ $results = $c->query("SELECT * FROM purchases WHERE external_id='" . $externalID
 if ($results && $results->num_rows > 0) {
 	$row = $results->fetch_assoc();
 	$userID = intval($row["user_id"]);
-	$c->query("UPDATE users SET minimum_amount_paid=1 WHERE id=" . $userID);
 	$users = $c->query("SELECT * FROM users WHERE id=" . $userID);
 	if ($users && $users->num_rows > 0) {
 		$user = $users->fetch_assoc();

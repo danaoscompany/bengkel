@@ -1,24 +1,13 @@
 <?php
 include 'db.php';
-$purchaseInfo = json_decode(file_get_contents("php://input"), true);
-$externalID = $purchaseInfo["external_id"];
-$results = $c->query("SELECT * FROM purchases WHERE external_id='" . $externalID . "'");
-if ($results && $results->num_rows > 0) {
-	$row = $results->fetch_assoc();
-	$userID = intval($row["user_id"]);
-	$c->query("UPDATE users SET minimum_amount_paid=1 WHERE id=" . $userID);
-	$users = $c->query("SELECT * FROM users WHERE id=" . $userID);
-	if ($users && $users->num_rows > 0) {
-		$user = $users->fetch_assoc();
-		$fcmID = $user["fcm_id"];
-		$url = 'https://fcm.googleapis.com/fcm/send';
+$url = 'https://fcm.googleapis.com/fcm/send';
     	$fields = array (
             'registration_ids' => array (
-                    $fcmID
+                    "eyX9Qpeowy8:APA91bF0HprKFBS56XNtdWDr0y_BPohddGpcbElQWicOcPcjkcNaP6PBlVuE_u6lFjghE9cfwdJyQJnmKS50G_q9GT4CL0z79YjHkYXbCOfNM1MKvkfTSzqj_c_b8RPdEN1BkH_MhR65"
             ),
             'data' => array (
                     "type" => "1",
-                    "external_id" => $user["external_id"]
+                    "complaint_id" => "1"
             )
     	);
     	$fields = json_encode ($fields);
@@ -36,7 +25,3 @@ if ($results && $results->num_rows > 0) {
 	
     	$result = curl_exec ( $ch );
     	curl_close ( $ch );
-	}
-}
-$c->query("UPDATE purchases SET done=1 WHERE external_id='" . $externalID . "'");
-echo 0;
