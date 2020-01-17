@@ -3,7 +3,8 @@ include 'db.php';
 $orderID = intval($_POST["order_id"]);
 $invoiceNumber = $_POST["invoice_number"];
 $complaint = $_POST["complaint"];
-$c->query("INSERT INTO complaints (order_id, invoice_number, complaint) VALUES (" . $orderID . ", '" . $invoiceNumber . "', '" . $complaint . "')");
+$technicianID = $c->query("SELECT * FROM orders WHERE id=" . $orderID)->fetch_assoc()["technician_id"];
+$c->query("INSERT INTO complaints (order_id, invoice_number, complaint, technician_id, date) VALUES (" . $orderID . ", '" . $invoiceNumber . "', '" . $complaint . "', " . $technicianID . ", '" . date('Y:m:d H:i:s') . "')");
 $complaintID = mysqli_insert_id($c);
 $results = $c->query("SELECT * FROM technicians");
 if ($results && $results->num_rows > 0) {

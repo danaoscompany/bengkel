@@ -33,5 +33,6 @@ if ($orders && $orders->num_rows > 0) {
     	curl_setopt ( $ch, CURLOPT_POSTFIELDS, $fields );
     	$result = curl_exec ( $ch );
     	curl_close ( $ch );
+    	echo $fcmID;
 	}
 }
