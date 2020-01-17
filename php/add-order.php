@@ -2,6 +2,7 @@
 include 'db.php';
 $name = $_POST["name"];
 $orderID = $_POST["order_id"];
+$userID = intval($_POST["user_id"]);
 $phone = $_POST["phone"];
 $kind = intval($_POST["kind"]);
 $type = intval($_POST["type"]);

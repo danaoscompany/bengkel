@@ -3,7 +3,7 @@ include 'db.php';
 $start = intval($_POST["start"]);
 $length = intval($_POST["length"]);
 $technicianID = intval($_POST["technician_id"]);
-$results = $c->query("SELECT * FROM orders WHERE technician_id=" . $technicianID  . " ORDER BY date LIMIT " . $start . "," . $length);
+$results = $c->query("SELECT * FROM orders WHERE technician_id=" . $technicianID  . " AND done=0 ORDER BY date LIMIT " . $start . "," . $length);
 $orders = [];
 if ($results && $results->num_rows > 0) {
 	while ($row = $results->fetch_assoc()) {
@@ -15,14 +15,9 @@ if ($results && $results->num_rows > 0) {
 		if ($results2 && $results2->num_rows > 0) {
 			$row2 = $results2->fetch_assoc();
 			if ($row2["date"] != null && $row2["date"] != "null") {
-				$row["scheduled"] = 1;
-			} else {
-				$row["scheduled"] = 0;
+				array_push($orders, $row);
 			}
-		} else {
-			$row2["scheduled"] = 0;
 		}
-		array_push($orders, $row);
 	}
 }
 echo json_encode($orders);
