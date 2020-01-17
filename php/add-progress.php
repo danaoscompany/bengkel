@@ -4,6 +4,7 @@ $orderID = intval($_POST["order_id"]);
 $progress = $_POST["progress"];
 $time = $_POST["time"];
 $c->query("INSERT INTO order_progress (order_id, progress, time) VALUES (" . $orderID . ", '" . $progress . "', '" . $time . "')");
+$progressID = mysqli_insert_id($c);
 $orders = $c->query("SELECT * FROM orders WHERE id=" . $orderID);
 if ($orders && $orders->num_rows > 0) {
 	$order = $orders->fetch_assoc();
@@ -19,7 +20,8 @@ if ($orders && $orders->num_rows > 0) {
             ),
             'data' => array (
                     "type" => "2",
-                    "order_id" => "" . $orderID
+                    "order_id" => "" . $orderID,
+                    "progress" => progress
             )
     	);
     	$fields = json_encode ($fields);
@@ -35,6 +37,6 @@ if ($orders && $orders->num_rows > 0) {
     	curl_setopt ( $ch, CURLOPT_POSTFIELDS, $fields );
     	$result = curl_exec ( $ch );
     	curl_close ( $ch );
-    	echo $fcmID;
 	}
 }
+echo $progressID;
