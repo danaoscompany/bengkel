@@ -1,9 +1,7 @@
 <?php
 include 'db.php';
-$start = intval($_POST["start"]);
-$length = intval($_POST["length"]);
-$technicianID = intval($_POST["technician_id"]);
-$results = $c->query("SELECT * FROM complaints WHERE technician_id=" . $technicianID . " LIMIT " . $start . "," . $length);
+$id = intval($_POST["id"]);
+$results = $c->query("SELECT * FROM complaints WHERE id=" . $id);
 $complaints = [];
 if ($results && $results->num_rows > 0) {
 	while ($row = $results->fetch_assoc()) {
@@ -22,4 +20,3 @@ if ($results && $results->num_rows > 0) {
 	}
 }
 echo json_encode($complaints);
-//echo "SELECT * FROM complaints WHERE technician_id=" . $technicianID . " LIMIT " . $start . "," . $length;
