@@ -664,6 +664,11 @@
             }
         });
     }
+
+    function logout() {
+        localStorage.setItem("user_id", 0);
+        window.location.href = "../examples/login.html";
+    }
 </script>
 </body>
 
