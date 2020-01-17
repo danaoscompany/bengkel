@@ -8,6 +8,10 @@ if ($results && $results->num_rows > 0) {
 	if (intval($row["account_type"]) == 1 && intval($row["minimum_amount_paid"]) == 0) {
 		echo -2;
 	} else {
+	    session_id("bengkel");
+	    session_start();
+	    $_SESSION["logged_in"] = true;
+	    $_SESSION["user_id"] = $row["id"];
 		echo $row["id"];
 	}
 } else {

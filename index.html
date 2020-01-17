@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="assets/js/plugins/jquery/dist/jquery.min.js"></script>
+    <script src="js/global.js"></script>
+    <script>
+      /*var userID = localStorage.getItem("user_id");
+      if (userID == null || userID == "null" || userID == 0) {
+        window.location.href = "examples/login.html";
+      } else {
+        window.location.href = "examples/";
+      }*/
+      $(document).ready(function() {
+        $.ajax({
+          type: 'GET',
+          url: PHP_URL+'check-session.php',
+          dataType: 'text',
+          cache: false,
+          success: function(response) {
+            if (response == "0") {
+              window.location.href = "examples/login.html";
+            } else if (response == "1") {
+              window.location.href = "examples/users.html";
+            }
+          }
+        });
+      });
+    </script>
+  </head>
+</html>
