@@ -21,7 +21,7 @@ if ($orders && $orders->num_rows > 0) {
             'data' => array (
                     "type" => "2",
                     "order_id" => "" . $orderID,
-                    "progress" => progress
+                    "progress" => $progress
             )
     	);
     	$fields = json_encode ($fields);
