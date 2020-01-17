@@ -43,7 +43,7 @@ var components = {
     "meta": {
       "path": "components/prism-{id}",
       "noCSS": true,
-      "examplesPath": "examples/prism-{id}",
+      "examplesPath": "pages/prism-{id}",
       "addCheckAll": true
     },
     "markup": {

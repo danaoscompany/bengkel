@@ -133,27 +133,27 @@
             <!-- Navigation -->
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link " href="../examples/admins.html">
+                    <a class="nav-link " href="/admins.html">
                         <i class="ni ni-single-02 text-teal"></i> Admin
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link " href="../examples/users.html">
+                    <a class="nav-link " href="/users.html">
                         <i class="ni ni-single-02 text-yellow"></i> Pengguna
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link " href="../examples/technicians.html">
+                    <a class="nav-link " href="/technicians.html">
                         <i class="ni ni-single-02 text-red"></i> Teknisi
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="../examples/complaint.html">
+                    <a class="nav-link" href="/complaint.html">
                         <i class="ni ni-notification-70 text-blue"></i> Komplain
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="../examples/orders.html">
+                    <a class="nav-link" href="/orders.html">
                         <i class="ni ni-basket text-green"></i> Order
                     </a>
                 </li>
@@ -180,7 +180,7 @@
     <nav class="navbar navbar-top navbar-expand-md navbar-dark" id="navbar-main">
         <div class="container-fluid">
             <!-- Brand -->
-            <a class="h4 mb-0 text-white text-uppercase d-none d-lg-inline-block" href="../index.html">Tables</a>
+            <a class="h4 mb-0 text-white text-uppercase d-none d-lg-inline-block" href="../index.html">Admin</a>
             <!-- Form -->
             <form class="navbar-search navbar-search-dark form-inline mr-3 d-none d-md-flex ml-lg-auto">
                 <div class="form-group mb-0">
@@ -210,19 +210,19 @@
                         <div class=" dropdown-header noti-title">
                             <h6 class="text-overflow m-0">Welcome!</h6>
                         </div>
-                        <a href="../examples/profile.html" class="dropdown-item">
+                        <a href="/profile.html" class="dropdown-item">
                             <i class="ni ni-single-02"></i>
                             <span>My profile</span>
                         </a>
-                        <a href="../examples/profile.html" class="dropdown-item">
+                        <a href="/profile.html" class="dropdown-item">
                             <i class="ni ni-settings-gear-65"></i>
                             <span>Settings</span>
                         </a>
-                        <a href="../examples/profile.html" class="dropdown-item">
+                        <a href="/profile.html" class="dropdown-item">
                             <i class="ni ni-calendar-grid-58"></i>
                             <span>Activity</span>
                         </a>
-                        <a href="../examples/profile.html" class="dropdown-item">
+                        <a href="/profile.html" class="dropdown-item">
                             <i class="ni ni-support-16"></i>
                             <span>Support</span>
                         </a>
@@ -245,12 +245,61 @@
         </div>
     </div>
     <div class="container-fluid mt--7">
+        <a data-toggle="modal" data-target="#addAdminModal" href="#" class="btn btn-sm btn-info mr-3" style="margin-top: 20px;">Tambah Admin</a>
         <!-- Modal -->
-        <div class="modal fade" id="editUserModal" tabindex="-1" role="dialog" aria-labelledby="editUserModalLabel" aria-hidden="true">
+        <div class="modal fade" id="addAdminModal" tabindex="-1" role="dialog" aria-labelledby="addAdminModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="editUserModalLabel">Ubah Pengguna</h5>
+                        <h5 class="modal-title" id="addAdminModalLabel">Tambah Admin</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form role="form">
+                            <div class="form-group mb-3">
+                                <div>Nama lengkap:</div>
+                                <div class="input-group input-group-alternative" style="margin-top: 10px;">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text"><i class="ni ni-email-83"></i></span>
+                                    </div>
+                                    <input id="add-admin-name" class="form-control" placeholder="Nama" type="text">
+                                </div>
+                            </div>
+                            <div class="form-group mb-3">
+                                <div>Email:</div>
+                                <div class="input-group input-group-alternative" style="margin-top: 10px;">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text"><i class="ni ni-email-83"></i></span>
+                                    </div>
+                                    <input id="add-admin-email" class="form-control" placeholder="Email" type="email">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div>Kata sandi:</div>
+                                <div class="input-group input-group-alternative" style="margin-top: 10px;">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text"><i class="ni ni-lock-circle-open"></i></span>
+                                    </div>
+                                    <input id="add-admin-password" class="form-control" placeholder="Password" type="password">
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button onclick="addAdmin()" type="button" class="btn btn-primary" data-dismiss="modal">Tambah</button>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Modal -->
+        <div class="modal fade" id="editAdminModal" tabindex="-1" role="dialog" aria-labelledby="editAdminModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="editAdminModalLabel">Ubah Admin</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
@@ -275,24 +324,6 @@
                                     <input id="email" class="form-control" placeholder="Email" type="email">
                                 </div>
                             </div>
-                            <div class="form-group mb-3">
-                                <div>Nomor HP:</div>
-                                <div class="input-group input-group-alternative" style="margin-top: 10px;">
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text"><i class="ni ni-email-83"></i></span>
-                                    </div>
-                                    <input id="phone" class="form-control" placeholder="Nomor HP" type="text">
-                                </div>
-                            </div>
-                            <div class="form-group mb-3">
-                                <div>Tipe akun:</div>
-                                <div class="radio" style="margin-top: 10px;">
-                                    <label><input id="standard" type="radio" name="optradio" checked>Standard</label>
-                                </div>
-                                <div class="radio">
-                                    <label><input id="premium" type="radio" name="optradio">Premium</label>
-                                </div>
-                            </div>
                             <div class="form-group">
                                 <div>Kata sandi:</div>
                                 <div class="input-group input-group-alternative" style="margin-top: 10px;">
@@ -302,44 +333,11 @@
                                     <input id="password" class="form-control" placeholder="Password" type="password">
                                 </div>
                             </div>
-                            <div class="form-group">
-                                <div>Pembayaran minimum:</div>
-                                <div class="input-group input-group-alternative" style="margin-top: 10px;">
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text"><i class="ni ni-lock-circle-open"></i></span>
-                                    </div>
-                                    <input id="minimum-payment" class="form-control" placeholder="Pembayaran minimum" type="text">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <div>Nama pengguna:</div>
-                                <div class="input-group input-group-alternative" style="margin-top: 10px;">
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text"><i class="ni ni-lock-circle-open"></i></span>
-                                    </div>
-                                    <input id="username" class="form-control" placeholder="Nama pengguna" type="text">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <div>Foto profil:</div>
-                                <div style="width: 100%; display: flex; justify-content: center;">
-                                    <img id="profile-picture" src="../assets/img/profile_picture_placeholder.png" width="150px" height="150px"
-                                         style="border-radius: 50%;">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <div>Pembayaran minimum sudah dilakukan:</div>
-                                <div class="input-group input-group-alternative" style="margin-top: 10px;">
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text"><i class="ni ni-lock-circle-open"></i></span>
-                                    </div>
-                                    <input id="minimum-amount-paid" class="form-control" placeholder="Pembayaran minimum sudah dilakukan" type="text">
-                                </div>
-                            </div>
                         </form>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button onclick="editAdmin()" type="button" class="btn btn-primary" data-dismiss="modal">Ubah</button>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
                     </div>
                 </div>
             </div>
@@ -355,7 +353,7 @@
                         </button>
                     </div>
                     <div class="modal-body">
-                        Apakah Anda yakin ingin menghapus pengguna berikut?
+                        Apakah Anda yakin ingin menghapus admin berikut?
                     </div>
                     <div class="modal-footer">
                         <button onclick="deleteUser()" type="button" class="btn btn-primary" data-dismiss="modal">Ya</button>
@@ -402,25 +400,23 @@
             </div>
         </div>
         <!-- Dark table -->
-        <div class="row mt-5">
+        <div class="row mt-3">
             <div class="col">
                 <div class="card bg-default shadow">
                     <div class="card-header bg-transparent border-0">
-                        <h3 class="text-white mb-0">Daftar Komplain</h3>
+                        <h3 class="text-white mb-0">Daftar Admin</h3>
                     </div>
                     <div class="table-responsive">
                         <table class="table align-items-center table-dark table-flush">
                             <thead class="thead-dark">
                             <tr>
-                                <th scope="col">No. Invoice</th>
-                                <th scope="col">Komplain</th>
-                                <th scope="col">Teknisi</th>
-                                <th scope="col">Tanggal</th>
-                                <th scope="col">Sudah</th>
+                                <th scope="col">Nama</th>
+                                <th scope="col">Email</th>
+                                <th scope="col">Kata Sandi</th>
                                 <th scope="col"></th>
                             </tr>
                             </thead>
-                            <tbody id="users">
+                            <tbody id="admins">
                             <!--<tr>
                                 <th scope="row">
                                     <div class="media align-items-center">
@@ -462,7 +458,7 @@
             </div>
         </div>
         <!-- Footer -->
-        <footer class="footer">
+        <!--<footer class="footer">
             <div class="row align-items-center justify-content-xl-between">
                 <div class="col-xl-6">
                     <div class="copyright text-center text-xl-left text-muted">
@@ -489,7 +485,7 @@
                     </ul>
                 </div>
             </div>
-        </footer>
+        </footer>-->
     </div>
 </div>
 <!--   Core   -->
@@ -500,7 +496,6 @@
 <script src="../assets/js/argon-dashboard.min.js?v=1.1.1"></script>
 <script src="https://cdn.trackjs.com/agent/v3/latest/t.js"></script>
 <script src="../js/global.js"></script>
-<script src="../js/moment.js"></script>
 <script>
     var currentUserID = 0;
     window.TrackJS &&
@@ -508,59 +503,37 @@
         token: "ee6fab19c5a04ac1a32a645abde4613a",
         application: "argon-dashboard-free"
     });
-    var users = [];
+    var admins = [];
     $(document).ready(function () {
-        getUsers();
+        getAdmins();
     });
 
-    function getUsers() {
-        users = [];
-        $("#users").find("*").remove();
+    function getAdmins() {
+        admins = [];
+        $("#admins").find("*").remove();
+        var fd = new FormData();
+        fd.append("name", "admins");
         $.ajax({
-            type: 'GET',
-            url: PHP_URL + 'get-all-complaints.php',
-            dataType: 'text',
+            type: 'POST',
+            url: PHP_URL + 'get.php',
+            data: fd,
+            processData: false,
+            contentType: false,
             cache: false,
             success: function (response) {
-                users = JSON.parse(response);
-                for (var i = 0; i < users.length; i++) {
-                    var user = users[i];
-                    var complaint = user["complaint"];
-                    if (complaint != null && complaint.length > 30) {
-                        complaint = complaint.substr(0, 30);
-                    }
-                    var technicianName = user["technician_name"];
-                    if (technicianName == undefined) {
-                        technicianName = "Belum ada";
-                    }
-                    var date = user["date"];
-                    if (date == null || date == "null") {
-                        date = "Belum diatur";
-                    } else {
-                        date = moment(date).lang('id').format('DD MMMM YYYY hh:mm:ss');
-                    }
-                    var done = parseInt(user["done"]);
-                    if (done == 0) {
-                        done = "Tidak";
-                    } else if (done == 1) {
-                        done = "Ya";
-                    }
-                    $("#users").append(
+                admins = JSON.parse(response);
+                for (var i = 0; i < admins.length; i++) {
+                    var user = admins[i];
+                    $("#admins").append(
                         "<tr>" +
                         "<td>" +
-                        user["invoice_number"]+
+                        user["name"]+
                         "</td>" +
                         "<td>" +
-                        complaint +
+                        user["email"] +
                         "</td>" +
                         "<td>" +
-                        technicianName +
-                        "</td>" +
-                        "<td>" +
-                        date +
-                        "</td>" +
-                        "<td>" +
-                        done +
+                        user["password"] +
                         "</td>" +
                         "<td class='text-right'>" +
                         "<div class='dropdown'>" +
@@ -569,6 +542,7 @@
                         "<i class='fas fa-ellipsis-v'></i>" +
                         "</a>" +
                         "<div class='dropdown-menu dropdown-menu-right dropdown-menu-arrow'>" +
+                        "<a data-toggle='modal' data-id='"+user["id"]+"' class='edit dropdown-item' href='#editAdminModal'>Ubah</a>" +
                         "<a data-id='"+user["id"]+"' class='delete dropdown-item' href='#'>Hapus</a>" +
                         "</div>" +
                         "</div>" +
@@ -580,7 +554,7 @@
                     var id = $(this).data('id');
                     currentUserID = parseInt(id);
                     var fd = new FormData();
-                    fd.append("name", "users");
+                    fd.append("name", "admins");
                     fd.append("id", id);
                     $.ajax({
                         type: 'POST',
@@ -593,26 +567,8 @@
                             console.log("Response: "+response);
                             var userInfo = JSON.parse(response)[0];
                             $("#name").val(userInfo["name"]);
-                            $("#phone").val(userInfo["phone"]);
                             $("#email").val(userInfo["email"]);
                             $("#password").val(userInfo["password"]);
-                            var accountType = parseInt(userInfo["account_type"]);
-                            if (accountType == 0) {
-                                $("#standard").prop("checked", true);
-                                $("#premium").prop("checked", false);
-                            } else if (accountType == 1) {
-                                $("#standard").prop("checked", false);
-                                $("#premium").prop("checked", true);
-                            }
-                            $("#minimum-payment").val(userInfo["minimum_payment"]);
-                            $("#username").val(userInfo["username"]);
-                            var minimumAmountPaid = parseInt(userInfo["minimum_amount_paid"]);
-                            if (minimumAmountPaid == 0) {
-                                $("#minimum-amount-paid").val("Tidak");
-                            } else if (minimumAmountPaid == 1) {
-                                $("#minimum-amount-paid").val("Ya");
-                            }
-                            $("#profile-picture").attr("src", "http://"+HOST+"/userdata/"+userInfo["profile_picture"]);
                         }
                     });
                 });
@@ -627,7 +583,7 @@
 
     function deleteUser() {
         var fd = new FormData();
-        fd.append("name", "complaints");
+        fd.append("name", "admins");
         fd.append("id", currentUserID);
         $.ajax({
             type: 'POST',
@@ -637,14 +593,81 @@
             contentType: false,
             cache: false,
             success: function(response) {
-                getUsers();
+                getAdmins();
+            }
+        });
+    }
+
+    function editAdmin() {
+        var name = $("#name").val().trim();
+        var email = $("#email").val().trim();
+        var password = $("#password").val();
+        if (name == "") {
+            alert("Mohon masukkan nama lengkap");
+            return;
+        }
+        if (email == "") {
+            alert("Mohon masukkan alamat email");
+            return;
+        }
+        if (password == "") {
+            alert("Mohon masukkan kata sandi");
+            return;
+        }
+        var fd = new FormData();
+        fd.append("id", currentUserID);
+        fd.append("name", name);
+        fd.append("email", email);
+        fd.append("password", password);
+        $.ajax({
+            type: 'POST',
+            url: PHP_URL+'edit-admin.php',
+            data: fd,
+            processData: false,
+            contentType: false,
+            cache: false,
+            success: function(response) {
+                getAdmins();
+            }
+        });
+    }
+
+    function addAdmin() {
+        var name = $("#add-admin-name").val().trim();
+        var email = $("#add-admin-email").val().trim();
+        var password = $("#add-admin-password").val();
+        if (name == "") {
+            alert("Mohon masukkan nama lengkap");
+            return;
+        }
+        if (email == "") {
+            alert("Mohon masukkan alamat email");
+            return;
+        }
+        if (password == "") {
+            alert("Mohon masukkan kata sandi");
+            return;
+        }
+        var fd = new FormData();
+        fd.append("name", name);
+        fd.append("email", email);
+        fd.append("password", password);
+        $.ajax({
+            type: 'POST',
+            url: PHP_URL+'add-admin.php',
+            data: fd,
+            processData: false,
+            contentType: false,
+            cache: false,
+            success: function(response) {
+                getAdmins();
             }
         });
     }
 
     function logout() {
         localStorage.setItem("user_id", 0);
-        window.location.href = "../examples/login.html";
+        window.location.href = "/login.html";
     }
 </script>
 </body>

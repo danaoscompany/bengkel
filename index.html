@@ -6,9 +6,9 @@
     <script>
       /*var userID = localStorage.getItem("user_id");
       if (userID == null || userID == "null" || userID == 0) {
-        window.location.href = "examples/login.html";
+        window.location.href = "pages/login.html";
       } else {
-        window.location.href = "examples/";
+        window.location.href = "pages/";
       }*/
       $(document).ready(function() {
         $.ajax({
@@ -18,9 +18,9 @@
           cache: false,
           success: function(response) {
             if (response == "0") {
-              window.location.href = "examples/login.html";
+              window.location.href = "pages/login.html";
             } else if (response == "1") {
-              window.location.href = "examples/users.html";
+              window.location.href = "pages/users.html";
             }
           }
         });
