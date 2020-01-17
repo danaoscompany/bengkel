@@ -16,7 +16,8 @@ if ($results && $results->num_rows > 0) {
             ),
             'data' => array (
                     "type" => "1",
-                    "complaint_id" => "" . $complaintID
+                    "complaint_id" => "" . $complaintID,
+                    "complaint" => $complaint
             )
     	);
     	$fields = json_encode ($fields);
