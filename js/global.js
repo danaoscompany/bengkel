@@ -1,3 +1,3 @@
 const PROTOCOL = "https";
-const HOST = "localhost/bengkel";
+const HOST = "osgenics.xyz/bengkel";
 const PHP_URL = PROTOCOL+"://"+HOST+"/php/";
