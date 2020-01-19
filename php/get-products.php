@@ -19,6 +19,13 @@ if ($results && $results->num_rows > 0) {
 			$row["total_raters"] = 0;
 			$row["rating"] = 0;
 		}
+		$imagesJSON = [];
+		$images = $c->query("SELECT * FROM product_images WHERE product_id=" . $row["id"]);
+		if ($images && $images->num_rows > 0) {
+			$image = $images->fetch_assoc();
+			array_push($imagesJSON, $image);
+		}
+		$row["images"] = json_encode($imagesJSON);
 		array_push($products, $row);
 	}
 }
