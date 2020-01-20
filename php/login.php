@@ -13,6 +13,5 @@ if ($results && $results->num_rows > 0) {
 } else {
 	$c->query("INSERT INTO users (phone, uid) VALUES ('" . $phone . "', '" . $uid . "')");
 	$id = mysqli_insert_id($c);
-	//echo "{\"response\": -1, \"user_id\": " . $id . "}";
-	echo "INSERT INTO users (phone, uid) VALUES ('" . $phone . "', '" . $uid . "')";
+	echo "{\"response\": -1, \"user_id\": " . $id . "}";
 }
