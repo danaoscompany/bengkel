@@ -177,6 +177,21 @@
                         <i class="ni ni-tag text-green"></i> Data Inventaris
                     </a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="debts.html">
+                        <i class="ni ni-money-coins text-blue"></i> Hutang
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="lends.html">
+                        <i class="ni ni-money-coins text-yellow"></i> Piutang
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="outcomes.html">
+                        <i class="ni ni-money-coins text-blue"></i> Pengeluaran
+                    </a>
+                </li>
             </ul>
             <!-- Divider -->
             <hr class="my-3">
@@ -200,7 +215,7 @@
     <nav class="navbar navbar-top navbar-expand-md navbar-dark" id="navbar-main">
         <div class="container-fluid">
             <!-- Brand -->
-            <a class="h4 mb-0 text-white text-uppercase d-none d-lg-inline-block" href="products.html">Produk</a>
+            <a class="h4 mb-0 text-white text-uppercase d-none d-lg-inline-block" href="products.html">Pengeluaran</a>
             <!-- Form -->
             <form class="navbar-search navbar-search-dark form-inline mr-3 d-none d-md-flex ml-lg-auto">
                 <div class="form-group mb-0">
@@ -266,8 +281,8 @@
         </div>
     </div>
     <div class="container-fluid mt--7">
-        <a data-toggle="modal" data-target="#addProductModal" href="#" class="btn btn-sm btn-info mr-3" style="margin-top: 20px;">
-            Tambah Produk
+        <a onclick="showAddProductDialog()" data-toggle="modal" data-target="#addProductModal" href="#" class="btn btn-sm btn-info mr-3" style="margin-top: 20px;">
+            Tambah Pengeluaran
         </a>
         <!-- Modal -->
         <div class="modal fade" id="editProductModal" tabindex="-1" role="dialog" aria-labelledby="editProductModalLabel"
@@ -275,7 +290,7 @@
             <div class="modal-dialog modal-dialog-centered" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="editProductModalLabel">Ubah Produk</h5>
+                        <h5 class="modal-title" id="editProductModalLabel">Ubah Pengeluaran</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
@@ -283,37 +298,72 @@
                     <div class="modal-body">
                         <form role="form">
                             <div class="form-group mb-3">
-                                <div>Nama produk:</div>
-                                <div class="input-group input-group-alternative" style="margin-top: 10px;">
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text"><i class="ni ni-email-83"></i></span>
+                                <div>Jumlah:</div>
+                                <div class="form-group" style="margin-top: 10px;">
+                                    <div class="input-group input-group-alternative">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text"><i class="ni ni-calendar-grid-58"></i></span>
+                                        </div>
+                                        <input id="edit-amount" class="form-control" placeholder="Jumlah" type="number" value="0">
                                     </div>
-                                    <input id="name" class="form-control" placeholder="Nama" type="text">
                                 </div>
                             </div>
                             <div class="form-group mb-3">
-                                <div>Harga:</div>
-                                <div class="input-group input-group-alternative" style="margin-top: 10px;">
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text"><i class="ni ni-email-83"></i></span>
+                                <div>Tipe pengeluaran:</div>
+                                <div class="form-group" style="margin-top: 10px;">
+                                    <div class="input-group input-group-alternative">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text"><i class="ni ni-calendar-grid-58"></i></span>
+                                        </div>
+                                        <select id="edit-type" class="form-control" data-toggle="select" title="Pilih tipe" data-live-search="true" data-live-search-placeholder="Search ..." style="margin-top: 10px;">
+                                            <option>Gaji</option>
+                                            <option>Telekomunikasi</option>
+                                            <option>BBM</option>
+                                            <option>Internet</option>
+                                            <option>ATK</option>
+                                            <option>Lain-lain</option>
+                                        </select>
                                     </div>
-                                    <input id="price" class="form-control" placeholder="Harga" type="number">
+                                </div>
+                            </div>
+                            <div id="edit-type-name-container" class="form-group mb-3" style="display: none;">
+                                <div>Tipe pengeluaran (masukkan jika memilih Lain-lain):</div>
+                                <div class="form-group" style="margin-top: 10px;">
+                                    <div class="input-group input-group-alternative">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text"><i class="ni ni-calendar-grid-58"></i></span>
+                                        </div>
+                                        <input id="edit-type-name" class="form-control" placeholder="Tipe pengeluaran" type="text" value="0">
+                                    </div>
                                 </div>
                             </div>
                             <div class="form-group mb-3">
-                                <div>Gambar:</div>
-                                <div style="width: 100%; display: flex; align-items: center; flex-flow: column nowrap;">
-                                    <img id="image" src="" width="150px" height="150px" style="margin-top: 10px;">
-                                    <button onclick="selectImage()" type="button" class="btn btn-primary" style="margin-top: 10px;">
-                                        Ubah Gambar
-                                    </button>
-                                    <input id="select-image" type="file" style="width: 0; height: 0; visibility: hidden;">
+                                <div>Tanggal:</div>
+                                <div class="form-group" style="margin-top: 10px;">
+                                    <div class="input-group input-group-alternative">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text"><i class="ni ni-calendar-grid-58"></i></span>
+                                        </div>
+                                        <input id="edit-date" class="form-control datepicker" placeholder="Pilih Tanggal" type="text" value="">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group mb-3">
+                                <div>Waktu:</div>
+                                <div class="form-group" style="margin-top: 10px;">
+                                    <div class="input-group input-group-alternative">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text"><i class="ni ni-calendar-grid-58"></i></span>
+                                        </div>
+                                        <input id="edit-hour" class="form-control" placeholder="00" type="number" value="" style="width: 50px;" min="0" max-="23">
+                                        <input id="edit-minute" class="form-control" placeholder="00" type="number" value="" style="width: 50px;" min="0" max="59">
+                                    </div>
                                 </div>
                             </div>
                         </form>
                     </div>
                     <div class="modal-footer">
-                        <button onclick="editProduct()" type="button" class="btn btn-primary" data-dismiss="modal">Ubah</button>
+                        <button onclick="editInventory()" type="button" class="btn btn-primary" data-dismiss="modal">Ubah</button>
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
                     </div>
                 </div>
@@ -325,7 +375,7 @@
             <div class="modal-dialog modal-dialog-centered" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="addProductModalLabel">Tambah Produk</h5>
+                        <h5 class="modal-title" id="addProductModalLabel">Tambah Pengeluaran</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
@@ -333,45 +383,72 @@
                     <div class="modal-body">
                         <form role="form">
                             <div class="form-group mb-3">
-                                <div>Kategori produk:</div>
-                                <form>
-                                    <select id="categories" class="form-control" data-toggle="select" title="Simple select" data-live-search="true" data-live-search-placeholder="Search ..." style="margin-top: 10px;">
-                                        <!--<option>Alerts</option>-->
-                                    </select>
-                                </form>
-                            </div>
-                            <div class="form-group mb-3">
-                                <div>Nama produk:</div>
-                                <div class="input-group input-group-alternative" style="margin-top: 10px;">
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text"><i class="ni ni-email-83"></i></span>
+                                <div>Jumlah:</div>
+                                <div class="form-group" style="margin-top: 10px;">
+                                    <div class="input-group input-group-alternative">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text"><i class="ni ni-calendar-grid-58"></i></span>
+                                        </div>
+                                        <input id="amount" class="form-control" placeholder="Jumlah" type="number" value="0">
                                     </div>
-                                    <input id="add-product-name" class="form-control" placeholder="Nama" type="text">
                                 </div>
                             </div>
                             <div class="form-group mb-3">
-                                <div>Harga:</div>
-                                <div class="input-group input-group-alternative" style="margin-top: 10px;">
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text"><i class="ni ni-email-83"></i></span>
+                                <div>Tipe pengeluaran:</div>
+                                <div class="form-group" style="margin-top: 10px;">
+                                    <div class="input-group input-group-alternative">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text"><i class="ni ni-calendar-grid-58"></i></span>
+                                        </div>
+                                        <select id="type" class="form-control" data-toggle="select" title="Pilih tipe" data-live-search="true" data-live-search-placeholder="Search ..." style="margin-top: 10px;">
+                                            <option>Gaji</option>
+                                            <option>Telekomunikasi</option>
+                                            <option>BBM</option>
+                                            <option>Internet</option>
+                                            <option>ATK</option>
+                                            <option>Lain-lain</option>
+                                        </select>
                                     </div>
-                                    <input id="add-product-price" class="form-control" placeholder="Harga" type="number">
+                                </div>
+                            </div>
+                            <div id="type-name-container" class="form-group mb-3" style="display: none;">
+                                <div>Tipe pengeluaran (masukkan jika memilih Lain-lain):</div>
+                                <div class="form-group" style="margin-top: 10px;">
+                                    <div class="input-group input-group-alternative">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text"><i class="ni ni-calendar-grid-58"></i></span>
+                                        </div>
+                                        <input id="type-name" class="form-control" placeholder="Tipe pengeluaran" type="text" value="0">
+                                    </div>
                                 </div>
                             </div>
                             <div class="form-group mb-3">
-                                <div>Gambar:</div>
-                                <div style="width: 100%; display: flex; align-items: center; flex-flow: column nowrap;">
-                                    <img id="add-product-image" src="../assets/img/placeholder.jpg" width="150px" height="150px" style="margin-top: 10px;">
-                                    <button onclick="addProductSelectImage()" type="button" class="btn btn-primary" style="margin-top: 10px;">
-                                        Ubah Gambar
-                                    </button>
-                                    <input id="add-product-select-image" type="file" style="width: 0; height: 0; visibility: hidden;">
+                                <div>Tanggal:</div>
+                                <div class="form-group" style="margin-top: 10px;">
+                                    <div class="input-group input-group-alternative">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text"><i class="ni ni-calendar-grid-58"></i></span>
+                                        </div>
+                                        <input id="date" class="form-control datepicker" placeholder="Pilih Tanggal" type="text" value="">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group mb-3">
+                                <div>Waktu:</div>
+                                <div class="form-group" style="margin-top: 10px;">
+                                    <div class="input-group input-group-alternative">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text"><i class="ni ni-calendar-grid-58"></i></span>
+                                        </div>
+                                        <input id="hour" class="form-control" placeholder="00" type="number" value="" style="width: 50px;" min="0" max-="23">
+                                        <input id="minute" class="form-control" placeholder="00" type="number" value="" style="width: 50px;" min="0" max="59">
+                                    </div>
                                 </div>
                             </div>
                         </form>
                     </div>
                     <div class="modal-footer">
-                        <button onclick="addProduct()" type="button" class="btn btn-primary" data-dismiss="modal">Tambah</button>
+                        <button onclick="addInventory()" type="button" class="btn btn-primary" data-dismiss="modal">Tambah</button>
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
                     </div>
                 </div>
@@ -383,13 +460,13 @@
             <div class="modal-dialog modal-dialog-centered" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="deleteModalLabel">Hapus Produk</h5>
+                        <h5 class="modal-title" id="deleteModalLabel">Hapus Pengeluaran</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
                     <div class="modal-body">
-                        Apakah Anda yakin ingin menghapus produk berikut?
+                        Apakah Anda yakin ingin menghapus pengeluaran berikut?
                     </div>
                     <div class="modal-footer">
                         <button onclick="deleteProduct()" type="button" class="btn btn-primary" data-dismiss="modal">Ya
@@ -440,24 +517,23 @@
             </div>
         </div>
         <!-- Table -->
-        <div class="row" style="margin-top: 30px;">
+        <div class="row" style="margin-top: 30px; margin-bottom: 50px;">
             <div class="col">
                 <div class="card shadow">
                     <div class="card-header border-0">
-                        <h3 class="mb-0">Daftar Produk</h3>
+                        <h3 class="mb-0">Pengeluaran</h3>
                     </div>
                     <div class="table-responsive">
                         <table class="table align-items-center table-flush">
                             <thead class="thead-light">
                             <tr>
-                                <th scope="col">Nama</th>
-                                <th scope="col">Harga</th>
-                                <th scope="col">Kategori</th>
-                                <th scope="col">Gambar</th>
+                                <th scope="col">Jumlah</th>
+                                <th scope="col">Tipe</th>
+                                <th scope="col">Tanggal</th>
                                 <th scope="col"></th>
                             </tr>
                             </thead>
-                            <tbody id="products">
+                            <tbody id="inventories">
                             <!--<tr>
                                 <th scope="row">
                                     <div class="media align-items-center">
@@ -523,7 +599,7 @@
             </div>
         </div>
         <!-- Footer -->
-        <footer class="footer">
+        <!--<footer class="footer">
             <div class="row align-items-center justify-content-xl-between">
                 <div class="col-xl-6">
                     <div class="copyright text-center text-xl-left text-muted">
@@ -550,73 +626,106 @@
                     </ul>
                 </div>
             </div>
-        </footer>
+        </footer>-->
     </div>
 </div>
 <!--   Core   -->
 <script src="../assets/js/plugins/jquery/dist/jquery.min.js"></script>
+<script src="../assets/js/plugins/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js"></script>
 <script src="../assets/js/plugins/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
 <!--   Optional JS   -->
 <!--   Argon JS   -->
 <script src="../assets/js/argon-dashboard.min.js?v=1.1.1"></script>
 <script src="https://cdn.trackjs.com/agent/v3/latest/t.js"></script>
 <script src="../js/global.js"></script>
+<script src="../js/moment.js"></script>
 <script>
     var currentProductID = 0;
     var imageFile;
-    var categories;
+    var customers;
+    var allProducts;
+    var addedProducts = [];
     window.TrackJS &&
     TrackJS.install({
         token: "ee6fab19c5a04ac1a32a645abde4613a",
         application: "argon-dashboard-free"
     });
-    var products = [];
+    var purchases = [];
     var imageChanged = 0;
 
     $(document).ready(function () {
+        var fd = new FormData();
+        fd.append("name", "users");
         $.ajax({
-            type: 'GET',
-            url: PHP_URL+'get-categories.php',
-            dataType: 'text',
+            type: 'POST',
+            url: PHP_URL+'get.php',
+            data: fd,
+            processData: false,
+            contentType: false,
             cache: false,
             success: function(response) {
-                categories = JSON.parse(response);
-                for (var i=0; i<categories.length; i++) {
-                    var categoryJSON = categories[i];
-                    $("#categories").append("<option>"+categoryJSON["name"]+"</option>");
+                customers = JSON.parse(response);
+                for (var i=0; i<customers.length; i++) {
+                    var categoryJSON = customers[i];
+                    $("#customers").append("<option>"+categoryJSON["name"]+"</option>");
+                    $("#edit-inventory-customers").append("<option>"+categoryJSON["name"]+"</option>");
                 }
             }
         });
-        getProducts();
+        fd = new FormData();
+        fd.append("name", "products");
+        $.ajax({
+            type: 'POST',
+            url: PHP_URL+'get.php',
+            data: fd,
+            processData: false,
+            contentType: false,
+            cache: false,
+            success: function(response) {
+                allProducts = JSON.parse(response);
+            }
+        });
+        getInventories();
     });
 
-    function getProducts() {
-        $("#products").find("*").remove();
-        products = [];
+    function getInventories() {
+        $("#inventories").find("*").remove();
+        purchases = [];
         $.ajax({
             type: 'GET',
-            url: PHP_URL + 'get-all-products.php',
+            url: PHP_URL + 'get-outcomes.php',
             dataType: 'text',
             cache: false,
             success: function (response) {
-                products = JSON.parse(response);
-                for (var i = 0; i < products.length; i++) {
-                    var product = products[i];
-                    $("#products").append(
+                purchases = JSON.parse(response);
+                for (var i = 0; i < purchases.length; i++) {
+                    var outcome = purchases[i];
+                    var type = parseInt(outcome["type"]);
+                    if (type == 0) {
+                        type = outcome["type_name"];
+                    } else if (type == 1) {
+                        type = "Gaji";
+                    } else if (type == 2) {
+                        type = "Telekomunikasi";
+                    } else if (type == 3) {
+                        type = "BBM";
+                    } else if (type == 4) {
+                        type = "Internet";
+                    } else if (type == 5) {
+                        type = "ATK";
+                    }
+                    $("#inventories").append(
                         "<tr>" +
                         "<td>" +
-                        product["name"]+
+                        "Rp"+outcome["amount"]+",-"+
                         "</td>" +
                         "<td>" +
-                        "Rp" + product["price"] + ",-" +
+                        type+
                         "</td>" +
                         "<td>" +
                         "<span class='badge badge-dot mr-4'>" +
-                        product["category"] +
+                        moment(outcome["date"], 'YYYY-MM-DD HH:mm:ss').lang('id').format('DD MMMM YYYY HH:mm:ss') +
                         "</span>" +
-                        "</td>" +
-                        "<td>" +
-                        "<img src='" + PROTOCOL + "://" + HOST + "/userdata/" + product["img"] + "' width='80px' height='80px'>" +
                         "</td>" +
                         "<td class='text-right'>" +
                         "<div class='dropdown'>" +
@@ -624,8 +733,8 @@
                         "<i class='fas fa-ellipsis-v'></i>" +
                         "</a>" +
                         "<div class='dropdown-menu dropdown-menu-right dropdown-menu-arrow'>" +
-                        "<a data-id='"+product["id"]+"' data-toggle='modal' class='edit dropdown-item' href='#editProductModal'>Ubah</a>" +
-                        "<a data-id='"+product["id"]+"' data-toggle='modal' class='delete dropdown-item' href='#deleteModal'>Hapus</a>" +
+                        "<a data-id='"+outcome["id"]+"' data-toggle='modal' class='edit dropdown-item' href='#editProductModal'>Ubah</a>" +
+                        "<a data-id='"+outcome["id"]+"' data-toggle='modal' class='delete dropdown-item' href='#deleteModal'>Hapus</a>" +
                         "</div>" +
                         "</div>" +
                         "</td>" +
@@ -637,7 +746,7 @@
                     var id = $(this).data('id');
                     currentProductID = parseInt(id);
                     var fd = new FormData();
-                    fd.append("name", "products");
+                    fd.append("name", "product_purchases");
                     fd.append("id", id);
                     $.ajax({
                         type: 'POST',
@@ -648,9 +757,43 @@
                         cache: false,
                         success: function(response) {
                             var userInfo = JSON.parse(response)[0];
-                            $("#name").val(userInfo["name"]);
-                            $("#price").val(userInfo["price"]);
-                            $("#image").attr("src", PROTOCOL+"://"+HOST+"/userdata/"+userInfo["img"]);
+                            $("#edit-inventory-date").val(moment(userInfo["date"], 'YYYY-MM-DD HH:mm:ss').lang('id').format('MM/DD/YYYY'));
+                            $("#edit-inventory-time").val(moment(userInfo["date"], 'YYYY-MM-DD HH:mm:ss').lang('id').format('HH:mm:ss'));
+                            $("#edit-inventory-paid").prop('selectedIndex', parseInt(userInfo["paid"]));
+                            var products = JSON.parse(userInfo["products"]);
+                            for (let i=0; i<customers.length; i++) {
+                                if (customers[i]["id"] == parseInt(userInfo["user_id"])) {
+                                    $("#edit-inventory-customers").prop('selectedIndex', i);
+                                    break;
+                                }
+                            }
+                            addedProducts = [];
+                            $("#edit-inventory-products").find("*").remove();
+                            var options = "";
+                            var productIndex = 0;
+                            for (let i=0; i<allProducts.length; i++) {
+                                var productJSON = allProducts[i];
+                                options += ("<option id='option-"+i+"'>"+productJSON["name"]+"</option>");
+                            }
+                            for (let i=0; i<products.length; i++) {
+                                var product = products[i];
+                                productIndex = 0;
+                                for (let j=0; j<allProducts.length; j++) {
+                                    if (product["id"] == allProducts[j]["id"]) {
+                                        productIndex = i;
+                                        break;
+                                    }
+                                }
+                                var inventoryID = $("#edit-inventory-products").children().length;
+                                $("#edit-inventory-products").append(
+                                    '<select id="products-'+$("#edit-inventory-products").children().length+'" class="form-control products" data-toggle="select" title="Simple select" data-live-search="true" data-live-search-placeholder="Search ..." style="margin-top: 10px;">' +
+                                    options+
+                                    '</select>');
+                                $("#products-"+inventoryID).prop('selectedIndex', productIndex);
+                                if (allProducts.length > 0) {
+                                    addedProducts.push(allProducts[productIndex]);
+                                }
+                            }
                         }
                     });
                 });
@@ -665,7 +808,7 @@
 
     function deleteProduct() {
         var fd = new FormData();
-        fd.append("name", "products");
+        fd.append("name", "outcomes");
         fd.append("id", currentProductID);
         $.ajax({
             type: 'POST',
@@ -675,8 +818,7 @@
             contentType: false,
             cache: false,
             success: function(response) {
-                console.log("Delete product response: "+response);
-                getProducts();
+                getInventories();
             }
         });
     }
@@ -708,7 +850,7 @@
     }
 
     function editProduct() {
-        var name = $("#name").val().trim();
+        var name = $("#edit-inventory-name").val().trim();
         var price = parseInt($("#price").val().trim());
         var fd = new FormData();
         fd.append("id", currentProductID);
@@ -724,29 +866,125 @@
             contentType: false,
             cache: false,
             success: function(response) {
-                getProducts();
+                getInventories();
             }
         });
     }
 
     function addProduct() {
-        var name = $("#add-product-name").val().trim();
-        var price = parseInt($("#add-product-price").val().trim());
+        var options = "";
+        for (var i=0; i<allProducts.length; i++) {
+            var productJSON = allProducts[i];
+            options += ("<option id='option-"+i+"'>"+productJSON["name"]+"</option>");
+        }
+        if (allProducts.length > 0) {
+            addedProducts.push(allProducts[0]);
+        }
+        $("#products").append('<select id="products-'+$("#products").children().length+'" class="form-control products" data-toggle="select" title="Simple select" data-live-search="true" data-live-search-placeholder="Search ..." style="margin-top: 10px;">' +
+            options+
+            '</select>');
+        $(".products").on('change', function() {
+            var productsID = $(this).attr('id');
+            var productsIndex = parseInt(productsID.substr(9, productsID.length));
+            var productID = $(this).children(":selected").attr("id");
+            var productIndex = parseInt(productID.substr(7, productID.length));
+            addedProducts[productsIndex] = allProducts[productIndex];
+        });
+    }
+
+    function editInventoryAddProduct() {
+        var options = "";
+        for (var i=0; i<allProducts.length; i++) {
+            var productJSON = allProducts[i];
+            options += ("<option id='option-"+i+"'>"+productJSON["name"]+"</option>");
+        }
+        if (allProducts.length > 0) {
+            addedProducts.push(allProducts[0]);
+        }
+        $("#edit-inventory-products").append('<select id="products-'+$("#edit-inventory-products").children().length+'" class="form-control products" data-toggle="select" title="Simple select" data-live-search="true" data-live-search-placeholder="Search ..." style="margin-top: 10px;">' +
+            options+
+            '</select>');
+        $(".products").on('change', function() {
+            var productsID = $(this).attr('id');
+            var productsIndex = parseInt(productsID.substr(9, productsID.length));
+            var productID = $(this).children(":selected").attr("id");
+            var productIndex = parseInt(productID.substr(7, productID.length));
+            addedProducts[productsIndex] = allProducts[productIndex];
+        });
+    }
+
+    function addInventory() {
+        var amount = $("#amount").val().trim();
+        var type = $("#type").prop('selectedIndex');
+        if (type == 5) {
+            type = 0;
+        } else {
+            type++;
+        }
+        var typeName = $("#type-name").val().trim();
+        var hour = parseInt($("#hour").val().trim());
+        var minute = parseInt($("#minute").val().trim());
+        var timeString = "";
+        if (hour < 10) {
+            timeString += "0";
+        }
+        timeString += hour;
+        timeString += ":";
+        if (minute < 10) {
+            timeString += "0";
+        }
+        timeString += minute;
+        timeString += ":00";
+        var date = moment($("#date").val().trim(), 'MM/DD/YYYY').format('YYYY-MM-DD')+" "+timeString;
         var fd = new FormData();
-        var categoryIndex = $("#categories").prop('selectedIndex');
-        fd.append("name", name);
-        fd.append("price", price);
-        fd.append("file", imageFile);
-        fd.append("category_id", categories[categoryIndex]["id"]);
+        fd.append("amount", amount);
+        fd.append("type", type);
+        fd.append("type_name", typeName);
+        fd.append("date", date);
         $.ajax({
             type: 'POST',
-            url: PHP_URL+'add-product.php',
+            url: PHP_URL+'add-outcome.php',
             data: fd,
             processData: false,
             contentType: false,
             cache: false,
             success: function(response) {
-                getProducts();
+                getInventories();
+            }
+        });
+    }
+
+    function showAddProductDialog() {
+        $("#products").find("*").remove();
+        addedProducts = [];
+    }
+
+    function editInventory() {
+        console.log(addedProducts);
+        var customerID = customers[$("#edit-inventory-customers").prop('selectedIndex')]["id"];
+        var fd = new FormData();
+        fd.append("id", currentProductID);
+        fd.append("user_id", customerID);
+        fd.append("products", JSON.stringify(addedProducts));
+        var time = $("#edit-inventory-time").val().trim();
+        if (!moment(time, 'HH:mm:ss', true).isValid()) {
+            alert("Mohon masukkan format waktu dengan benar");
+            return;
+        }
+        var date = moment($("#edit-inventory-date").val().trim(), 'MM/DD/YYYY').lang('id').format('YYYY-MM-DD')+" "+time;
+        fd.append("date", date);
+        var paid = $("#edit-inventory-paid").prop('selectedIndex');
+        fd.append("paid", paid);
+        $.ajax({
+            type: 'POST',
+            url: PHP_URL+'edit-inventory.php',
+            data: fd,
+            processData: false,
+            contentType: false,
+            cache: false,
+            success: function(response) {
+                console.log(response);
+                getInventories();
             }
         });
     }

@@ -1,0 +1,29 @@
+<html>
+    <head>
+        <script src="../assets/js/plugins/jquery/dist/jquery.min.js"></script>
+        <script src="../js/typeahead.js"></script>
+        <script>
+            $(document).ready(function(){
+                var cars = ['Audi', 'BMW', 'Bugatti', 'Ferrari', 'Ford', 'Lamborghini', 'Mercedes Benz', 'Porsche', 'Rolls-Royce', 'Volkswagen'];
+                var cars = new Bloodhound({
+                    datumTokenizer: Bloodhound.tokenizers.whitespace,
+                    queryTokenizer: Bloodhound.tokenizers.whitespace,
+                    local: cars
+                });
+                // Initializing the typeahead
+                $('#typeahead').typeahead({
+                        hint: true,
+                        highlight: true, /* Enable substring highlighting */
+                        minLength: 1 /* Specify minimum characters required for showing suggestions */
+                    },
+                    {
+                        name: 'cars',
+                        source: cars
+                    });
+            });
+        </script>
+    </head>
+    <body>
+        <input id="typeahead">
+    </body>
+</html>

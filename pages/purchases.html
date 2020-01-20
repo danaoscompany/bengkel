@@ -177,6 +177,16 @@
                         <i class="ni ni-tag text-green"></i> Data Inventaris
                     </a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="debts.html">
+                        <i class="ni ni-money-coins text-blue"></i> Hutang
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="lends.html">
+                        <i class="ni ni-money-coins text-yellow"></i> Piutang
+                    </a>
+                </li>
             </ul>
             <!-- Divider -->
             <hr class="my-3">
@@ -266,8 +276,8 @@
         </div>
     </div>
     <div class="container-fluid mt--7">
-        <a data-toggle="modal" data-target="#addProductModal" href="#" class="btn btn-sm btn-info mr-3" style="margin-top: 20px;">
-            Tambah Produk
+        <a onclick="showAddProductDialog()" data-toggle="modal" data-target="#addProductModal" href="#" class="btn btn-sm btn-info mr-3" style="margin-top: 20px;">
+            Tambah Data Pembelian
         </a>
         <!-- Modal -->
         <div class="modal fade" id="editProductModal" tabindex="-1" role="dialog" aria-labelledby="editProductModalLabel"
@@ -275,7 +285,7 @@
             <div class="modal-dialog modal-dialog-centered" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="editProductModalLabel">Ubah Produk</h5>
+                        <h5 class="modal-title" id="editProductModalLabel">Ubah Data Pembelian</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
@@ -283,37 +293,58 @@
                     <div class="modal-body">
                         <form role="form">
                             <div class="form-group mb-3">
-                                <div>Nama produk:</div>
-                                <div class="input-group input-group-alternative" style="margin-top: 10px;">
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text"><i class="ni ni-email-83"></i></span>
-                                    </div>
-                                    <input id="name" class="form-control" placeholder="Nama" type="text">
-                                </div>
+                                <div>Kustomer:</div>
+                                <form>
+                                    <select id="edit-inventory-customers" class="form-control" data-toggle="select" title="Simple select" data-live-search="true" data-live-search-placeholder="Search ..." style="margin-top: 10px;">
+                                        <!--<option>Alerts</option>-->
+                                    </select>
+                                </form>
                             </div>
                             <div class="form-group mb-3">
-                                <div>Harga:</div>
-                                <div class="input-group input-group-alternative" style="margin-top: 10px;">
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text"><i class="ni ni-email-83"></i></span>
+                                <div>Daftar produk:</div>
+                                <div style="width: 100%; display: flex; flex-flow: column nowrap;">
+                                    <div id="edit-inventory-products" style="width: 100%; display: flex; flex-flow: column nowrap;">
                                     </div>
-                                    <input id="price" class="form-control" placeholder="Harga" type="number">
-                                </div>
-                            </div>
-                            <div class="form-group mb-3">
-                                <div>Gambar:</div>
-                                <div style="width: 100%; display: flex; align-items: center; flex-flow: column nowrap;">
-                                    <img id="image" src="" width="150px" height="150px" style="margin-top: 10px;">
-                                    <button onclick="selectImage()" type="button" class="btn btn-primary" style="margin-top: 10px;">
-                                        Ubah Gambar
+                                    <button onclick="editInventoryAddProduct()" type="button" class="btn btn-primary" style="margin-top: 10px;">
+                                        Tambah Produk
                                     </button>
-                                    <input id="select-image" type="file" style="width: 0; height: 0; visibility: hidden;">
                                 </div>
+                            </div>
+                            <div class="form-group mb-3">
+                                <div>Tanggal:</div>
+                                <div class="form-group" style="margin-top: 10px;">
+                                    <div class="input-group input-group-alternative">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text"><i class="ni ni-calendar-grid-58"></i></span>
+                                        </div>
+                                        <input id="edit-inventory-date" class="form-control datepicker" placeholder="Pilih Tanggal" type="text" value="">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group mb-3">
+                                <div>Waktu:</div>
+                                <div class="form-group" style="margin-top: 10px;">
+                                    <div class="input-group input-group-alternative">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text"><i class="ni ni-calendar-grid-58"></i></span>
+                                        </div>
+                                        <input id="edit-inventory-time" class="form-control" placeholder="Masukkan waktu" type="text" value="00:00">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group mb-3">
+                                <div>Sudah dibayar:</div>
+                                <form>
+                                    <select id="edit-inventory-paid" class="form-control" data-toggle="select" title="Simple select" data-live-search="true" data-live-search-placeholder="Search ..." style="margin-top: 10px;">
+                                        <option>Tidak</option>
+                                        <option>Ya</option>
+                                    </select>
+                                </form>
                             </div>
                         </form>
                     </div>
                     <div class="modal-footer">
-                        <button onclick="editProduct()" type="button" class="btn btn-primary" data-dismiss="modal">Ubah</button>
+                        <button onclick="editInventory()" type="button" class="btn btn-primary" data-dismiss="modal">Ubah</button>
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
                     </div>
                 </div>
@@ -325,7 +356,7 @@
             <div class="modal-dialog modal-dialog-centered" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="addProductModalLabel">Tambah Produk</h5>
+                        <h5 class="modal-title" id="addProductModalLabel">Tambah Data Pembelian</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
@@ -333,45 +364,58 @@
                     <div class="modal-body">
                         <form role="form">
                             <div class="form-group mb-3">
-                                <div>Kategori produk:</div>
+                                <div>Kustomer:</div>
                                 <form>
-                                    <select id="categories" class="form-control" data-toggle="select" title="Simple select" data-live-search="true" data-live-search-placeholder="Search ..." style="margin-top: 10px;">
+                                    <select id="customers" class="form-control" data-toggle="select" title="Simple select" data-live-search="true" data-live-search-placeholder="Search ..." style="margin-top: 10px;">
                                         <!--<option>Alerts</option>-->
                                     </select>
                                 </form>
                             </div>
                             <div class="form-group mb-3">
-                                <div>Nama produk:</div>
-                                <div class="input-group input-group-alternative" style="margin-top: 10px;">
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text"><i class="ni ni-email-83"></i></span>
+                                <div>Daftar produk:</div>
+                                <div style="width: 100%; display: flex; flex-flow: column nowrap;">
+                                    <div id="products" style="width: 100%; display: flex; flex-flow: column nowrap;">
                                     </div>
-                                    <input id="add-product-name" class="form-control" placeholder="Nama" type="text">
-                                </div>
-                            </div>
-                            <div class="form-group mb-3">
-                                <div>Harga:</div>
-                                <div class="input-group input-group-alternative" style="margin-top: 10px;">
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text"><i class="ni ni-email-83"></i></span>
-                                    </div>
-                                    <input id="add-product-price" class="form-control" placeholder="Harga" type="number">
-                                </div>
-                            </div>
-                            <div class="form-group mb-3">
-                                <div>Gambar:</div>
-                                <div style="width: 100%; display: flex; align-items: center; flex-flow: column nowrap;">
-                                    <img id="add-product-image" src="../assets/img/placeholder.jpg" width="150px" height="150px" style="margin-top: 10px;">
-                                    <button onclick="addProductSelectImage()" type="button" class="btn btn-primary" style="margin-top: 10px;">
-                                        Ubah Gambar
+                                    <button onclick="addProduct()" type="button" class="btn btn-primary" style="margin-top: 10px;">
+                                        Tambah Produk
                                     </button>
-                                    <input id="add-product-select-image" type="file" style="width: 0; height: 0; visibility: hidden;">
                                 </div>
+                            </div>
+                            <div class="form-group mb-3">
+                                <div>Tanggal:</div>
+                                <div class="form-group" style="margin-top: 10px;">
+                                    <div class="input-group input-group-alternative">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text"><i class="ni ni-calendar-grid-58"></i></span>
+                                        </div>
+                                        <input id="date" class="form-control datepicker" placeholder="Pilih Tanggal" type="text" value="06/20/2019">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group mb-3">
+                                <div>Waktu:</div>
+                                <div class="form-group" style="margin-top: 10px;">
+                                    <div class="input-group input-group-alternative">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text"><i class="ni ni-calendar-grid-58"></i></span>
+                                        </div>
+                                        <input id="time" class="form-control" placeholder="Masukkan waktu" type="text" value="00:00">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group mb-3">
+                                <div>Sudah dibayar:</div>
+                                <form>
+                                    <select id="paid" class="form-control" data-toggle="select" title="Simple select" data-live-search="true" data-live-search-placeholder="Search ..." style="margin-top: 10px;">
+                                        <option>Tidak</option>
+                                        <option>Ya</option>
+                                    </select>
+                                </form>
                             </div>
                         </form>
                     </div>
                     <div class="modal-footer">
-                        <button onclick="addProduct()" type="button" class="btn btn-primary" data-dismiss="modal">Tambah</button>
+                        <button onclick="addInventory()" type="button" class="btn btn-primary" data-dismiss="modal">Tambah</button>
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
                     </div>
                 </div>
@@ -389,7 +433,7 @@
                         </button>
                     </div>
                     <div class="modal-body">
-                        Apakah Anda yakin ingin menghapus produk berikut?
+                        Apakah Anda yakin ingin menghapus inventori berikut?
                     </div>
                     <div class="modal-footer">
                         <button onclick="deleteProduct()" type="button" class="btn btn-primary" data-dismiss="modal">Ya
@@ -440,24 +484,24 @@
             </div>
         </div>
         <!-- Table -->
-        <div class="row" style="margin-top: 30px;">
+        <div class="row" style="margin-top: 30px; margin-bottom: 50px;">
             <div class="col">
                 <div class="card shadow">
                     <div class="card-header border-0">
-                        <h3 class="mb-0">Daftar Produk</h3>
+                        <h3 class="mb-0">Data Pembelian</h3>
                     </div>
                     <div class="table-responsive">
                         <table class="table align-items-center table-flush">
                             <thead class="thead-light">
                             <tr>
-                                <th scope="col">Nama</th>
-                                <th scope="col">Harga</th>
-                                <th scope="col">Kategori</th>
-                                <th scope="col">Gambar</th>
+                                <th scope="col">Kustomer</th>
+                                <th scope="col">Produk</th>
+                                <th scope="col">Tanggal</th>
+                                <th scope="col">Sudah Dibayar</th>
                                 <th scope="col"></th>
                             </tr>
                             </thead>
-                            <tbody id="products">
+                            <tbody id="inventories">
                             <!--<tr>
                                 <th scope="row">
                                     <div class="media align-items-center">
@@ -523,7 +567,7 @@
             </div>
         </div>
         <!-- Footer -->
-        <footer class="footer">
+        <!--<footer class="footer">
             <div class="row align-items-center justify-content-xl-between">
                 <div class="col-xl-6">
                     <div class="copyright text-center text-xl-left text-muted">
@@ -550,73 +594,113 @@
                     </ul>
                 </div>
             </div>
-        </footer>
+        </footer>-->
     </div>
 </div>
 <!--   Core   -->
 <script src="../assets/js/plugins/jquery/dist/jquery.min.js"></script>
+<script src="../assets/js/plugins/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js"></script>
 <script src="../assets/js/plugins/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
 <!--   Optional JS   -->
 <!--   Argon JS   -->
 <script src="../assets/js/argon-dashboard.min.js?v=1.1.1"></script>
 <script src="https://cdn.trackjs.com/agent/v3/latest/t.js"></script>
 <script src="../js/global.js"></script>
+<script src="../js/moment.js"></script>
 <script>
     var currentProductID = 0;
     var imageFile;
-    var categories;
+    var customers;
+    var allProducts;
+    var addedProducts = [];
     window.TrackJS &&
     TrackJS.install({
         token: "ee6fab19c5a04ac1a32a645abde4613a",
         application: "argon-dashboard-free"
     });
-    var products = [];
+    var purchases = [];
     var imageChanged = 0;
 
     $(document).ready(function () {
+        var fd = new FormData();
+        fd.append("name", "users");
         $.ajax({
-            type: 'GET',
-            url: PHP_URL+'get-categories.php',
-            dataType: 'text',
+            type: 'POST',
+            url: PHP_URL+'get.php',
+            data: fd,
+            processData: false,
+            contentType: false,
             cache: false,
             success: function(response) {
-                categories = JSON.parse(response);
-                for (var i=0; i<categories.length; i++) {
-                    var categoryJSON = categories[i];
-                    $("#categories").append("<option>"+categoryJSON["name"]+"</option>");
+                customers = JSON.parse(response);
+                for (var i=0; i<customers.length; i++) {
+                    var categoryJSON = customers[i];
+                    $("#customers").append("<option>"+categoryJSON["name"]+"</option>");
+                    $("#edit-inventory-customers").append("<option>"+categoryJSON["name"]+"</option>");
                 }
             }
         });
-        getProducts();
+        fd = new FormData();
+        fd.append("name", "products");
+        $.ajax({
+            type: 'POST',
+            url: PHP_URL+'get.php',
+            data: fd,
+            processData: false,
+            contentType: false,
+            cache: false,
+            success: function(response) {
+                allProducts = JSON.parse(response);
+            }
+        });
+        getInventories();
     });
 
-    function getProducts() {
-        $("#products").find("*").remove();
-        products = [];
+    function getInventories() {
+        $("#inventories").find("*").remove();
+        purchases = [];
         $.ajax({
             type: 'GET',
-            url: PHP_URL + 'get-all-products.php',
+            url: PHP_URL + 'get-all-product-purchases.php',
             dataType: 'text',
             cache: false,
             success: function (response) {
-                products = JSON.parse(response);
-                for (var i = 0; i < products.length; i++) {
-                    var product = products[i];
-                    $("#products").append(
+                purchases = JSON.parse(response);
+                for (var i = 0; i < purchases.length; i++) {
+                    var purchase = purchases[i];
+                    var products = JSON.parse(purchase["products"]);
+                    var productsString = "";
+                    for (var j=0; j<products.length; j++) {
+                        productsString += ("&bull; "+products[j]["name"]+"<br/>");
+                    }
+                    var paid = parseInt(purchase["paid"]);
+                    var paidString = "";
+                    if (paid == 0) {
+                        paidString = "Belum";
+                    } else {
+                        paidString = "Sudah";
+                    }
+                    var name = purchase["user_name"];
+                    if (name == undefined) {
+                        name = "Belum diatur";
+                    }
+                    $("#inventories").append(
                         "<tr>" +
                         "<td>" +
-                        product["name"]+
+                        name+
                         "</td>" +
                         "<td>" +
-                        "Rp" + product["price"] + ",-" +
+                        "<div style='display: flex; flex-flow: column nowrap;'>"+
+                        productsString+
+                        "</div>"+
                         "</td>" +
                         "<td>" +
                         "<span class='badge badge-dot mr-4'>" +
-                        product["category"] +
+                        moment(purchase["date"], 'YYYY-MM-DD HH:mm:ss').lang('id').format('DD MMMM YYYY HH:mm:ss') +
                         "</span>" +
                         "</td>" +
                         "<td>" +
-                        "<img src='" + PROTOCOL + "://" + HOST + "/userdata/" + product["img"] + "' width='80px' height='80px'>" +
+                        paidString+
                         "</td>" +
                         "<td class='text-right'>" +
                         "<div class='dropdown'>" +
@@ -624,8 +708,8 @@
                         "<i class='fas fa-ellipsis-v'></i>" +
                         "</a>" +
                         "<div class='dropdown-menu dropdown-menu-right dropdown-menu-arrow'>" +
-                        "<a data-id='"+product["id"]+"' data-toggle='modal' class='edit dropdown-item' href='#editProductModal'>Ubah</a>" +
-                        "<a data-id='"+product["id"]+"' data-toggle='modal' class='delete dropdown-item' href='#deleteModal'>Hapus</a>" +
+                        "<a data-id='"+purchase["id"]+"' data-toggle='modal' class='edit dropdown-item' href='#editProductModal'>Ubah</a>" +
+                        "<a data-id='"+purchase["id"]+"' data-toggle='modal' class='delete dropdown-item' href='#deleteModal'>Hapus</a>" +
                         "</div>" +
                         "</div>" +
                         "</td>" +
@@ -637,7 +721,7 @@
                     var id = $(this).data('id');
                     currentProductID = parseInt(id);
                     var fd = new FormData();
-                    fd.append("name", "products");
+                    fd.append("name", "product_purchases");
                     fd.append("id", id);
                     $.ajax({
                         type: 'POST',
@@ -648,9 +732,43 @@
                         cache: false,
                         success: function(response) {
                             var userInfo = JSON.parse(response)[0];
-                            $("#name").val(userInfo["name"]);
-                            $("#price").val(userInfo["price"]);
-                            $("#image").attr("src", PROTOCOL+"://"+HOST+"/userdata/"+userInfo["img"]);
+                            $("#edit-inventory-date").val(moment(userInfo["date"], 'YYYY-MM-DD HH:mm:ss').lang('id').format('MM/DD/YYYY'));
+                            $("#edit-inventory-time").val(moment(userInfo["date"], 'YYYY-MM-DD HH:mm:ss').lang('id').format('HH:mm:ss'));
+                            $("#edit-inventory-paid").prop('selectedIndex', parseInt(userInfo["paid"]));
+                            var products = JSON.parse(userInfo["products"]);
+                            for (let i=0; i<customers.length; i++) {
+                                if (customers[i]["id"] == parseInt(userInfo["user_id"])) {
+                                    $("#edit-inventory-customers").prop('selectedIndex', i);
+                                    break;
+                                }
+                            }
+                            addedProducts = [];
+                            $("#edit-inventory-products").find("*").remove();
+                            var options = "";
+                            var productIndex = 0;
+                            for (let i=0; i<allProducts.length; i++) {
+                                var productJSON = allProducts[i];
+                                options += ("<option id='option-"+i+"'>"+productJSON["name"]+"</option>");
+                            }
+                            for (let i=0; i<products.length; i++) {
+                                var product = products[i];
+                                productIndex = 0;
+                                for (let j=0; j<allProducts.length; j++) {
+                                    if (product["id"] == allProducts[j]["id"]) {
+                                        productIndex = i;
+                                        break;
+                                    }
+                                }
+                                var inventoryID = $("#edit-inventory-products").children().length;
+                                $("#edit-inventory-products").append(
+                                    '<select id="products-'+$("#edit-inventory-products").children().length+'" class="form-control products" data-toggle="select" title="Simple select" data-live-search="true" data-live-search-placeholder="Search ..." style="margin-top: 10px;">' +
+                                    options+
+                                    '</select>');
+                                $("#products-"+inventoryID).prop('selectedIndex', productIndex);
+                                if (allProducts.length > 0) {
+                                    addedProducts.push(allProducts[productIndex]);
+                                }
+                            }
                         }
                     });
                 });
@@ -665,7 +783,7 @@
 
     function deleteProduct() {
         var fd = new FormData();
-        fd.append("name", "products");
+        fd.append("name", "product_purchases");
         fd.append("id", currentProductID);
         $.ajax({
             type: 'POST',
@@ -675,8 +793,7 @@
             contentType: false,
             cache: false,
             success: function(response) {
-                console.log("Delete product response: "+response);
-                getProducts();
+                getInventories();
             }
         });
     }
@@ -708,7 +825,7 @@
     }
 
     function editProduct() {
-        var name = $("#name").val().trim();
+        var name = $("#edit-inventory-name").val().trim();
         var price = parseInt($("#price").val().trim());
         var fd = new FormData();
         fd.append("id", currentProductID);
@@ -724,29 +841,106 @@
             contentType: false,
             cache: false,
             success: function(response) {
-                getProducts();
+                getInventories();
             }
         });
     }
-
+    
     function addProduct() {
-        var name = $("#add-product-name").val().trim();
-        var price = parseInt($("#add-product-price").val().trim());
+        var options = "";
+        for (var i=0; i<allProducts.length; i++) {
+            var productJSON = allProducts[i];
+            options += ("<option id='option-"+i+"'>"+productJSON["name"]+"</option>");
+        }
+        if (allProducts.length > 0) {
+            addedProducts.push(allProducts[0]);
+        }
+        $("#products").append('<select id="products-'+$("#products").children().length+'" class="form-control products" data-toggle="select" title="Simple select" data-live-search="true" data-live-search-placeholder="Search ..." style="margin-top: 10px;">' +
+            options+
+            '</select>');
+        $(".products").on('change', function() {
+            var productsID = $(this).attr('id');
+            var productsIndex = parseInt(productsID.substr(9, productsID.length));
+            var productID = $(this).children(":selected").attr("id");
+            var productIndex = parseInt(productID.substr(7, productID.length));
+            addedProducts[productsIndex] = allProducts[productIndex];
+        });
+    }
+
+    function editInventoryAddProduct() {
+        var options = "";
+        for (var i=0; i<allProducts.length; i++) {
+            var productJSON = allProducts[i];
+            options += ("<option id='option-"+i+"'>"+productJSON["name"]+"</option>");
+        }
+        if (allProducts.length > 0) {
+            addedProducts.push(allProducts[0]);
+        }
+        $("#edit-inventory-products").append('<select id="products-'+$("#edit-inventory-products").children().length+'" class="form-control products" data-toggle="select" title="Simple select" data-live-search="true" data-live-search-placeholder="Search ..." style="margin-top: 10px;">' +
+            options+
+            '</select>');
+        $(".products").on('change', function() {
+            var productsID = $(this).attr('id');
+            var productsIndex = parseInt(productsID.substr(9, productsID.length));
+            var productID = $(this).children(":selected").attr("id");
+            var productIndex = parseInt(productID.substr(7, productID.length));
+            addedProducts[productsIndex] = allProducts[productIndex];
+        });
+    }
+
+    function addInventory() {
+        console.log(addedProducts);
+        var customerID = customers[$("#customers").prop('selectedIndex')]["id"];
         var fd = new FormData();
-        var categoryIndex = $("#categories").prop('selectedIndex');
-        fd.append("name", name);
-        fd.append("price", price);
-        fd.append("file", imageFile);
-        fd.append("category_id", categories[categoryIndex]["id"]);
+        fd.append("user_id", customerID);
+        fd.append("products", JSON.stringify(addedProducts));
+        fd.append("date", moment($("#date").val().trim(), 'YYYY-MM-DD HH:mm:ss').lang('id').format('YYYY-MM-DD')+" "+$("#time").val().trim());
+        var paid = $("#paid").prop('selectedIndex');
+        fd.append("paid", paid);
         $.ajax({
             type: 'POST',
-            url: PHP_URL+'add-product.php',
+            url: PHP_URL+'add-product-purchase.php',
             data: fd,
             processData: false,
             contentType: false,
             cache: false,
             success: function(response) {
-                getProducts();
+                getInventories();
+            }
+        });
+    }
+
+    function showAddProductDialog() {
+        $("#products").find("*").remove();
+        addedProducts = [];
+    }
+
+    function editInventory() {
+        console.log(addedProducts);
+        var customerID = customers[$("#edit-inventory-customers").prop('selectedIndex')]["id"];
+        var fd = new FormData();
+        fd.append("id", currentProductID);
+        fd.append("user_id", customerID);
+        fd.append("products", JSON.stringify(addedProducts));
+        var time = $("#edit-inventory-time").val().trim();
+        if (!moment(time, 'HH:mm:ss', true).isValid()) {
+            alert("Mohon masukkan format waktu dengan benar");
+            return;
+        }
+        var date = moment($("#edit-inventory-date").val().trim(), 'MM/DD/YYYY').lang('id').format('YYYY-MM-DD')+" "+time;
+        fd.append("date", date);
+        var paid = $("#edit-inventory-paid").prop('selectedIndex');
+        fd.append("paid", paid);
+        $.ajax({
+            type: 'POST',
+            url: PHP_URL+'edit-inventory.php',
+            data: fd,
+            processData: false,
+            contentType: false,
+            cache: false,
+            success: function(response) {
+                console.log(response);
+                getInventories();
             }
         });
     }
