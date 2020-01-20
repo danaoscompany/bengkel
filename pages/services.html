@@ -215,7 +215,7 @@
     <nav class="navbar navbar-top navbar-expand-md navbar-dark" id="navbar-main">
         <div class="container-fluid">
             <!-- Brand -->
-            <a class="h4 mb-0 text-white text-uppercase d-none d-lg-inline-block" href="products.html">Hutang</a>
+            <a class="h4 mb-0 text-white text-uppercase d-none d-lg-inline-block" href="products.html">Daftar Layanan</a>
             <!-- Form -->
             <form class="navbar-search navbar-search-dark form-inline mr-3 d-none d-md-flex ml-lg-auto">
                 <div class="form-group mb-0">
@@ -282,7 +282,7 @@
     </div>
     <div class="container-fluid mt--7">
         <a onclick="showAddProductDialog()" data-toggle="modal" data-target="#addProductModal" href="#" class="btn btn-sm btn-info mr-3" style="margin-top: 20px;">
-            Tambah Data Hutang
+            Tambah Layanan
         </a>
         <!-- Modal -->
         <div class="modal fade" id="editProductModal" tabindex="-1" role="dialog" aria-labelledby="editProductModalLabel"
@@ -290,7 +290,7 @@
             <div class="modal-dialog modal-dialog-centered" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="editProductModalLabel">Ubah Data Hutang</h5>
+                        <h5 class="modal-title" id="editProductModalLabel">Ubah Layanan</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
@@ -298,52 +298,77 @@
                     <div class="modal-body">
                         <form role="form">
                             <div class="form-group mb-3">
-                                <div>Jumlah hutang:</div>
+                                <div>Nama layanan:</div>
                                 <div class="input-group input-group-alternative" style="margin-top: 10px;">
                                     <div class="input-group-prepend">
                                         <span class="input-group-text"><i class="ni ni-email-83"></i></span>
                                     </div>
-                                    <input id="edit-amount" class="form-control" placeholder="Jumlah hutang" type="number">
+                                    <input id="edit-service" class="form-control" placeholder="Nama layanan" type="text">
                                 </div>
                             </div>
                             <div class="form-group mb-3">
-                                <div>Tanggal:</div>
-                                <div class="form-group" style="margin-top: 10px;">
-                                    <div class="input-group input-group-alternative">
-                                        <div class="input-group-prepend">
-                                            <span class="input-group-text"><i class="ni ni-calendar-grid-58"></i></span>
-                                        </div>
-                                        <input id="edit-date" class="form-control datepicker" placeholder="Pilih Tanggal" type="text" value="06/20/2019">
-                                    </div>
+                                <div>Layanan:</div>
+                                <div class="custom-control custom-checkbox mb-3">
+                                    <input class="custom-control-input" id="edit-type" type="checkbox">
+                                    <label class="custom-control-label" for="edit-type">Jenis AC</label>
+                                </div>
+                                <div class="custom-control custom-checkbox mb-3">
+                                    <input class="custom-control-input" id="edit-kind" type="checkbox">
+                                    <label class="custom-control-label" for="edit-kind">Model AC</label>
+                                </div>
+                                <div class="custom-control custom-checkbox mb-3">
+                                    <input class="custom-control-input" id="edit-capacity" type="checkbox">
+                                    <label class="custom-control-label" for="edit-capacity">Kapasitas AC</label>
+                                </div>
+                                <div class="custom-control custom-checkbox mb-3">
+                                    <input class="custom-control-input" id="edit-material" type="checkbox">
+                                    <label class="custom-control-label" for="edit-material">Material</label>
+                                </div>
+                                <div class="custom-control custom-checkbox mb-3">
+                                    <input class="custom-control-input" id="edit-estimation" type="checkbox">
+                                    <label class="custom-control-label" for="edit-estimation">Estimasi biaya & teknisi</label>
+                                </div>
+                                <div class="custom-control custom-checkbox mb-3">
+                                    <input class="custom-control-input" id="edit-time" type="checkbox">
+                                    <label class="custom-control-label" for="edit-time">Waktu pelaksanaan</label>
+                                </div>
+                                <div class="custom-control custom-checkbox mb-3">
+                                    <input class="custom-control-input" id="edit-progress" type="checkbox">
+                                    <label class="custom-control-label" for="edit-progress">Progress teknisi</label>
+                                </div>
+                                <div class="custom-control custom-checkbox mb-3">
+                                    <input class="custom-control-input" id="edit-price-change-notification" type="checkbox">
+                                    <label class="custom-control-label" for="edit-price-change-notification">Notifikasi perubahan biaya</label>
+                                </div>
+                                <div class="custom-control custom-checkbox mb-3">
+                                    <input class="custom-control-input" id="edit-approval" type="checkbox">
+                                    <label class="custom-control-label" for="edit-approval">Persetujuan perubahan biaya & hasil akhir</label>
+                                </div>
+                                <div class="custom-control custom-checkbox mb-3">
+                                    <input class="custom-control-input" id="edit-payment-method" type="checkbox">
+                                    <label class="custom-control-label" for="edit-payment-method">Pilihan metode pembayaran</label>
+                                </div>
+                                <div class="custom-control custom-checkbox mb-3">
+                                    <input class="custom-control-input" id="edit-warranty" type="checkbox">
+                                    <label class="custom-control-label" for="edit-warranty">Garansi pekerjaan</label>
+                                </div>
+                                <div class="custom-control custom-checkbox mb-3">
+                                    <input class="custom-control-input" id="edit-installment-status" type="checkbox">
+                                    <label class="custom-control-label" for="edit-installment-status">Status pemasangan</label>
                                 </div>
                             </div>
                             <div class="form-group mb-3">
-                                <div>Pemberi hutang:</div>
-                                <div class="form-group" style="margin-top: 10px;">
-                                    <div class="input-group input-group-alternative">
-                                        <div class="input-group-prepend">
-                                            <span class="input-group-text"><i class="ni ni-calendar-grid-58"></i></span>
-                                        </div>
-                                        <input id="edit-lender" class="form-control" placeholder="Pemberi hutang" type="text" value="">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="form-group mb-3">
-                                <div>Waktu:</div>
-                                <div class="form-group" style="margin-top: 10px;">
-                                    <div class="input-group input-group-alternative">
-                                        <div class="input-group-prepend">
-                                            <span class="input-group-text"><i class="ni ni-calendar-grid-58"></i></span>
-                                        </div>
-                                        <input id="edit-hour" class="form-control" placeholder="00" type="number" value="" style="width: 50px;" min="0" max-="23">
-                                        <input id="edit-minute" class="form-control" placeholder="00" type="number" value="" style="width: 50px;" min="0" max="59">
-                                    </div>
+                                <div>Icon:</div>
+                                <div style="width: 100%; display: flex; flex-flow: column nowrap; align-items: center;">
+                                    <img id="edit-icon" width="30px" height="30px">
+                                    <button onclick="editIcon()" type="button" class="btn btn-primary" style="margin-top: 10px;">Ubah Icon</button>
+                                    <input id="edit-select-icon" type="file" style="width: 0; height: 0; visibility: hidden;">
                                 </div>
                             </div>
                         </form>
                     </div>
                     <div class="modal-footer">
-                        <button onclick="editInventory()" type="button" class="btn btn-primary" data-dismiss="modal">Ubah</button>
+                        <button onclick="editInventory()" type="button" class="btn btn-primary">Ubah</button>
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
                     </div>
                 </div>
@@ -355,7 +380,7 @@
             <div class="modal-dialog modal-dialog-centered" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="addProductModalLabel">Tambah Data Hutang</h5>
+                        <h5 class="modal-title" id="addProductModalLabel">Tambah Layanan</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
@@ -363,46 +388,71 @@
                     <div class="modal-body">
                         <form role="form">
                             <div class="form-group mb-3">
-                                <div>Jumlah hutang:</div>
+                                <div>Nama layanan:</div>
                                 <div class="input-group input-group-alternative" style="margin-top: 10px;">
                                     <div class="input-group-prepend">
                                         <span class="input-group-text"><i class="ni ni-email-83"></i></span>
                                     </div>
-                                    <input id="amount" class="form-control" placeholder="Jumlah hutang" type="number">
+                                    <input id="service" class="form-control" placeholder="Nama layanan" type="text">
                                 </div>
                             </div>
                             <div class="form-group mb-3">
-                                <div>Tanggal:</div>
-                                <div class="form-group" style="margin-top: 10px;">
-                                    <div class="input-group input-group-alternative">
-                                        <div class="input-group-prepend">
-                                            <span class="input-group-text"><i class="ni ni-calendar-grid-58"></i></span>
-                                        </div>
-                                        <input id="date" class="form-control datepicker" placeholder="Pilih Tanggal" type="text" value="06/20/2019">
-                                    </div>
+                                <div>Layanan:</div>
+                                <div class="custom-control custom-checkbox mb-3">
+                                    <input class="custom-control-input" id="type" type="checkbox">
+                                    <label class="custom-control-label" for="type">Jenis AC</label>
+                                </div>
+                                <div class="custom-control custom-checkbox mb-3">
+                                    <input class="custom-control-input" id="kind" type="checkbox">
+                                    <label class="custom-control-label" for="kind">Model AC</label>
+                                </div>
+                                <div class="custom-control custom-checkbox mb-3">
+                                    <input class="custom-control-input" id="capacity" type="checkbox">
+                                    <label class="custom-control-label" for="capacity">Kapasitas AC</label>
+                                </div>
+                                <div class="custom-control custom-checkbox mb-3">
+                                    <input class="custom-control-input" id="material" type="checkbox">
+                                    <label class="custom-control-label" for="material">Material</label>
+                                </div>
+                                <div class="custom-control custom-checkbox mb-3">
+                                    <input class="custom-control-input" id="estimation" type="checkbox">
+                                    <label class="custom-control-label" for="estimation">Estimasi biaya & teknisi</label>
+                                </div>
+                                <div class="custom-control custom-checkbox mb-3">
+                                    <input class="custom-control-input" id="time" type="checkbox">
+                                    <label class="custom-control-label" for="time">Waktu pelaksanaan</label>
+                                </div>
+                                <div class="custom-control custom-checkbox mb-3">
+                                    <input class="custom-control-input" id="progress" type="checkbox">
+                                    <label class="custom-control-label" for="progress">Progress teknisi</label>
+                                </div>
+                                <div class="custom-control custom-checkbox mb-3">
+                                    <input class="custom-control-input" id="price-change-notification" type="checkbox">
+                                    <label class="custom-control-label" for="price-change-notification">Notifikasi perubahan biaya</label>
+                                </div>
+                                <div class="custom-control custom-checkbox mb-3">
+                                    <input class="custom-control-input" id="approval" type="checkbox">
+                                    <label class="custom-control-label" for="approval">Persetujuan perubahan biaya & hasil akhir</label>
+                                </div>
+                                <div class="custom-control custom-checkbox mb-3">
+                                    <input class="custom-control-input" id="payment-method" type="checkbox">
+                                    <label class="custom-control-label" for="payment-method">Pilihan metode pembayaran</label>
+                                </div>
+                                <div class="custom-control custom-checkbox mb-3">
+                                    <input class="custom-control-input" id="warranty" type="checkbox">
+                                    <label class="custom-control-label" for="warranty">Garansi pekerjaan</label>
+                                </div>
+                                <div class="custom-control custom-checkbox mb-3">
+                                    <input class="custom-control-input" id="installment-status" type="checkbox">
+                                    <label class="custom-control-label" for="installment-status">Status pemasangan</label>
                                 </div>
                             </div>
                             <div class="form-group mb-3">
-                                <div>Pemberi hutang:</div>
-                                <div class="form-group" style="margin-top: 10px;">
-                                    <div class="input-group input-group-alternative">
-                                        <div class="input-group-prepend">
-                                            <span class="input-group-text"><i class="ni ni-calendar-grid-58"></i></span>
-                                        </div>
-                                        <input id="lender" class="form-control" placeholder="Pemberi hutang" type="text" value="">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="form-group mb-3">
-                                <div>Waktu:</div>
-                                <div class="form-group" style="margin-top: 10px;">
-                                    <div class="input-group input-group-alternative">
-                                        <div class="input-group-prepend">
-                                            <span class="input-group-text"><i class="ni ni-calendar-grid-58"></i></span>
-                                        </div>
-                                        <input id="hour" class="form-control" placeholder="00" type="number" value="" style="width: 50px;" min="0" max-="23">
-                                        <input id="minute" class="form-control" placeholder="00" type="number" value="" style="width: 50px;" min="0" max="59">
-                                    </div>
+                                <div>Icon:</div>
+                                <div style="width: 100%; display: flex; flex-flow: column nowrap; align-items: center;">
+                                    <img id="icon" width="30px" height="30px">
+                                    <button onclick="selectIcon()" type="button" class="btn btn-primary" style="margin-top: 10px;">Ubah Icon</button>
+                                    <input id="select-icon" type="file" style="width: 0; height: 0; visibility: hidden;">
                                 </div>
                             </div>
                         </form>
@@ -426,7 +476,7 @@
                         </button>
                     </div>
                     <div class="modal-body">
-                        Apakah Anda yakin ingin menghapus data hutang berikut?
+                        Apakah Anda yakin ingin menghapus inventori berikut?
                     </div>
                     <div class="modal-footer">
                         <button onclick="deleteProduct()" type="button" class="btn btn-primary" data-dismiss="modal">Ya
@@ -481,15 +531,15 @@
             <div class="col">
                 <div class="card shadow">
                     <div class="card-header border-0">
-                        <h3 class="mb-0">Data Hutang</h3>
+                        <h3 class="mb-0">Layanan</h3>
                     </div>
                     <div class="table-responsive">
                         <table class="table align-items-center table-flush">
                             <thead class="thead-light">
                             <tr>
-                                <th scope="col">Jumlah Hutang</th>
-                                <th scope="col">Tanggal</th>
-                                <th scope="col">Pemberi Hutang</th>
+                                <th scope="col">Nama Layanan</th>
+                                <th scope="col">Layanan</th>
+                                <th scope="col">Ikon</th>
                                 <th scope="col"></th>
                             </tr>
                             </thead>
@@ -602,8 +652,11 @@
 <script>
     var currentProductID = 0;
     var imageFile;
+    var customers;
     var allProducts;
     var addedProducts = [];
+    var iconFile;
+    var iconChanged = 0;
     window.TrackJS &&
     TrackJS.install({
         token: "ee6fab19c5a04ac1a32a645abde4613a",
@@ -613,6 +666,24 @@
     var imageChanged = 0;
 
     $(document).ready(function () {
+        var fd = new FormData();
+        fd.append("name", "users");
+        $.ajax({
+            type: 'POST',
+            url: PHP_URL+'get.php',
+            data: fd,
+            processData: false,
+            contentType: false,
+            cache: false,
+            success: function(response) {
+                customers = JSON.parse(response);
+                for (var i=0; i<customers.length; i++) {
+                    var categoryJSON = customers[i];
+                    $("#customers").append("<option>"+categoryJSON["name"]+"</option>");
+                    $("#edit-customers").append("<option>"+categoryJSON["name"]+"</option>");
+                }
+            }
+        });
         fd = new FormData();
         fd.append("name", "products");
         $.ajax({
@@ -634,27 +705,58 @@
         purchases = [];
         $.ajax({
             type: 'GET',
-            url: PHP_URL + 'get-debts.php',
+            url: PHP_URL + 'get-services.php',
             dataType: 'text',
             cache: false,
             success: function (response) {
                 purchases = JSON.parse(response);
                 for (var i = 0; i < purchases.length; i++) {
                     var purchase = purchases[i];
+                    var servicesString = "";
+                    var servicesJSON = JSON.parse(purchase["services"]);
+                    for (var j=0; j<servicesJSON.length; j++) {
+                        var service = parseInt(servicesJSON[j]);
+                        if (service == 0) {
+                            servicesString += "&bull; Jenis AC<br/>";
+                        } else if (service == 1) {
+                            servicesString += "&bull; Model AC<br/>";
+                        } else if (service == 2) {
+                            servicesString += "&bull; Kapasitas AC<br/>";
+                        } else if (service == 3) {
+                            servicesString += "&bull; Material<br/>";
+                        } else if (service == 4) {
+                            servicesString += "&bull; Estimasi harga<br/>";
+                        } else if (service == 5) {
+                            servicesString += "&bull; Waktu pelaksaan<br/>";
+                        } else if (service == 6) {
+                            servicesString += "&bull; Progress<br/>";
+                        } else if (service == 7) {
+                            servicesString += "&bull; Notifikasi perubahan harga<br/>";
+                        } else if (service == 8) {
+                            servicesString += "&bull; Persetujuan perubahan biaya & hasil akhir<br/>";
+                        } else if (service == 9) {
+                            servicesString += "&bull; Pilihan metode pembayaran<br/>";
+                        } else if (service == 10) {
+                            servicesString += "&bull; Jaminan<br/>";
+                        } else if (service == 11) {
+                            servicesString += "&bull; Status pemasangan<br/>";
+                        }
+                    }
+                    if (servicesString.endsWith("<br/>")) {
+                        servicesString = servicesString.substr(0, servicesString.length-5);
+                    }
                     $("#inventories").append(
                         "<tr>" +
                         "<td>" +
+                        purchase["name"]+
+                        "</td>" +
+                        "<td>" +
                         "<div style='display: flex; flex-flow: column nowrap;'>"+
-                        "Rp"+purchase["debt"]+",-"+
+                        servicesString+
                         "</div>"+
                         "</td>" +
                         "<td>" +
-                        "<span class='badge badge-dot mr-4'>" +
-                        moment(purchase["date"], 'YYYY-MM-DD HH:mm:ss').lang('id').format('DD MMMM YYYY HH:mm:ss') +
-                        "</span>" +
-                        "</td>" +
-                        "<td>" +
-                        purchase["borrower"]+
+                        "<img src='"+PROTOCOL+"://"+HOST+"/userdata/"+purchase["icon"]+"' width='30px' height='30px'>"+
                         "</td>" +
                         "<td class='text-right'>" +
                         "<div class='dropdown'>" +
@@ -672,10 +774,11 @@
                 }
                 $(".edit").on("click", function () {
                     imageChanged = 0;
+                    iconChanged = 0;
                     var id = $(this).data('id');
                     currentProductID = parseInt(id);
                     var fd = new FormData();
-                    fd.append("name", "debts");
+                    fd.append("name", "services");
                     fd.append("id", id);
                     $.ajax({
                         type: 'POST',
@@ -686,11 +789,49 @@
                         cache: false,
                         success: function(response) {
                             var userInfo = JSON.parse(response)[0];
-                            $("#edit-amount").val(userInfo["debt"]);
-                            $("#edit-lender").val(userInfo["borrower"]);
-                            $("#edit-date").val(moment(userInfo["date"], 'YYYY-MM-DD HH:mm:ss').format('MM/DD/YYYY'));
-                            $("#edit-hour").val(moment(userInfo["date"], 'YYYY-MM-DD HH:mm:ss').format('HH'));
-                            $("#edit-minute").val(moment(userInfo["date"], 'YYYY-MM-DD HH:mm:ss').format('MM'));
+                            $("#edit-service").val(userInfo["name"]);
+                            var servicesJSON = JSON.parse(userInfo["services"]);
+                            $("#edit-type").prop('checked', false);
+                            $("#edit-kind").prop('checked', false);
+                            $("#edit-capacity").prop('checked', false);
+                            $("#edit-material").prop('checked', false);
+                            $("#edit-estimation").prop('checked', false);
+                            $("#edit-time").prop('checked', false);
+                            $("#edit-progress").prop('checked', false);
+                            $("#edit-price-change-notification").prop('checked', false);
+                            $("#edit-approval").prop('checked', false);
+                            $("#edit-payment-method").prop('checked', false);
+                            $("#edit-warranty").prop('checked', false);
+                            $("#edit-installment-status").prop('checked', false);
+                            for (var i=0; i<servicesJSON.length; i++) {
+                                var service = parseInt(servicesJSON[i]);
+                                if (service == 0) {
+                                    $("#edit-type").prop('checked', true);
+                                } else if (service == 1) {
+                                    $("#edit-kind").prop('checked', true);
+                                } else if (service == 2) {
+                                    $("#edit-capacity").prop('checked', true);
+                                } else if (service == 3) {
+                                    $("#edit-material").prop('checked', true);
+                                } else if (service == 4) {
+                                    $("#edit-estimation").prop('checked', true);
+                                } else if (service == 5) {
+                                    $("#edit-time").prop('checked', true);
+                                } else if (service == 6) {
+                                    $("#edit-progress").prop('checked', true);
+                                } else if (service == 7) {
+                                    $("#edit-price-change-notification").prop('checked', true);
+                                } else if (service == 8) {
+                                    $("#edit-approval").prop('checked', true);
+                                } else if (service == 9) {
+                                    $("#edit-payment-method").prop('checked', true);
+                                } else if (service == 10) {
+                                    $("#edit-warranty").prop('checked', true);
+                                } else if (service == 11) {
+                                    $("#edit-installment-status").prop('checked', true);
+                                }
+                            }
+                            $("#edit-icon").attr("src", PROTOCOL+"://"+HOST+"/userdata/"+purchase["icon"]);
                         }
                     });
                 });
@@ -705,7 +846,7 @@
 
     function deleteProduct() {
         var fd = new FormData();
-        fd.append("name", "debts");
+        fd.append("name", "services");
         fd.append("id", currentProductID);
         $.ajax({
             type: 'POST',
@@ -747,7 +888,7 @@
     }
 
     function editProduct() {
-        var name = $("#edit-inventory-name").val().trim();
+        var name = $("#edit-name").val().trim();
         var price = parseInt($("#price").val().trim());
         var fd = new FormData();
         fd.append("id", currentProductID);
@@ -798,7 +939,7 @@
         if (allProducts.length > 0) {
             addedProducts.push(allProducts[0]);
         }
-        $("#edit-inventory-products").append('<select id="products-'+$("#edit-inventory-products").children().length+'" class="form-control products" data-toggle="select" title="Simple select" data-live-search="true" data-live-search-placeholder="Search ..." style="margin-top: 10px;">' +
+        $("#edit-products").append('<select id="products-'+$("#edit-products").children().length+'" class="form-control products" data-toggle="select" title="Simple select" data-live-search="true" data-live-search-placeholder="Search ..." style="margin-top: 10px;">' +
             options+
             '</select>');
         $(".products").on('change', function() {
@@ -811,87 +952,147 @@
     }
 
     function addInventory() {
-        var amount = $("#amount").val().trim();
-        var date = $("#date").val().trim();
-        var lender = $("#lender").val().trim();
-        if (amount == "" || lender == "") {
-            alert("Mohon masukkan semua data dengan benar");
+        var name = $("#edit-service").val().trim();
+        if (name == "") {
+            alert("Mohon masukkan nama");
             return;
         }
-        var hour = parseInt($("#hour").val().trim());
-        var minute = parseInt($("#minute").val().trim());
-        var timeString = "";
-        if (hour < 10) {
-            timeString += "0";
-        }
-        timeString += hour;
-        timeString += ":";
-        if (minute < 10) {
-            timeString += "0";
-        }
-        timeString += minute;
-        timeString += ":00";
+        var type = $("#type").prop('checked');
+        var kind = $("#kind").prop('checked');
+        var capacity = $("#capacity").prop('checked');
+        var material = $("#material").prop('checked');
+        var estimation = $("#estimation").prop('checked');
+        var time = $("#time").prop('checked');
+        var progress = $("#progress").prop('checked');
+        var priceChangeNotification = $("#price-change-notification").prop('checked');
+        var approval = $("#approval").prop('checked');
+        var paymentMethod = $("#payment-method").prop('checked');
+        var warranty = $("#warranty").prop('checked');
+        var status = $("#installment-status").prop('checked');
+        var servicesJSON = [];
+        if (type) servicesJSON.push(1);
+        if (kind) servicesJSON.push(2);
+        if (capacity) servicesJSON.push(3);
+        if (material) servicesJSON.push(4);
+        if (estimation) servicesJSON.push(5);
+        if (time) servicesJSON.push(6);
+        if (progress) servicesJSON.push(7);
+        if (priceChangeNotification) servicesJSON.push(8);
+        if (approval) servicesJSON.push(9);
+        if (paymentMethod) servicesJSON.push(10);
+        if (warranty) servicesJSON.push(11);
+        if (status) servicesJSON.push(13);
         var fd = new FormData();
-        fd.append("amount", amount);
-        fd.append("date", moment(date, 'MM/DD/YYYY').format('YYYY-MM-DD')+" "+timeString);
-        fd.append("lender", lender);
+        fd.append("name", name);
+        fd.append("services", JSON.stringify(servicesJSON));
+        fd.append("icon", iconFile);
+        $("#addProductModal").modal('hide');
         $.ajax({
             type: 'POST',
-            url: PHP_URL+'add-debt.php',
+            url: PHP_URL+'add-service.php',
             data: fd,
             processData: false,
             contentType: false,
             cache: false,
             success: function(response) {
-                console.log(response);
                 getInventories();
             }
         });
     }
 
     function showAddProductDialog() {
+        iconChanged = 0;
         $("#products").find("*").remove();
+        $("#name").val("");
+        $("#type").prop('checked', false);
+        $("#kind").prop('checked', false);
+        $("#capacity").prop('checked', false);
+        $("#material").prop('checked', false);
+        $("#estimation").prop('checked', false);
+        $("#time").prop('checked', false);
+        $("#progress").prop('checked', false);
+        $("#price-change-notification").prop('checked', false);
+        $("#approval").prop('checked', false);
+        $("#payment-method").prop('checked', false);
+        $("#warranty").prop('checked', false);
+        $("#installment-status").prop('checked', false);
+        $("#icon").attr("src", "");
         addedProducts = [];
     }
 
     function editInventory() {
-        var amount = $("#edit-amount").val().trim();
-        var date = $("#edit-date").val().trim();
-        var lender = $("#edit-lender").val().trim();
-        if (amount == "" || lender == "") {
-            alert("Mohon masukkan semua data dengan benar");
+        var name = $("#edit-service").val().trim();
+        if (name == "") {
+            alert("Mohon masukkan nama");
             return;
         }
-        var hour = parseInt($("#edit-hour").val().trim());
-        var minute = parseInt($("#edit-minute").val().trim());
-        var timeString = "";
-        if (hour < 10) {
-            timeString += "0";
-        }
-        timeString += hour;
-        timeString += ":";
-        if (minute < 10) {
-            timeString += "0";
-        }
-        timeString += minute;
-        timeString += ":00";
+        var type = $("#type").prop('checked');
+        var kind = $("#kind").prop('checked');
+        var capacity = $("#capacity").prop('checked');
+        var material = $("#material").prop('checked');
+        var estimation = $("#estimation").prop('checked');
+        var time = $("#time").prop('checked');
+        var progress = $("#progress").prop('checked');
+        var priceChangeNotification = $("#price-change-notification").prop('checked');
+        var approval = $("#approval").prop('checked');
+        var paymentMethod = $("#payment-method").prop('checked');
+        var warranty = $("#warranty").prop('checked');
+        var status = $("#installment-status").prop('checked');
+        var servicesJSON = [];
+        if (type) servicesJSON.push(1);
+        if (kind) servicesJSON.push(2);
+        if (capacity) servicesJSON.push(3);
+        if (material) servicesJSON.push(4);
+        if (estimation) servicesJSON.push(5);
+        if (time) servicesJSON.push(6);
+        if (progress) servicesJSON.push(7);
+        if (priceChangeNotification) servicesJSON.push(8);
+        if (approval) servicesJSON.push(9);
+        if (paymentMethod) servicesJSON.push(10);
+        if (warranty) servicesJSON.push(11);
+        if (status) servicesJSON.push(13);
         var fd = new FormData();
         fd.append("id", currentProductID);
-        fd.append("amount", amount);
-        fd.append("date", moment(date, 'MM/DD/YYYY').format('YYYY-MM-DD')+" "+timeString);
-        fd.append("lender", lender);
+        fd.append("name", name);
+        fd.append("services", JSON.stringify(servicesJSON));
+        fd.append("icon", iconFile);
+        fd.append("icon_changed", iconChanged);
+        $("#editProductModal").modal('hide');
         $.ajax({
             type: 'POST',
-            url: PHP_URL+'edit-debt.php',
+            url: PHP_URL+'edit-service.php',
             data: fd,
             processData: false,
             contentType: false,
             cache: false,
             success: function(response) {
-                console.log(response);
                 getInventories();
             }
         });
+    }
+
+    function editIcon() {
+        $("#edit-select-icon").on('change', function(e) {
+            iconFile = e.target.files[0];
+            iconChanged = 1;
+            var fr = new FileReader();
+            fr.onload = function() {
+                $("#edit-icon").attr("src", fr.result);
+            };
+            fr.readAsDataURL(iconFile);
+        }).click();
+    }
+
+    function selectIcon() {
+        $("#select-icon").on('change', function(e) {
+            iconFile = e.target.files[0];
+            iconChanged = 1;
+            var fr = new FileReader();
+            fr.onload = function() {
+                $("#icon").attr("src", fr.result);
+            };
+            fr.readAsDataURL(iconFile);
+        }).click();
     }
 </script>
 </body>
