@@ -20,7 +20,7 @@
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>
-        Argon Dashboard - Free Dashboard for Bootstrap 4 by Creative Tim
+        Bengkel Manager
     </title>
     <!-- Favicon -->
     <link href="../assets/img/brand/favicon.png" rel="icon" type="image/png">
@@ -497,6 +497,7 @@
                                 <th scope="col">Kustomer</th>
                                 <th scope="col">Produk</th>
                                 <th scope="col">Tanggal</th>
+                                <th scope="col">Pajak</th>
                                 <th scope="col">Sudah Dibayar</th>
                                 <th scope="col"></th>
                             </tr>
@@ -670,9 +671,12 @@
                     var purchase = purchases[i];
                     var products = JSON.parse(purchase["products"]);
                     var productsString = "";
+                    var totalPrice = 0;
                     for (var j=0; j<products.length; j++) {
                         productsString += ("&bull; "+products[j]["name"]+"<br/>");
+                        totalPrice += parseInt(products[j]["price"]);
                     }
+                    var tax = 10*totalPrice/100;
                     var paid = parseInt(purchase["paid"]);
                     var paidString = "";
                     if (paid == 0) {
@@ -698,6 +702,9 @@
                         "<span class='badge badge-dot mr-4'>" +
                         moment(purchase["date"], 'YYYY-MM-DD HH:mm:ss').lang('id').format('DD MMMM YYYY HH:mm:ss') +
                         "</span>" +
+                        "</td>" +
+                        "<td>" +
+                            "Rp"+tax+",-"+
                         "</td>" +
                         "<td>" +
                         paidString+
