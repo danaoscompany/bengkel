@@ -29,6 +29,12 @@ if ($results && $results->num_rows > 0) {
 			}
 		}
 		$row["progresses"] = json_encode($progresses);
+		$userID = intval($row["user_id"]);
+		$users = $c->query("SELECT * FROM users WHERE id=" . $userID);
+		if ($users && $users->num_rows > 0) {
+			$user = $users->fetch_assoc();
+			$row["user"] = json_encode($user);
+		}
 		array_push($items, $row);
 	}
 }

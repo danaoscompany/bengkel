@@ -26,3 +26,4 @@ $orderID = mysqli_insert_id($c);
 foreach ($progresses as $progressItem) {
 	$c->query("INSERT INTO order_progress (order_id, progress, time) VALUES (" . $orderID . ", '" . $progressItem["progress"] . "', '" . $progressItem["time"] . "')");
 }
+echo $sql;
