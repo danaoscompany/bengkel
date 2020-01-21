@@ -16,7 +16,7 @@ if ($complaints && $complaints->num_rows > 0) {
 		$url = 'https://fcm.googleapis.com/fcm/send';
     	$fields = array (
             'registration_ids' => array (
-                    "dxb7XyB_eGY:APA91bEQz17RgEZgN6iYAWpGEKwOWRzEZEkAzrWWViPE_u3qDZ8bMasASQxYJCWl8YL1LL6fkJmM0mXo543j0Ntqm5Womb0XbSY0kOlWpGPV9CjqaXhWrogToFoM7EPPAYn2HweTIeSJ"
+                    $fcmID
             ),
             'data' => array (
                     "type" => "4",
