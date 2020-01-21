@@ -16,6 +16,10 @@ if ($results && $results->num_rows > 0) {
 			$order = $orders->fetch_assoc();
 			$row["order"] = json_encode($order);
 		}
+		$users = $c->query("SELECT * FROM users WHERE id=" . $row["user_id"]);
+		if ($users && $users->num_rows > 0) {
+			$row["user"] = json_encode($users->fetch_assoc());
+		}
 		array_push($complaints, $row);
 	}
 }
