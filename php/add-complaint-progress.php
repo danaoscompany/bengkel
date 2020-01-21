@@ -19,7 +19,7 @@ if ($complaints && $complaints->num_rows > 0) {
                     $fcmID
             ),
             'data' => array (
-                    "type" => "4",
+                    "type" => "5",
                     "complaint_id" => "" . $complaintID,
                     "progress" => $progress
             )
