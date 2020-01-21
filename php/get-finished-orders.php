@@ -2,7 +2,7 @@
 include 'db.php';
 $start = intval($_POST["start"]);
 $length = intval($_POST["length"]);
-$results = $c->query("SELECT * FROM orders LIMIT " . $start . "," . $length);
+$results = $c->query("SELECT * FROM orders WHERE done=1 LIMIT " . $start . "," . $length);
 $orders = [];
 if ($results && $results->num_rows > 0) {
 	while ($row = $results->fetch_assoc()) {
