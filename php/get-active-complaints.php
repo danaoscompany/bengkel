@@ -3,7 +3,7 @@ include 'db.php';
 $start = intval($_POST["start"]);
 $length = intval($_POST["length"]);
 $technicianID = intval($_POST["technician_id"]);
-$results = $c->query("SELECT * FROM complaints WHERE technician_id=" . $technicianID . " ORDER BY date DESC LIMIT " . $start . "," . $length);
+$results = $c->query("SELECT * FROM complaints WHERE technician_id=" . $technicianID . " AND done=0 ORDER BY date DESC LIMIT " . $start . "," . $length);
 $complaints = [];
 if ($results && $results->num_rows > 0) {
 	while ($row = $results->fetch_assoc()) {
