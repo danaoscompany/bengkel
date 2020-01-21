@@ -220,7 +220,7 @@
     <nav class="navbar navbar-top navbar-expand-md navbar-dark" id="navbar-main">
         <div class="container-fluid">
             <!-- Brand -->
-            <a class="h4 mb-0 text-white text-uppercase d-none d-lg-inline-block" href="../index.html">Admin</a>
+            <a class="h4 mb-0 text-white text-uppercase d-none d-lg-inline-block" href="../index.html">Biaya Teknisi</a>
             <!-- Form -->
             <form class="navbar-search navbar-search-dark form-inline mr-3 d-none d-md-flex ml-lg-auto">
                 <div class="form-group mb-0">
@@ -285,123 +285,6 @@
         </div>
     </div>
     <div class="container-fluid mt--7">
-        <a data-toggle="modal" data-target="#addAdminModal" href="#" class="btn btn-sm btn-info mr-3" style="margin-top: 20px;">Tambah Admin</a>
-        <!-- Modal -->
-        <div class="modal fade" id="addAdminModal" tabindex="-1" role="dialog" aria-labelledby="addAdminModalLabel" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="addAdminModalLabel">Tambah Admin</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div class="modal-body">
-                        <form role="form">
-                            <div class="form-group mb-3">
-                                <div>Nama lengkap:</div>
-                                <div class="input-group input-group-alternative" style="margin-top: 10px;">
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text"><i class="ni ni-email-83"></i></span>
-                                    </div>
-                                    <input id="add-admin-name" class="form-control" placeholder="Nama" type="text">
-                                </div>
-                            </div>
-                            <div class="form-group mb-3">
-                                <div>Email:</div>
-                                <div class="input-group input-group-alternative" style="margin-top: 10px;">
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text"><i class="ni ni-email-83"></i></span>
-                                    </div>
-                                    <input id="add-admin-email" class="form-control" placeholder="Email" type="email">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <div>Kata sandi:</div>
-                                <div class="input-group input-group-alternative" style="margin-top: 10px;">
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text"><i class="ni ni-lock-circle-open"></i></span>
-                                    </div>
-                                    <input id="add-admin-password" class="form-control" placeholder="Password" type="password">
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-                    <div class="modal-footer">
-                        <button onclick="addAdmin()" type="button" class="btn btn-primary" data-dismiss="modal">Tambah</button>
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- Modal -->
-        <div class="modal fade" id="editAdminModal" tabindex="-1" role="dialog" aria-labelledby="editAdminModalLabel" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="editAdminModalLabel">Ubah Admin</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div class="modal-body">
-                        <form role="form">
-                            <div class="form-group mb-3">
-                                <div>Nama lengkap:</div>
-                                <div class="input-group input-group-alternative" style="margin-top: 10px;">
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text"><i class="ni ni-email-83"></i></span>
-                                    </div>
-                                    <input id="name" class="form-control" placeholder="Nama" type="text">
-                                </div>
-                            </div>
-                            <div class="form-group mb-3">
-                                <div>Email:</div>
-                                <div class="input-group input-group-alternative" style="margin-top: 10px;">
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text"><i class="ni ni-email-83"></i></span>
-                                    </div>
-                                    <input id="email" class="form-control" placeholder="Email" type="email">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <div>Kata sandi:</div>
-                                <div class="input-group input-group-alternative" style="margin-top: 10px;">
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text"><i class="ni ni-lock-circle-open"></i></span>
-                                    </div>
-                                    <input id="password" class="form-control" placeholder="Password" type="password">
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-                    <div class="modal-footer">
-                        <button onclick="editAdmin()" type="button" class="btn btn-primary" data-dismiss="modal">Ubah</button>
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- Delete Modal -->
-        <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="deleteModalLabel">Hapus Pengguna</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div class="modal-body">
-                        Apakah Anda yakin ingin menghapus admin berikut?
-                    </div>
-                    <div class="modal-footer">
-                        <button onclick="deleteUser()" type="button" class="btn btn-primary" data-dismiss="modal">Ya</button>
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Tidak</button>
-                    </div>
-                </div>
-            </div>
-        </div>
         <!-- Logout Confirm Modal -->
         <div class="modal fade" id="logoutConfirmModal" tabindex="-1" role="dialog" aria-labelledby="logoutConfirmModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered" role="document">
@@ -439,66 +322,187 @@
                 </div>
             </div>
         </div>
-        <!-- Dark table -->
-        <div class="row mt-3">
+        <div class="row" style="margin-top: 30px; margin-bottom: 50px;">
             <div class="col">
-                <div class="card bg-default shadow">
-                    <div class="card-header bg-transparent border-0">
-                        <h3 class="text-white mb-0">Daftar Admin</h3>
+                <div class="card shadow">
+                    <div class="card-header border-0">
+                        <h3 class="mb-0">Biaya Berdasarkan Jenis AC</h3>
                     </div>
                     <div class="table-responsive">
-                        <table class="table align-items-center table-dark table-flush">
-                            <thead class="thead-dark">
+                        <table class="table align-items-center table-flush">
+                            <thead>
                             <tr>
-                                <th scope="col">Nama</th>
-                                <th scope="col">Email</th>
-                                <th scope="col">Kata Sandi</th>
-                                <th scope="col"></th>
+                                <th scope="col">Jenis AC</th>
+                                <th scope="col">Biaya Unit</th>
+                                <th scope="col">Biaya Teknisi</th>
                             </tr>
                             </thead>
-                            <tbody id="admins">
-                            <!--<tr>
-                                <th scope="row">
-                                    <div class="media align-items-center">
-                                        <div class="media-body">
-                                            <span class="mb-0 text-sm">Dana Prakoso</span>
-                                        </div>
-                                    </div>
-                                </th>
+                            <tbody>
+                            <tr>
+                                <td>AC Split</td>
                                 <td>
-                                    danaoscompany@gmail.com
+                                    <input id="type-1-unit-price" class="form-control" placeholder="Biaya" type="number">
                                 </td>
                                 <td>
-                                    081912340909
+                                    <input id="type-1-technical-price" class="form-control" placeholder="Biaya" type="number">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>AC Casette</td>
+                                <td>
+                                    <input id="type-2-unit-price" class="form-control" placeholder="Biaya" type="number">
                                 </td>
                                 <td>
-                                    HelloWorld123
+                                    <input id="type-2-technical-price" class="form-control" placeholder="Biaya" type="number">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>AC Floor Standing</td>
+                                <td>
+                                    <input id="type-3-unit-price" class="form-control" placeholder="Biaya" type="number">
                                 </td>
                                 <td>
-                                    danaoscompany
+                                    <input id="type-3-technical-price" class="form-control" placeholder="Biaya" type="number">
                                 </td>
-                                <td class="text-right">
-                                    <div class="dropdown">
-                                        <a class="btn btn-sm btn-icon-only text-light" href="#" role="button"
-                                           data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                            <i class="fas fa-ellipsis-v"></i>
-                                        </a>
-                                        <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
-                                            <a class="dropdown-item" href="#">Action</a>
-                                            <a class="dropdown-item" href="#">Another action</a>
-                                            <a class="dropdown-item" href="#">Something else here</a>
-                                        </div>
-                                    </div>
+                            </tr>
+                            <tr>
+                                <td>AC Split Duct</td>
+                                <td>
+                                    <input id="type-4-unit-price" class="form-control" placeholder="Biaya" type="number">
                                 </td>
-                            </tr>-->
+                                <td>
+                                    <input id="type-4-technical-price" class="form-control" placeholder="Biaya" type="number">
+                                </td>
+                            </tr>
                             </tbody>
                         </table>
                     </div>
                 </div>
             </div>
         </div>
+        <div class="row" style="margin-top: 30px; margin-bottom: 50px;">
+            <div class="col">
+                <div class="card shadow">
+                    <div class="card-header border-0">
+                        <h3 class="mb-0">Biaya Berdasarkan Model AC</h3>
+                    </div>
+                    <div class="table-responsive">
+                        <table class="table align-items-center table-flush">
+                            <thead>
+                            <tr>
+                                <th scope="col">Model AC</th>
+                                <th scope="col">Biaya Unit</th>
+                                <th scope="col">Biaya Teknisi</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td>Standard</td>
+                                <td>
+                                    <input id="kind-1-unit-price" class="form-control" placeholder="Biaya" type="number">
+                                </td>
+                                <td>
+                                    <input id="kind-1-technical-price" class="form-control" placeholder="Biaya" type="number">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Inverter</td>
+                                <td>
+                                    <input id="kind-2-unit-price" class="form-control" placeholder="Biaya" type="number">
+                                </td>
+                                <td>
+                                    <input id="kind-2-technical-price" class="form-control" placeholder="Biaya" type="number">
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row" style="margin-top: 30px; margin-bottom: 50px;">
+            <div class="col">
+                <div class="card shadow">
+                    <div class="card-header border-0">
+                        <h3 class="mb-0">Biaya Berdasarkan Kapasitas</h3>
+                    </div>
+                    <div class="table-responsive">
+                        <table class="table align-items-center table-flush">
+                            <thead>
+                            <tr>
+                                <th scope="col">Model AC</th>
+                                <th scope="col">Biaya Unit</th>
+                                <th scope="col">Biaya Teknisi</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td>Biaya Per Kapasitas</td>
+                                <td>
+                                    <input id="capacity-unit-price" class="form-control" placeholder="Biaya" type="number">
+                                </td>
+                                <td>
+                                    <input id="capacity-technical-price" class="form-control" placeholder="Biaya" type="number">
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row" style="margin-top: 30px; margin-bottom: 50px;">
+            <div class="col">
+                <div class="card shadow">
+                    <div class="card-header border-0">
+                        <h3 class="mb-0">Biaya Berdasarkan Material</h3>
+                    </div>
+                    <div class="table-responsive">
+                        <table class="table align-items-center table-flush">
+                            <thead>
+                            <tr>
+                                <th scope="col">Material</th>
+                                <th scope="col">Biaya Unit</th>
+                                <th scope="col">Biaya Teknisi</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td>Dengan Material</td>
+                                <td>
+                                    <input id="material-1-unit-price" class="form-control" placeholder="Biaya" type="number">
+                                </td>
+                                <td>
+                                    <input id="material-1-technical-price" class="form-control" placeholder="Biaya" type="number">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Tanpa Material</td>
+                                <td>
+                                    <input id="material-2-unit-price" class="form-control" placeholder="Biaya" type="number">
+                                </td>
+                                <td>
+                                    <input id="material-2-technical-price" class="form-control" placeholder="Biaya" type="number">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Opsional</td>
+                                <td>
+                                    <input id="material-3-unit-price" class="form-control" placeholder="Biaya" type="number">
+                                </td>
+                                <td>
+                                    <input id="material-3-technical-price" class="form-control" placeholder="Biaya" type="number">
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <button onclick="saveSettings()" type="button" class="btn btn-primary" style="width: 100%;">Simpan</button>
         <!-- Footer -->
-        <!--<footer class="footer">
+        <footer class="footer">
             <div class="row align-items-center justify-content-xl-between">
                 <div class="col-xl-6">
                     <div class="copyright text-center text-xl-left text-muted">
@@ -525,7 +529,7 @@
                     </ul>
                 </div>
             </div>
-        </footer>-->
+        </footer>
     </div>
 </div>
 <!--   Core   -->
@@ -543,16 +547,14 @@
         token: "ee6fab19c5a04ac1a32a645abde4613a",
         application: "argon-dashboard-free"
     });
-    var admins = [];
+    var users = [];
     $(document).ready(function () {
-        getAdmins();
+        getPrices();
     });
 
-    function getAdmins() {
-        admins = [];
-        $("#admins").find("*").remove();
+    function getPrices() {
         var fd = new FormData();
-        fd.append("name", "admins");
+        fd.append("name", "price");
         $.ajax({
             type: 'POST',
             url: PHP_URL + 'get.php',
@@ -561,69 +563,38 @@
             contentType: false,
             cache: false,
             success: function (response) {
-                admins = JSON.parse(response);
-                for (var i = 0; i < admins.length; i++) {
-                    var user = admins[i];
-                    $("#admins").append(
-                        "<tr>" +
-                        "<td>" +
-                        user["name"]+
-                        "</td>" +
-                        "<td>" +
-                        user["email"] +
-                        "</td>" +
-                        "<td>" +
-                        user["password"] +
-                        "</td>" +
-                        "<td class='text-right'>" +
-                        "<div class='dropdown'>" +
-                        "<a class='btn btn-sm btn-icon-only text-light' href='#' role='button'" +
-                        "data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>" +
-                        "<i class='fas fa-ellipsis-v'></i>" +
-                        "</a>" +
-                        "<div class='dropdown-menu dropdown-menu-right dropdown-menu-arrow'>" +
-                        "<a data-toggle='modal' data-id='"+user["id"]+"' class='edit dropdown-item' href='#editAdminModal'>Ubah</a>" +
-                        "<a data-id='"+user["id"]+"' class='delete dropdown-item' href='#'>Hapus</a>" +
-                        "</div>" +
-                        "</div>" +
-                        "</td>" +
-                        "</tr>"
-                    );
-                }
-                $(".edit").on("click", function () {
-                    var id = $(this).data('id');
-                    currentUserID = parseInt(id);
-                    var fd = new FormData();
-                    fd.append("name", "admins");
-                    fd.append("id", id);
-                    $.ajax({
-                        type: 'POST',
-                        url: PHP_URL+'get-by-id.php',
-                        data: fd,
-                        processData: false,
-                        contentType: false,
-                        cache: false,
-                        success: function(response) {
-                            console.log("Response: "+response);
-                            var userInfo = JSON.parse(response)[0];
-                            $("#name").val(userInfo["name"]);
-                            $("#email").val(userInfo["email"]);
-                            $("#password").val(userInfo["password"]);
-                        }
-                    });
-                });
-                $(".delete").on("click", function () {
-                    var id = $(this).data('id');
-                    currentUserID = parseInt(id);
-                    $("#deleteModal").modal('show');
-                });
+                var pricesJSON = JSON.parse(response)[0];
+                var typePrices = JSON.parse(pricesJSON["type"]);
+                $("#type-1-unit-price").val(typePrices["0"]["unit"]);
+                $("#type-1-technical-price").val(typePrices["0"]["technical"]);
+                $("#type-2-unit-price").val(typePrices["1"]["unit"]);
+                $("#type-2-technical-price").val(typePrices["1"]["technical"]);
+                $("#type-3-unit-price").val(typePrices["2"]["unit"]);
+                $("#type-3-technical-price").val(typePrices["2"]["technical"]);
+                $("#type-4-unit-price").val(typePrices["3"]["unit"]);
+                $("#type-4-technical-price").val(typePrices["3"]["technical"]);
+                var kindPrices = JSON.parse(pricesJSON["kind"]);
+                $("#kind-1-unit-price").val(kindPrices["0"]["unit"]);
+                $("#kind-1-technical-price").val(kindPrices["0"]["technical"]);
+                $("#kind-2-unit-price").val(kindPrices["1"]["unit"]);
+                $("#kind-2-technical-price").val(kindPrices["1"]["technical"]);
+                var capacityPrices = JSON.parse(pricesJSON["capacity"]);
+                $("#capacity-unit-price").val(capacityPrices["per_pk"]["unit"]);
+                $("#capacity-technical-price").val(capacityPrices["per_pk"]["technical"]);
+                var materialPrices = JSON.parse(pricesJSON["material"]);
+                $("#material-1-unit-price").val(materialPrices["0"]["unit"]);
+                $("#material-1-technical-price").val(materialPrices["0"]["technical"]);
+                $("#material-2-unit-price").val(materialPrices["1"]["unit"]);
+                $("#material-2-technical-price").val(materialPrices["1"]["technical"]);
+                $("#material-3-unit-price").val(materialPrices["2"]["unit"]);
+                $("#material-3-technical-price").val(materialPrices["2"]["technical"]);
             }
         });
     }
 
     function deleteUser() {
         var fd = new FormData();
-        fd.append("name", "admins");
+        fd.append("name", "users");
         fd.append("id", currentUserID);
         $.ajax({
             type: 'POST',
@@ -633,76 +604,103 @@
             contentType: false,
             cache: false,
             success: function(response) {
-                getAdmins();
+                getPrices();
             }
         });
     }
 
-    function editAdmin() {
-        var name = $("#name").val().trim();
-        var email = $("#email").val().trim();
-        var password = $("#password").val();
-        if (name == "") {
-            alert("Mohon masukkan nama lengkap");
-            return;
-        }
-        if (email == "") {
-            alert("Mohon masukkan alamat email");
-            return;
-        }
-        if (password == "") {
-            alert("Mohon masukkan kata sandi");
-            return;
-        }
+    function saveSettings() {
+        var type1UnitPrice = getInt($("#type-1-unit-price").val().trim());
+        var type2UnitPrice = getInt($("#type-2-unit-price").val().trim());
+        var type3UnitPrice = getInt($("#type-3-unit-price").val().trim());
+        var type4UnitPrice = getInt($("#type-4-unit-price").val().trim());
+        var type1TechnicalPrice = getInt($("#type-1-technical-price").val().trim());
+        var type2TechnicalPrice = getInt($("#type-2-technical-price").val().trim());
+        var type3TechnicalPrice = getInt($("#type-3-technical-price").val().trim());
+        var type4TechnicalPrice = getInt($("#type-4-technical-price").val().trim());
+        var kind1UnitPrice = getInt($("#kind-1-unit-price").val().trim());
+        var kind2UnitPrice = getInt($("#kind-2-unit-price").val().trim());
+        var kind1TechnicalPrice = getInt($("#kind-1-technical-price").val().trim());
+        var kind2TechnicalPrice = getInt($("#kind-2-technical-price").val().trim());
+        var capacityUnitPrice = getInt($("#capacity-unit-price").val().trim());
+        var capacityTechnicalPrice = getInt($("#capacity-technical-price").val().trim());
+        var material1UnitPrice = getInt($("#material-1-unit-price").val().trim());
+        var material2UnitPrice = getInt($("#material-2-unit-price").val().trim());
+        var material3UnitPrice = getInt($("#material-3-unit-price").val().trim());
+        var material1TechnicalPrice = getInt($("#material-1-technical-price").val().trim());
+        var material2TechnicalPrice = getInt($("#material-2-technical-price").val().trim());
+        var material3TechnicalPrice = getInt($("#material-3-technical-price").val().trim());
+        var typePrices = {
+            "0": {
+                "unit": type1UnitPrice,
+                "technical": type1TechnicalPrice
+            },
+            "1": {
+                "unit": type2UnitPrice,
+                "technical": type2TechnicalPrice
+            },
+            "2": {
+                "unit": type3UnitPrice,
+                "technical": type3TechnicalPrice
+            },
+            "3": {
+                "unit": type4UnitPrice,
+                "technical": type4TechnicalPrice
+            }
+        };
+        var kindPrices = {
+            "0": {
+                "unit": kind1UnitPrice,
+                "technical": kind1TechnicalPrice
+            },
+            "1": {
+                "unit": kind2UnitPrice,
+                "technical": kind2TechnicalPrice
+            }
+        };
+        var capacityPrices = {
+            "per_pk": {
+                "unit": capacityUnitPrice,
+                "technical": capacityTechnicalPrice
+            }
+        };
+        var materialPrices = {
+            "0": {
+                "unit": material1UnitPrice,
+                "technical": material1TechnicalPrice
+            },
+            "1": {
+                "unit": material2UnitPrice,
+                "technical": material2TechnicalPrice
+            },
+            "2": {
+                "unit": material3UnitPrice,
+                "technical": material3TechnicalPrice
+            }
+        };
         var fd = new FormData();
-        fd.append("id", currentUserID);
-        fd.append("name", name);
-        fd.append("email", email);
-        fd.append("password", password);
+        fd.append("type_prices", JSON.stringify(typePrices));
+        fd.append("kind_prices", JSON.stringify(kindPrices));
+        fd.append("material_prices", JSON.stringify(materialPrices));
+        fd.append("capacity_prices", JSON.stringify(capacityPrices));
         $.ajax({
             type: 'POST',
-            url: PHP_URL+'edit-admin.php',
+            url: PHP_URL+'update-price.php',
             data: fd,
             processData: false,
             contentType: false,
             cache: false,
             success: function(response) {
-                getAdmins();
             }
         });
     }
 
-    function addAdmin() {
-        var name = $("#add-admin-name").val().trim();
-        var email = $("#add-admin-email").val().trim();
-        var password = $("#add-admin-password").val();
-        if (name == "") {
-            alert("Mohon masukkan nama lengkap");
-            return;
+    function getInt(value) {
+        if (value == "") {
+            return 0;
+        } else {
+            return parseInt(value);
         }
-        if (email == "") {
-            alert("Mohon masukkan alamat email");
-            return;
-        }
-        if (password == "") {
-            alert("Mohon masukkan kata sandi");
-            return;
-        }
-        var fd = new FormData();
-        fd.append("name", name);
-        fd.append("email", email);
-        fd.append("password", password);
-        $.ajax({
-            type: 'POST',
-            url: PHP_URL+'add-admin.php',
-            data: fd,
-            processData: false,
-            contentType: false,
-            cache: false,
-            success: function(response) {
-                getAdmins();
-            }
-        });
     }
 </script>
 </body>
