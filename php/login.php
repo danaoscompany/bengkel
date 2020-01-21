@@ -2,6 +2,11 @@
 include 'db.php';
 $phone = $_POST["phone"];
 $uid = $_POST["uid"];
+$results = $c->query("SELECT * FROM technician WHERE phone='" . $phone . "'");
+if ($results && $results->num_rows > 0) {
+	echo "{\"response\": -2, \"user_id\": " . $id . "}";
+	return;
+}
 $results = $c->query("SELECT * FROM users WHERE uid='" . $uid . "'");
 if ($results && $results->num_rows > 0) {
 	$row = $results->fetch_assoc();

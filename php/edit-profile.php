@@ -25,3 +25,4 @@ if ($profilePictureChanged == 1) {
 	$c->query("UPDATE users SET profile_picture='profile_pictures/" . $_FILES["file"]["name"] . "' WHERE id=" . $id);
 }
 echo $sql;
+$c->query("UPDATE users SET profile_set_up=1 WHERE id=" . $id);
