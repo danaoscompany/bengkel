@@ -1,9 +1,8 @@
 <?php
 include 'db.php';
-$name = $_POST["name"];
+$address = $_POST["address"];
 $orderID = $_POST["order_id"];
 $userID = intval($_POST["user_id"]);
-$phone = $_POST["phone"];
 $kind = intval($_POST["kind"]);
 $type = intval($_POST["type"]);
 $capacity = floatval($_POST["capacity"]);
@@ -20,7 +19,7 @@ $endResultApproval = intval($_POST["end_result_approval"]);
 $paymentMethod = intval($_POST["payment_method"]);
 $orderType = intval($_POST["order_type"]);
 $complaint = $_POST["complaint"];
-$sql = "INSERT INTO orders (user_id, order_id, order_type, name, phone, kind, type, capacity, material, complaint, latitude, longitude, price_estimation, technical_estimation, date, progress, price_change_approval, end_result_approval, payment_method, done) VALUES (" . $userID . ", '" . $orderID . "', " . $orderType . ", '" . $name . "', '" . $phone . "', " . $kind . ", " . $type . ", " . $capacity . ", " . $material . ", '" . $complaint . "', " . $latitude . ", " . $longitude . ", " . $priceEstimation . ", " . $technicalEstimation . ", '" . $date . "', " . $progress . ", " . $priceChangeApproval . ", " . $endResultApproval . ", " . $paymentMethod . ", 0)";
+$sql = "INSERT INTO orders (user_id, order_id, order_type, address, kind, type, capacity, material, complaint, latitude, longitude, price_estimation, technical_estimation, date, progress, price_change_approval, end_result_approval, payment_method, done) VALUES (" . $userID . ", '" . $orderID . "', " . $orderType . ", '" . $address . "', " . $kind . ", " . $type . ", " . $capacity . ", " . $material . ", '" . $complaint . "', " . $latitude . ", " . $longitude . ", " . $priceEstimation . ", " . $technicalEstimation . ", '" . $date . "', " . $progress . ", " . $priceChangeApproval . ", " . $endResultApproval . ", " . $paymentMethod . ", 0)";
 $c->query($sql);
 $orderID = mysqli_insert_id($c);
 foreach ($progresses as $progressItem) {
