@@ -5,6 +5,20 @@ $orderID = intval($_POST["id"]);
 $results = $c->query("SELECT * FROM orders WHERE id=" . $orderID);
 if ($results && $results->num_rows > 0) {
 	while ($row = $results->fetch_assoc()) {
+		$subcategories = $c->query("SELECT * FROM subcategories WHERE id=" . $row["subcategory"]);
+		if ($subcategories && $subcategories->num_rows > 0) {
+			$subcategory = $subcategories->fetch_assoc();
+			$row["subcategory"] = $subcategory;
+		} else {
+			$row["subcategory"] = "";
+		}
+		$subsubcategories = $c->query("SELECT * FROM subsubcategories WHERE id=" . $row["subsubcategory"]);
+		if ($subsubcategories && $subsubcategories->num_rows > 0) {
+			$subsubcategory = $subsubcategories->fetch_assoc();
+			$row["subsubcategory"] = $subsubcategory;
+		} else {
+			$row["subsubcategory"] = "";
+		}
 		$serviceID = intval($row["order_type"]);
 		$services = $c->query("SELECT * FROM services WHERE id=" . $serviceID);
 		if ($services && $services->num_rows > 0) {
