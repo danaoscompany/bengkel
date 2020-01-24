@@ -235,7 +235,7 @@
     <nav class="navbar navbar-top navbar-expand-md navbar-dark" id="navbar-main">
         <div class="container-fluid">
             <!-- Brand -->
-            <a class="h4 mb-0 text-white text-uppercase d-none d-lg-inline-block" href="products.html">Produk</a>
+            <a class="h4 mb-0 text-white text-uppercase d-none d-lg-inline-block" href="../index.html">Tables</a>
             <!-- Form -->
             <form class="navbar-search navbar-search-dark form-inline mr-3 d-none d-md-flex ml-lg-auto">
                 <div class="form-group mb-0">
@@ -254,8 +254,7 @@
                        aria-expanded="false">
                         <div class="media align-items-center">
                 <span class="avatar avatar-sm rounded-circle">
-                  <img alt="Image placeholder" src="../assets/img/profile_picture_placeholder.png"
-                       style="border-radius: 50%;">
+                  <img alt="Image placeholder" src="../assets/img/profile_picture_placeholder.png" style="border-radius: 50%;">
                 </span>
                             <div class="media-body ml-2 d-none d-lg-block">
                                 <span class="mb-0 text-sm  font-weight-bold">Admin</span>
@@ -301,16 +300,12 @@
         </div>
     </div>
     <div class="container-fluid mt--7">
-        <a data-toggle="modal" data-target="#addProductModal" href="#" class="btn btn-sm btn-info mr-3" style="margin-top: 20px;">
-            Tambah Produk
-        </a>
         <!-- Modal -->
-        <div class="modal fade" id="editProductModal" tabindex="-1" role="dialog" aria-labelledby="editProductModalLabel"
-             aria-hidden="true">
+        <div class="modal fade" id="editUserModal" tabindex="-1" role="dialog" aria-labelledby="editUserModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="editProductModalLabel">Ubah Produk</h5>
+                        <h5 class="modal-title" id="editUserModalLabel">Ubah Pengguna</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
@@ -318,7 +313,7 @@
                     <div class="modal-body">
                         <form role="form">
                             <div class="form-group mb-3">
-                                <div>Nama produk:</div>
+                                <div>Nama lengkap:</div>
                                 <div class="input-group input-group-alternative" style="margin-top: 10px;">
                                     <div class="input-group-prepend">
                                         <span class="input-group-text"><i class="ni ni-email-83"></i></span>
@@ -327,116 +322,105 @@
                                 </div>
                             </div>
                             <div class="form-group mb-3">
-                                <div>Harga:</div>
+                                <div>Email:</div>
                                 <div class="input-group input-group-alternative" style="margin-top: 10px;">
                                     <div class="input-group-prepend">
                                         <span class="input-group-text"><i class="ni ni-email-83"></i></span>
                                     </div>
-                                    <input id="price" class="form-control" placeholder="Harga" type="number">
+                                    <input id="email" class="form-control" placeholder="Email" type="email">
                                 </div>
                             </div>
                             <div class="form-group mb-3">
-                                <div>Gambar:</div>
-                                <div style="width: 100%; display: flex; align-items: center; flex-flow: column nowrap;">
-                                    <img id="image" src="" width="150px" height="150px" style="margin-top: 10px;">
-                                    <button onclick="selectImage()" type="button" class="btn btn-primary" style="margin-top: 10px;">
-                                        Ubah Gambar
-                                    </button>
-                                    <input id="select-image" type="file" style="width: 0; height: 0; visibility: hidden;">
+                                <div>Nomor HP:</div>
+                                <div class="input-group input-group-alternative" style="margin-top: 10px;">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text"><i class="ni ni-email-83"></i></span>
+                                    </div>
+                                    <input id="phone" class="form-control" placeholder="Nomor HP" type="text">
+                                </div>
+                            </div>
+                            <div class="form-group mb-3">
+                                <div>Tipe akun:</div>
+                                <div class="radio" style="margin-top: 10px;">
+                                    <label><input id="standard" type="radio" name="optradio" checked>Standard</label>
+                                </div>
+                                <div class="radio">
+                                    <label><input id="premium" type="radio" name="optradio">Premium</label>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div>Kata sandi:</div>
+                                <div class="input-group input-group-alternative" style="margin-top: 10px;">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text"><i class="ni ni-lock-circle-open"></i></span>
+                                    </div>
+                                    <input id="password" class="form-control" placeholder="Password" type="password">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div>Pembayaran minimum:</div>
+                                <div class="input-group input-group-alternative" style="margin-top: 10px;">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text"><i class="ni ni-lock-circle-open"></i></span>
+                                    </div>
+                                    <input id="minimum-payment" class="form-control" placeholder="Pembayaran minimum" type="text">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div>Nama pengguna:</div>
+                                <div class="input-group input-group-alternative" style="margin-top: 10px;">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text"><i class="ni ni-lock-circle-open"></i></span>
+                                    </div>
+                                    <input id="username" class="form-control" placeholder="Nama pengguna" type="text">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div>Foto profil:</div>
+                                <div style="width: 100%; display: flex; justify-content: center;">
+                                    <img id="profile-picture" src="../assets/img/profile_picture_placeholder.png" width="150px" height="150px"
+                                         style="border-radius: 50%;">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div>Pembayaran minimum sudah dilakukan:</div>
+                                <div class="input-group input-group-alternative" style="margin-top: 10px;">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text"><i class="ni ni-lock-circle-open"></i></span>
+                                    </div>
+                                    <input id="minimum-amount-paid" class="form-control" placeholder="Pembayaran minimum sudah dilakukan" type="text">
                                 </div>
                             </div>
                         </form>
                     </div>
                     <div class="modal-footer">
-                        <button onclick="editProduct()" type="button" class="btn btn-primary" data-dismiss="modal">Ubah</button>
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- Modal -->
-        <div class="modal fade" id="addProductModal" tabindex="-1" role="dialog" aria-labelledby="addProductModalLabel"
-             aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="addProductModalLabel">Tambah Produk</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div class="modal-body">
-                        <form role="form">
-                            <div class="form-group mb-3">
-                                <div>Kategori produk:</div>
-                                <form>
-                                    <select id="categories" class="form-control" data-toggle="select" title="Simple select" data-live-search="true" data-live-search-placeholder="Search ..." style="margin-top: 10px;">
-                                        <!--<option>Alerts</option>-->
-                                    </select>
-                                </form>
-                            </div>
-                            <div class="form-group mb-3">
-                                <div>Nama produk:</div>
-                                <div class="input-group input-group-alternative" style="margin-top: 10px;">
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text"><i class="ni ni-email-83"></i></span>
-                                    </div>
-                                    <input id="add-product-name" class="form-control" placeholder="Nama" type="text">
-                                </div>
-                            </div>
-                            <div class="form-group mb-3">
-                                <div>Harga:</div>
-                                <div class="input-group input-group-alternative" style="margin-top: 10px;">
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text"><i class="ni ni-email-83"></i></span>
-                                    </div>
-                                    <input id="add-product-price" class="form-control" placeholder="Harga" type="number">
-                                </div>
-                            </div>
-                            <div class="form-group mb-3">
-                                <div>Gambar:</div>
-                                <div style="width: 100%; display: flex; align-items: center; flex-flow: column nowrap;">
-                                    <img id="add-product-image" src="../assets/img/placeholder.jpg" width="150px" height="150px" style="margin-top: 10px;">
-                                    <button onclick="addProductSelectImage()" type="button" class="btn btn-primary" style="margin-top: 10px;">
-                                        Ubah Gambar
-                                    </button>
-                                    <input id="add-product-select-image" type="file" style="width: 0; height: 0; visibility: hidden;">
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-                    <div class="modal-footer">
-                        <button onclick="addProduct()" type="button" class="btn btn-primary" data-dismiss="modal">Tambah</button>
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                     </div>
                 </div>
             </div>
         </div>
         <!-- Delete Modal -->
-        <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel"
-             aria-hidden="true">
+        <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="deleteModalLabel">Hapus Produk</h5>
+                        <h5 class="modal-title" id="deleteModalLabel">Hapus Pengguna</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
                     <div class="modal-body">
-                        Apakah Anda yakin ingin menghapus produk berikut?
+                        Apakah Anda yakin ingin menghapus pengguna berikut?
                     </div>
                     <div class="modal-footer">
-                        <button onclick="deleteProduct()" type="button" class="btn btn-primary" data-dismiss="modal">Ya
-                        </button>
+                        <button onclick="deleteUser()" type="button" class="btn btn-primary" data-dismiss="modal">Ya</button>
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Tidak</button>
                     </div>
                 </div>
             </div>
         </div>
         <!-- Logout Confirm Modal -->
-        <div class="modal fade" id="logoutConfirmModal" tabindex="-1" role="dialog"
-             aria-labelledby="logoutConfirmModalLabel" aria-hidden="true">
+        <div class="modal fade" id="logoutConfirmModal" tabindex="-1" role="dialog" aria-labelledby="logoutConfirmModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -449,16 +433,14 @@
                         Apakah Anda yakin ingin keluar dari panel admin ini?
                     </div>
                     <div class="modal-footer">
-                        <button onclick="logout()" type="button" class="btn btn-primary" data-dismiss="modal">Ya
-                        </button>
+                        <button onclick="logout()" type="button" class="btn btn-primary" data-dismiss="modal">Ya</button>
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Tidak</button>
                     </div>
                 </div>
             </div>
         </div>
         <!-- Loading Modal -->
-        <div class="modal fade" id="loadingModal" tabindex="-1" role="dialog" aria-labelledby="loadingModalLabel"
-             aria-hidden="false"
+        <div class="modal fade" id="loadingModal" tabindex="-1" role="dialog" aria-labelledby="loadingModalLabel" aria-hidden="false"
              data-backdrop="static" data-keyboard="false">
             <div class="modal-dialog modal-dialog-centered" role="document">
                 <div class="modal-content">
@@ -474,86 +456,18 @@
                 </div>
             </div>
         </div>
-        <!-- Table -->
         <div class="row" style="margin-top: 30px;">
             <div class="col">
                 <div class="card shadow">
                     <div class="card-header border-0">
-                        <h3 class="mb-0">Daftar Produk</h3>
+                        <h3 class="mb-0">Umum</h3>
                     </div>
-                    <div class="table-responsive">
-                        <table class="table align-items-center table-flush">
-                            <thead class="thead-light">
-                            <tr>
-                                <th scope="col">Nama</th>
-                                <th scope="col">Harga</th>
-                                <th scope="col">Kategori</th>
-                                <th scope="col">Gambar</th>
-                                <th scope="col"></th>
-                            </tr>
-                            </thead>
-                            <tbody id="products">
-                            <!--<tr>
-                                <th scope="row">
-                                    <div class="media align-items-center">
-                                        <a href="#" class="avatar rounded-circle mr-3">
-                                            <img alt="Image placeholder" src="../assets/img/theme/bootstrap.jpg">
-                                        </a>
-                                        <div class="media-body">
-                                            <span class="mb-0 text-sm">Nama Barang</span>
-                                        </div>
-                                    </div>
-                                </th>
-                                <td>
-                                    $2,500 USD
-                                </td>
-                                <td>
-                      <span class="badge badge-dot mr-4">
-                        <i class="bg-warning"></i> pending
-                      </span>
-                                </td>
-                                <td>
-                                    <div class="avatar-group">
-                                        <a href="#" class="avatar avatar-sm" data-toggle="tooltip" data-original-title="Ryan Tompson">
-                                            <img alt="Image placeholder" src="../assets/img/theme/team-1-800x800.jpg" class="rounded-circle">
-                                        </a>
-                                        <a href="#" class="avatar avatar-sm" data-toggle="tooltip" data-original-title="Romina Hadid">
-                                            <img alt="Image placeholder" src="../assets/img/theme/team-2-800x800.jpg" class="rounded-circle">
-                                        </a>
-                                        <a href="#" class="avatar avatar-sm" data-toggle="tooltip" data-original-title="Alexander Smith">
-                                            <img alt="Image placeholder" src="../assets/img/theme/team-3-800x800.jpg" class="rounded-circle">
-                                        </a>
-                                        <a href="#" class="avatar avatar-sm" data-toggle="tooltip" data-original-title="Jessica Doe">
-                                            <img alt="Image placeholder" src="../assets/img/theme/team-4-800x800.jpg" class="rounded-circle">
-                                        </a>
-                                    </div>
-                                </td>
-                                <td>
-                                    <div class="d-flex align-items-center">
-                                        <span class="mr-2">60%</span>
-                                        <div>
-                                            <div class="progress">
-                                                <div class="progress-bar bg-warning" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;"></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </td>
-                                <td class="text-right">
-                                    <div class="dropdown">
-                                        <a class="btn btn-sm btn-icon-only text-light" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                            <i class="fas fa-ellipsis-v"></i>
-                                        </a>
-                                        <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
-                                            <a class="dropdown-item" href="#">Action</a>
-                                            <a class="dropdown-item" href="#">Another action</a>
-                                            <a class="dropdown-item" href="#">Something else here</a>
-                                        </div>
-                                    </div>
-                                </td>
-                            </tr>-->
-                            </tbody>
-                        </table>
+                    <h3 class="mb-0" style="margin-left: 24px;">Logo:</h3>
+                    <div style="width: 100%; display: flex; justify-content: center;">
+                        <img id="logo" width="200px" height="100px">
                     </div>
+                    <button onclick="selectLogo()" type="button" class="btn btn-primary" style="margin-top: 20px; width: calc(100% - 40px); margin-left: 20px; margin-right: 20px; margin-bottom: 20px;">Ubah Logo</button>
+                    <input id="select-logo" type="file" style="width: 0; height: 0; visibility: hidden;">
                 </div>
             </div>
         </div>
@@ -597,111 +511,21 @@
 <script src="https://cdn.trackjs.com/agent/v3/latest/t.js"></script>
 <script src="../js/global.js"></script>
 <script>
-    var currentProductID = 0;
-    var imageFile;
-    var categories;
+    var currentUserID = 0;
     window.TrackJS &&
     TrackJS.install({
         token: "ee6fab19c5a04ac1a32a645abde4613a",
         application: "argon-dashboard-free"
     });
-    var products = [];
-    var imageChanged = 0;
-
+    var users = [];
     $(document).ready(function () {
-        $.ajax({
-            type: 'GET',
-            url: PHP_URL+'get-categories.php',
-            dataType: 'text',
-            cache: false,
-            success: function(response) {
-                categories = JSON.parse(response);
-                for (var i=0; i<categories.length; i++) {
-                    var categoryJSON = categories[i];
-                    $("#categories").append("<option>"+categoryJSON["name"]+"</option>");
-                }
-            }
-        });
-        getProducts();
+        $("#logo").attr("src", PROTOCOL+"://"+HOST+"/logo.png");
     });
 
-    function getProducts() {
-        $("#products").find("*").remove();
-        products = [];
-        $.ajax({
-            type: 'GET',
-            url: PHP_URL + 'get-all-products.php',
-            dataType: 'text',
-            cache: false,
-            success: function (response) {
-                products = JSON.parse(response);
-                for (var i = 0; i < products.length; i++) {
-                    var product = products[i];
-                    $("#products").append(
-                        "<tr>" +
-                        "<td>" +
-                        product["name"]+
-                        "</td>" +
-                        "<td>" +
-                        "Rp" + product["price"] + ",-" +
-                        "</td>" +
-                        "<td>" +
-                        "<span class='badge badge-dot mr-4'>" +
-                        product["category"] +
-                        "</span>" +
-                        "</td>" +
-                        "<td>" +
-                        "<img src='" + PROTOCOL + "://" + HOST + "/userdata/" + product["img"] + "' width='80px' height='80px'>" +
-                        "</td>" +
-                        "<td class='text-right'>" +
-                        "<div class='dropdown'>" +
-                        "<a class='btn btn-sm btn-icon-only text-light' href='#' role='button' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>" +
-                        "<i class='fas fa-ellipsis-v'></i>" +
-                        "</a>" +
-                        "<div class='dropdown-menu dropdown-menu-right dropdown-menu-arrow'>" +
-                        "<a data-id='"+product["id"]+"' data-toggle='modal' class='edit dropdown-item' href='#editProductModal'>Ubah</a>" +
-                        "<a data-id='"+product["id"]+"' data-toggle='modal' class='delete dropdown-item' href='#deleteModal'>Hapus</a>" +
-                        "</div>" +
-                        "</div>" +
-                        "</td>" +
-                        "</tr>"
-                    );
-                }
-                $(".edit").on("click", function () {
-                    imageChanged = 0;
-                    var id = $(this).data('id');
-                    currentProductID = parseInt(id);
-                    var fd = new FormData();
-                    fd.append("name", "products");
-                    fd.append("id", id);
-                    $.ajax({
-                        type: 'POST',
-                        url: PHP_URL+'get-by-id.php',
-                        data: fd,
-                        processData: false,
-                        contentType: false,
-                        cache: false,
-                        success: function(response) {
-                            var userInfo = JSON.parse(response)[0];
-                            $("#name").val(userInfo["name"]);
-                            $("#price").val(userInfo["price"]);
-                            $("#image").attr("src", PROTOCOL+"://"+HOST+"/userdata/"+userInfo["img"]);
-                        }
-                    });
-                });
-                $(".delete").on("click", function () {
-                    var id = $(this).data('id');
-                    currentProductID = parseInt(id);
-                    $("#deleteModal").modal('show');
-                });
-            }
-        });
-    }
-
-    function deleteProduct() {
+    function deleteUser() {
         var fd = new FormData();
-        fd.append("name", "products");
-        fd.append("id", currentProductID);
+        fd.append("name", "users");
+        fd.append("id", currentUserID);
         $.ajax({
             type: 'POST',
             url: PHP_URL+'delete-by-id.php',
@@ -710,80 +534,30 @@
             contentType: false,
             cache: false,
             success: function(response) {
-                console.log("Delete product response: "+response);
-                getProducts();
             }
         });
     }
 
-    function selectImage() {
-        $("#select-image").on("change", function(e) {
-            var input = e.target;
-            imageFile = input.files[0];
-            var reader = new FileReader();
-            reader.onload = function() {
-                $("#image").attr("src", reader.result);
+    function selectLogo() {
+        $("#select-logo").on('change', function(e) {
+            var fd = new FormData();
+            fd.append("logo", e.target.files[0]);
+            $.ajax({
+                type: 'POST',
+                url: PHP_URL+'upload-logo.php',
+                data: fd,
+                processData: false,
+                contentType: false,
+                cache: false,
+                success: function(response) {
+                }
+            });
+            var fr = new FileReader();
+            fr.onload = function() {
+                $("#logo").attr("src", fr.result);
             };
-            reader.readAsDataURL(imageFile);
-            imageChanged = 1;
+            fr.readAsDataURL(e.target.files[0]);
         }).click();
-    }
-
-    function addProductSelectImage() {
-        $("#add-product-select-image").on("change", function(e) {
-            var input = e.target;
-            imageFile = input.files[0];
-            var reader = new FileReader();
-            reader.onload = function() {
-                $("#add-product-image").attr("src", reader.result);
-            };
-            reader.readAsDataURL(imageFile);
-            imageChanged = 1;
-        }).click();
-    }
-
-    function editProduct() {
-        var name = $("#name").val().trim();
-        var price = parseInt($("#price").val().trim());
-        var fd = new FormData();
-        fd.append("id", currentProductID);
-        fd.append("name", name);
-        fd.append("price", price);
-        fd.append("image_changed", imageChanged);
-        fd.append("file", imageFile);
-        $.ajax({
-            type: 'POST',
-            url: PHP_URL+'edit-product.php',
-            data: fd,
-            processData: false,
-            contentType: false,
-            cache: false,
-            success: function(response) {
-                getProducts();
-            }
-        });
-    }
-
-    function addProduct() {
-        var name = $("#add-product-name").val().trim();
-        var price = parseInt($("#add-product-price").val().trim());
-        var fd = new FormData();
-        var categoryIndex = $("#categories").prop('selectedIndex');
-        fd.append("name", name);
-        fd.append("price", price);
-        fd.append("file", imageFile);
-        fd.append("category_id", categories[categoryIndex]["id"]);
-        $.ajax({
-            type: 'POST',
-            url: PHP_URL+'add-product.php',
-            data: fd,
-            processData: false,
-            contentType: false,
-            cache: false,
-            success: function(response) {
-                getProducts();
-            }
-        });
     }
 </script>
 </body>

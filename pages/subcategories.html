@@ -235,7 +235,7 @@
     <nav class="navbar navbar-top navbar-expand-md navbar-dark" id="navbar-main">
         <div class="container-fluid">
             <!-- Brand -->
-            <a class="h4 mb-0 text-white text-uppercase d-none d-lg-inline-block" href="products.html">Produk</a>
+            <a class="h4 mb-0 text-white text-uppercase d-none d-lg-inline-block" href="products.html">Subkategori</a>
             <!-- Form -->
             <form class="navbar-search navbar-search-dark form-inline mr-3 d-none d-md-flex ml-lg-auto">
                 <div class="form-group mb-0">
@@ -302,7 +302,7 @@
     </div>
     <div class="container-fluid mt--7">
         <a data-toggle="modal" data-target="#addProductModal" href="#" class="btn btn-sm btn-info mr-3" style="margin-top: 20px;">
-            Tambah Produk
+            Tambah Subkategori
         </a>
         <!-- Modal -->
         <div class="modal fade" id="editProductModal" tabindex="-1" role="dialog" aria-labelledby="editProductModalLabel"
@@ -310,7 +310,7 @@
             <div class="modal-dialog modal-dialog-centered" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="editProductModalLabel">Ubah Produk</h5>
+                        <h5 class="modal-title" id="editProductModalLabel">Ubah Subkategori</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
@@ -318,31 +318,30 @@
                     <div class="modal-body">
                         <form role="form">
                             <div class="form-group mb-3">
-                                <div>Nama produk:</div>
+                                <div>Nama subkategori:</div>
                                 <div class="input-group input-group-alternative" style="margin-top: 10px;">
                                     <div class="input-group-prepend">
                                         <span class="input-group-text"><i class="ni ni-email-83"></i></span>
                                     </div>
-                                    <input id="name" class="form-control" placeholder="Nama" type="text">
+                                    <input id="edit-name" class="form-control" placeholder="Nama" type="text">
                                 </div>
                             </div>
                             <div class="form-group mb-3">
-                                <div>Harga:</div>
+                                <div>Biaya Unit:</div>
                                 <div class="input-group input-group-alternative" style="margin-top: 10px;">
                                     <div class="input-group-prepend">
                                         <span class="input-group-text"><i class="ni ni-email-83"></i></span>
                                     </div>
-                                    <input id="price" class="form-control" placeholder="Harga" type="number">
+                                    <input id="edit-unit-price" class="form-control" placeholder="Biaya Unit" type="number">
                                 </div>
                             </div>
                             <div class="form-group mb-3">
-                                <div>Gambar:</div>
-                                <div style="width: 100%; display: flex; align-items: center; flex-flow: column nowrap;">
-                                    <img id="image" src="" width="150px" height="150px" style="margin-top: 10px;">
-                                    <button onclick="selectImage()" type="button" class="btn btn-primary" style="margin-top: 10px;">
-                                        Ubah Gambar
-                                    </button>
-                                    <input id="select-image" type="file" style="width: 0; height: 0; visibility: hidden;">
+                                <div>Biaya Teknisi:</div>
+                                <div class="input-group input-group-alternative" style="margin-top: 10px;">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text"><i class="ni ni-email-83"></i></span>
+                                    </div>
+                                    <input id="edit-technical-price" class="form-control" placeholder="Biaya Teknisi" type="number">
                                 </div>
                             </div>
                         </form>
@@ -368,39 +367,30 @@
                     <div class="modal-body">
                         <form role="form">
                             <div class="form-group mb-3">
-                                <div>Kategori produk:</div>
-                                <form>
-                                    <select id="categories" class="form-control" data-toggle="select" title="Simple select" data-live-search="true" data-live-search-placeholder="Search ..." style="margin-top: 10px;">
-                                        <!--<option>Alerts</option>-->
-                                    </select>
-                                </form>
-                            </div>
-                            <div class="form-group mb-3">
-                                <div>Nama produk:</div>
+                                <div>Nama subkategori:</div>
                                 <div class="input-group input-group-alternative" style="margin-top: 10px;">
                                     <div class="input-group-prepend">
                                         <span class="input-group-text"><i class="ni ni-email-83"></i></span>
                                     </div>
-                                    <input id="add-product-name" class="form-control" placeholder="Nama" type="text">
+                                    <input id="name" class="form-control" placeholder="Nama" type="text">
                                 </div>
                             </div>
                             <div class="form-group mb-3">
-                                <div>Harga:</div>
+                                <div>Biaya Unit:</div>
                                 <div class="input-group input-group-alternative" style="margin-top: 10px;">
                                     <div class="input-group-prepend">
                                         <span class="input-group-text"><i class="ni ni-email-83"></i></span>
                                     </div>
-                                    <input id="add-product-price" class="form-control" placeholder="Harga" type="number">
+                                    <input id="unit-price" class="form-control" placeholder="Biaya Unit" type="number">
                                 </div>
                             </div>
                             <div class="form-group mb-3">
-                                <div>Gambar:</div>
-                                <div style="width: 100%; display: flex; align-items: center; flex-flow: column nowrap;">
-                                    <img id="add-product-image" src="../assets/img/placeholder.jpg" width="150px" height="150px" style="margin-top: 10px;">
-                                    <button onclick="addProductSelectImage()" type="button" class="btn btn-primary" style="margin-top: 10px;">
-                                        Ubah Gambar
-                                    </button>
-                                    <input id="add-product-select-image" type="file" style="width: 0; height: 0; visibility: hidden;">
+                                <div>Biaya Teknisi:</div>
+                                <div class="input-group input-group-alternative" style="margin-top: 10px;">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text"><i class="ni ni-email-83"></i></span>
+                                    </div>
+                                    <input id="technical-price" class="form-control" placeholder="Biaya Teknisi" type="number">
                                 </div>
                             </div>
                         </form>
@@ -424,7 +414,7 @@
                         </button>
                     </div>
                     <div class="modal-body">
-                        Apakah Anda yakin ingin menghapus produk berikut?
+                        Apakah Anda yakin ingin menghapus subkategori berikut?
                     </div>
                     <div class="modal-footer">
                         <button onclick="deleteProduct()" type="button" class="btn btn-primary" data-dismiss="modal">Ya
@@ -479,16 +469,15 @@
             <div class="col">
                 <div class="card shadow">
                     <div class="card-header border-0">
-                        <h3 class="mb-0">Daftar Produk</h3>
+                        <h3 class="mb-0">Daftar Subkategori</h3>
                     </div>
                     <div class="table-responsive">
                         <table class="table align-items-center table-flush">
                             <thead class="thead-light">
                             <tr>
                                 <th scope="col">Nama</th>
-                                <th scope="col">Harga</th>
-                                <th scope="col">Kategori</th>
-                                <th scope="col">Gambar</th>
+                                <th scope="col">Biaya Unit</th>
+                                <th scope="col">Biaya Teknisi</th>
                                 <th scope="col"></th>
                             </tr>
                             </thead>
@@ -630,7 +619,7 @@
         products = [];
         $.ajax({
             type: 'GET',
-            url: PHP_URL + 'get-all-products.php',
+            url: PHP_URL + 'get-subcategories.php',
             dataType: 'text',
             cache: false,
             success: function (response) {
@@ -643,15 +632,12 @@
                         product["name"]+
                         "</td>" +
                         "<td>" +
-                        "Rp" + product["price"] + ",-" +
+                        product["unit_price"]+
                         "</td>" +
                         "<td>" +
                         "<span class='badge badge-dot mr-4'>" +
-                        product["category"] +
+                        product["technical_price"]+
                         "</span>" +
-                        "</td>" +
-                        "<td>" +
-                        "<img src='" + PROTOCOL + "://" + HOST + "/userdata/" + product["img"] + "' width='80px' height='80px'>" +
                         "</td>" +
                         "<td class='text-right'>" +
                         "<div class='dropdown'>" +
@@ -672,7 +658,7 @@
                     var id = $(this).data('id');
                     currentProductID = parseInt(id);
                     var fd = new FormData();
-                    fd.append("name", "products");
+                    fd.append("name", "subcategories");
                     fd.append("id", id);
                     $.ajax({
                         type: 'POST',
@@ -683,9 +669,9 @@
                         cache: false,
                         success: function(response) {
                             var userInfo = JSON.parse(response)[0];
-                            $("#name").val(userInfo["name"]);
-                            $("#price").val(userInfo["price"]);
-                            $("#image").attr("src", PROTOCOL+"://"+HOST+"/userdata/"+userInfo["img"]);
+                            $("#edit-name").val(userInfo["name"]);
+                            $("#edit-unit-price").val(userInfo["unit_price"]);
+                            $("#edit-technical-price").val(userInfo["technical_price"]);
                         }
                     });
                 });
@@ -700,7 +686,7 @@
 
     function deleteProduct() {
         var fd = new FormData();
-        fd.append("name", "products");
+        fd.append("name", "subcategories");
         fd.append("id", currentProductID);
         $.ajax({
             type: 'POST',
@@ -710,7 +696,6 @@
             contentType: false,
             cache: false,
             success: function(response) {
-                console.log("Delete product response: "+response);
                 getProducts();
             }
         });
@@ -753,7 +738,7 @@
         fd.append("file", imageFile);
         $.ajax({
             type: 'POST',
-            url: PHP_URL+'edit-product.php',
+            url: PHP_URL+'edit-subcategory.php',
             data: fd,
             processData: false,
             contentType: false,
@@ -765,17 +750,26 @@
     }
 
     function addProduct() {
-        var name = $("#add-product-name").val().trim();
-        var price = parseInt($("#add-product-price").val().trim());
+        var name = $("#name").val().trim();
+        var unitPrice = $("#unit-price").val().trim();
+        if (unitPrice == "") {
+            unitPrice = 0;
+        } else {
+            unitPrice = parseInt(unitPrice);
+        }
+        var technicalPrice = $("#technical-price").val().trim();
+        if (technicalPrice == "") {
+            technicalPrice = 0;
+        } else {
+            technicalPrice = parseInt(technicalPrice);
+        }
         var fd = new FormData();
-        var categoryIndex = $("#categories").prop('selectedIndex');
         fd.append("name", name);
-        fd.append("price", price);
-        fd.append("file", imageFile);
-        fd.append("category_id", categories[categoryIndex]["id"]);
+        fd.append("unit_price", unitPrice);
+        fd.append("technical_price", technicalPrice);
         $.ajax({
             type: 'POST',
-            url: PHP_URL+'add-product.php',
+            url: PHP_URL+'add-subcategory.php',
             data: fd,
             processData: false,
             contentType: false,
