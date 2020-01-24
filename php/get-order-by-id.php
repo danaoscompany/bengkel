@@ -8,16 +8,16 @@ if ($results && $results->num_rows > 0) {
 		$subcategories = $c->query("SELECT * FROM subcategories WHERE id=" . $row["subcategory"]);
 		if ($subcategories && $subcategories->num_rows > 0) {
 			$subcategory = $subcategories->fetch_assoc();
-			$row["subcategory"] = $subcategory;
+			$row["subcategory_name"] = $subcategory;
 		} else {
-			$row["subcategory"] = "";
+			$row["subcategory_name"] = "";
 		}
 		$subsubcategories = $c->query("SELECT * FROM subsubcategories WHERE id=" . $row["subsubcategory"]);
 		if ($subsubcategories && $subsubcategories->num_rows > 0) {
 			$subsubcategory = $subsubcategories->fetch_assoc();
-			$row["subsubcategory"] = $subsubcategory;
+			$row["subsubcategory_name"] = $subsubcategory;
 		} else {
-			$row["subsubcategory"] = "";
+			$row["subsubcategory_name"] = "";
 		}
 		$serviceID = intval($row["order_type"]);
 		$services = $c->query("SELECT * FROM services WHERE id=" . $serviceID);
