@@ -8,6 +8,8 @@ $kind = intval($_POST["kind"]);
 $type = intval($_POST["type"]);
 $capacity = floatval($_POST["capacity"]);
 $material = intval($_POST["material"]);
+$subCategory = intval($_POST["subcategory"]);
+$subSubCategory = intval($_POST["subsubcategory"]);
 $priceEstimation = intval($_POST["price_estimation"]);
 $technicalEstimation = intval($_POST["techinical_estimation"]);
 $progress = intval($_POST["progress"]);
@@ -20,7 +22,7 @@ $endResultApproval = intval($_POST["end_result_approval"]);
 $paymentMethod = intval($_POST["payment_method"]);
 $orderType = intval($_POST["order_type"]);
 $complaint = $_POST["complaint"];
-$sql = "INSERT INTO orders (user_id, order_id, order_type, address, units, kind, type, capacity, material, complaint, latitude, longitude, price_estimation, technical_estimation, date, progress, price_change_approval, end_result_approval, payment_method, done) VALUES (" . $userID . ", '" . $orderID . "', " . $orderType . ", '" . $address . "', " . $units. ", " . $kind . ", " . $type . ", " . $capacity . ", " . $material . ", '" . $complaint . "', " . $latitude . ", " . $longitude . ", " . $priceEstimation . ", " . $technicalEstimation . ", '" . $date . "', " . $progress . ", " . $priceChangeApproval . ", " . $endResultApproval . ", " . $paymentMethod . ", 0)";
+$sql = "INSERT INTO orders (user_id, order_id, order_type, address, units, kind, type, capacity, material, subcategory, subsubcategory, complaint, latitude, longitude, price_estimation, technical_estimation, date, progress, price_change_approval, end_result_approval, payment_method, done) VALUES (" . $userID . ", '" . $orderID . "', " . $orderType . ", '" . $address . "', " . $units. ", " . $kind . ", " . $type . ", " . $capacity . ", " . $material . ", " . $subCategory . ", " . $subSubCategory . ", '" . $complaint . "', " . $latitude . ", " . $longitude . ", " . $priceEstimation . ", " . $technicalEstimation . ", '" . $date . "', " . $progress . ", " . $priceChangeApproval . ", " . $endResultApproval . ", " . $paymentMethod . ", 0)";
 $c->query($sql);
 $orderID = mysqli_insert_id($c);
 foreach ($progresses as $progressItem) {
