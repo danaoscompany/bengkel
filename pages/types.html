@@ -720,7 +720,7 @@
                 $("#categories").append("<option>----- Tambah kategori -----</option>");
                 $.ajax({
                     type: 'GET',
-                    url: PHP_URL + 'get-subcategories-by-kind-id.php?kind_id=' + categories[0]["id"],
+                    url: PHP_URL + 'get-subcategories-by-type-id.php?kind_id=' + categories[0]["id"],
                     dataType: 'text',
                     cache: false,
                     success: function (response) {
@@ -737,7 +737,7 @@
                         $("#subcategory-container").css("display", "block");
                         $.ajax({
                             type: 'GET',
-                            url: PHP_URL + 'get-sub-subcategories-by-kind-id.php?kind_id=' + categories[0]["id"] + "&subcategory_id=" + subcategories[0]["id"],
+                            url: PHP_URL + 'get-sub-subcategories-by-type-id.php?kind_id=' + categories[0]["id"] + "&subcategory_id=" + subcategories[0]["id"],
                             dataType: 'text',
                             cache: false,
                             success: function (response) {
@@ -765,7 +765,7 @@
         $("#subsubcategories").find("*").remove();
         $.ajax({
             type: 'GET',
-            url: PHP_URL + 'get-subcategories-by-kind-id.php?kind_id='+currentKindID,
+            url: PHP_URL + 'get-subcategories-by-type-id.php?kind_id='+currentKindID,
             dataType: 'text',
             cache: false,
             success: function (response) {
@@ -780,7 +780,7 @@
                 if (subcategories.length > 0) {
                     $.ajax({
                         type: 'GET',
-                        url: PHP_URL + 'get-sub-subcategories-by-kind-id.php?kind_id=' + currentKindID + "&subcategory_id=" + currentSubcategoryID,
+                        url: PHP_URL + 'get-sub-subcategories-by-type-id.php?kind_id=' + currentKindID + "&subcategory_id=" + currentSubcategoryID,
                         dataType: 'text',
                         cache: false,
                         success: function (response) {
@@ -803,7 +803,7 @@
         $("#subsubcategories").find("*").remove();
         $.ajax({
             type: 'GET',
-            url: PHP_URL + 'get-sub-subcategories-by-kind-id.php?kind_id=' + currentKindID + "&subcategory_id=" + currentSubcategoryID,
+            url: PHP_URL + 'get-sub-subcategories-by-type-id.php?kind_id=' + currentKindID + "&subcategory_id=" + currentSubcategoryID,
             dataType: 'text',
             cache: false,
             success: function (response) {
