@@ -1,7 +1,7 @@
 <?php
 include 'db.php';
 include 'logs.php';
-sendLog($c, 30, 1, 'Halo dunia');
+sendLog($c, 30, 1, 'Halo dunia 2');
 /*include 'messages.php';
 $results = $c->query("SELECT * FROM owners");
 if ($results && $results->num_rows > 0) {
