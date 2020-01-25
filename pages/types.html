@@ -656,7 +656,7 @@
     var categories;
     var subcategories;
     var subsubcategories;
-    var currentKindID = 0;
+    var currentTypeID = 0;
     var currentSubcategoryID = 0;
     var currentSubsubcategoryID = 0;
     window.TrackJS &&
@@ -675,7 +675,7 @@
             if (index == categories.length) {
                 $("#addCategoryModal").modal('show');
             } else {
-                currentKindID = categories[index]["id"];
+                currentTypeID = categories[index]["id"];
                 getSubcategoriesByID();
             }
         });
@@ -704,13 +704,13 @@
         $("#subsubcategories").find("*").remove();
         $.ajax({
             type: 'GET',
-            url: PHP_URL + 'get-kinds.php',
+            url: PHP_URL + 'get-types.php',
             dataType: 'text',
             cache: false,
             success: function (response) {
                 categories = JSON.parse(response);
                 if (categories.length > 0) {
-                    currentKindID = categories[0]["id"];
+                    currentTypeID = categories[0]["id"];
                 }
                 $("#categories").append("<option>----- Pilih kategori -----</option>");
                 for (var i = 0; i < categories.length; i++) {
@@ -720,7 +720,7 @@
                 $("#categories").append("<option>----- Tambah kategori -----</option>");
                 $.ajax({
                     type: 'GET',
-                    url: PHP_URL + 'get-subcategories-by-type-id.php?kind_id=' + categories[0]["id"],
+                    url: PHP_URL + 'get-subcategories-by-type-id.php?type_id=' + categories[0]["id"],
                     dataType: 'text',
                     cache: false,
                     success: function (response) {
@@ -737,7 +737,7 @@
                         $("#subcategory-container").css("display", "block");
                         $.ajax({
                             type: 'GET',
-                            url: PHP_URL + 'get-sub-subcategories-by-type-id.php?kind_id=' + categories[0]["id"] + "&subcategory_id=" + subcategories[0]["id"],
+                            url: PHP_URL + 'get-sub-subcategories-by-type-id.php?type_id=' + categories[0]["id"] + "&subcategory_id=" + subcategories[0]["id"],
                             dataType: 'text',
                             cache: false,
                             success: function (response) {
@@ -765,7 +765,7 @@
         $("#subsubcategories").find("*").remove();
         $.ajax({
             type: 'GET',
-            url: PHP_URL + 'get-subcategories-by-type-id.php?kind_id='+currentKindID,
+            url: PHP_URL + 'get-subcategories-by-type-id.php?type_id='+currentTypeID,
             dataType: 'text',
             cache: false,
             success: function (response) {
@@ -780,7 +780,7 @@
                 if (subcategories.length > 0) {
                     $.ajax({
                         type: 'GET',
-                        url: PHP_URL + 'get-sub-subcategories-by-type-id.php?kind_id=' + currentKindID + "&subcategory_id=" + currentSubcategoryID,
+                        url: PHP_URL + 'get-sub-subcategories-by-type-id.php?type_id=' + currentTypeID + "&subcategory_id=" + currentSubcategoryID,
                         dataType: 'text',
                         cache: false,
                         success: function (response) {
@@ -803,7 +803,7 @@
         $("#subsubcategories").find("*").remove();
         $.ajax({
             type: 'GET',
-            url: PHP_URL + 'get-sub-subcategories-by-type-id.php?kind_id=' + currentKindID + "&subcategory_id=" + currentSubcategoryID,
+            url: PHP_URL + 'get-sub-subcategories-by-type-id.php?type_id=' + currentTypeID + "&subcategory_id=" + currentSubcategoryID,
             dataType: 'text',
             cache: false,
             success: function (response) {
@@ -984,7 +984,7 @@
             return;
         }
         var fd = new FormData();
-        fd.append("kind_id", currentKindID);
+        fd.append("type_id", currentTypeID);
         fd.append("name", name);
         fd.append("unit_price", unitPrice);
         fd.append("technical_price", technicalPrice);
@@ -1011,7 +1011,7 @@
             return;
         }
         var fd = new FormData();
-        fd.append("kind_id", currentKindID);
+        fd.append("type_id", currentTypeID);
         fd.append("subcategory_id", currentSubcategoryID);
         fd.append("name", name);
         fd.append("unit_price", unitPrice);
