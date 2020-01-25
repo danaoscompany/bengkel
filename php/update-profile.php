@@ -1,5 +1,6 @@
 <?php
 include 'db.php';
+include 'logs.php';
 $uid = $_POST["uid"];
 $name = $_POST["name"];
 $email = $_POST["email"];

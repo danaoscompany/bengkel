@@ -1,5 +1,6 @@
 <?php
 include 'db.php';
+include 'logs.php';
 $url = 'https://fcm.googleapis.com/fcm/send';
     	$fields = array (
             'registration_ids' => array (

@@ -1,5 +1,6 @@
 <?php
 include 'db.php';
+include 'logs.php';
 $orderID = intval($_POST["order_id"]);
 $progress = $_POST["progress"];
 $time = $_POST["time"];

@@ -1,5 +1,7 @@
 <?php
 include 'db.php';
+include 'logs.php';
+
 $complaintID = intval($_POST["complaint_id"]);
 $progress = $_POST["progress"];
 $time = $_POST["time"];

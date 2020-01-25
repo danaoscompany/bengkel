@@ -1,5 +1,6 @@
 <?php
 include 'db.php';
+include 'logs.php';
 include 'messages.php';
 $orderID = intval($_POST["id"]);
 $date = $_POST["date"];

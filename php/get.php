@@ -1,5 +1,6 @@
 <?php
 include 'db.php';
+include 'logs.php';
 $name = $_POST["name"];
 $items = [];
 $results = $c->query("SELECT * FROM " . $name);

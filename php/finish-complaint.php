@@ -1,5 +1,6 @@
 <?php
 include 'db.php';
+include 'logs.php';
 $complaintID = intval($_POST["complaint_id"]);
 $c->query("UPDATE complaints SET done=1 WHERE id=" . $complaintID);
 $results = $c->query("SELECT * FROM complaints WHERE id=" . $complaintID);

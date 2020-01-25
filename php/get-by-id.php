@@ -1,5 +1,6 @@
 <?php
 include 'db.php';
+include 'logs.php';
 $name = $_POST["name"];
 $id = intval($_POST["id"]);
 $items = [];

@@ -1,5 +1,6 @@
 <?php
 include 'db.php';
+include 'logs.php';
 $items = [];
 $results = $c->query("SELECT * FROM price LIMIT 1");
 while ($row = $results->fetch_assoc()) {

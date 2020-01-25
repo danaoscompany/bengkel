@@ -1,5 +1,6 @@
 <?php
 include 'db.php';
+include 'logs.php';
 $purchaseInfo = json_decode(file_get_contents("php://input"), true);
 $externalID = $purchaseInfo["external_id"];
 $results = $c->query("SELECT * FROM purchases WHERE external_id='" . $externalID . "'");

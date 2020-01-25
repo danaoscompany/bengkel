@@ -1,5 +1,6 @@
 <?php
 include 'db.php';
+include 'logs.php';
 $name = $_POST["name"];
 $orderID = $_POST["order_id"];
 $phone = $_POST["phone"];

@@ -1,5 +1,6 @@
 <?php
 include 'db.php';
+include 'logs.php';
 $typePrices = $_POST["type_prices"];
 $kindPrices = $_POST["kind_prices"];
 $materialPrices = $_POST["material_prices"];

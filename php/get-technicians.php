@@ -1,5 +1,6 @@
 <?php
 include 'db.php';
+include 'logs.php';
 $items = [];
 $results = $c->query("SELECT * FROM technicians");
 if ($results && $results->num_rows > 0) {

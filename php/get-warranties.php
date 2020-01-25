@@ -1,5 +1,6 @@
 <?php
 include 'db.php';
+include 'logs.php';
 $orderID = intval($_POST["order_id"]);
 $warranties = [];
 $results = $c->query("SELECT * FROM warranties WHERE order_id=" . $orderID);

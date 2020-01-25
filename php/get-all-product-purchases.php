@@ -1,5 +1,6 @@
 <?php
 include 'db.php';
+include 'logs.php';
 $results = $c->query("SELECT * FROM product_purchases");
 $purchases = [];
 if ($results && $results->num_rows > 0) {

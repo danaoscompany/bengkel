@@ -1,5 +1,6 @@
 <?php
 include 'db.php';
+include 'logs.php';
 $id = intval($_POST["id"]);
 $results = $c->query("SELECT * FROM products WHERE id=" . $id);
 $products = [];

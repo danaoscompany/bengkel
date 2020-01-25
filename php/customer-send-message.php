@@ -1,5 +1,6 @@
 <?php
 include 'db.php';
+include 'logs.php';
 include 'messages.php';
 $message = $_POST["message"];
 $senderID = intval($_POST["sender_id"]);

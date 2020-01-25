@@ -1,5 +1,6 @@
 <?php
 include 'db.php';
+include 'logs.php';
 $id = intval($_POST["id"]);
 $name = $_POST["name"];
 $accountType = intval($_POST["account_type"]);

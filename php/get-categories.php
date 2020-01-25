@@ -1,5 +1,6 @@
 <?php
 include 'db.php';
+include 'logs.php';
 $categories = [];
 $results = $c->query("SELECT * FROM categories");
 if ($results && $results->num_rows > 0) {

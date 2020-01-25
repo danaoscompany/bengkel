@@ -1,5 +1,6 @@
 <?php
 include 'db.php';
+include 'logs.php';
 $start = intval($_POST["start"]);
 $length = intval($_POST["length"]);
 $userID = intval($_POST["user_id"]);

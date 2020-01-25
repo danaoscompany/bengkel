@@ -1,5 +1,6 @@
 <?php
 include 'db.php';
+include 'logs.php';
 $categoryID = intval($_POST["category_id"]);
 $products = [];
 $results = $c->query("SELECT * FROM products WHERE category_id=" . $categoryID);

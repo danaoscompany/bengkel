@@ -1,5 +1,6 @@
 <?php
 include 'db.php';
+include 'logs.php';
 $orderID = intval($_POST["order_id"]);
 $c->query("UPDATE orders SET active=0, done=1 WHERE id=" . $orderID);
 $orders = $c->query("SELECT * FROM orders WHERE id=" . $orderID);

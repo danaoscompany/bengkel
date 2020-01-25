@@ -1,5 +1,6 @@
 <?php
 include 'db.php';
+include 'logs.php';
 $address = $_POST["address"];
 $orderID = $_POST["order_id"];
 $userID = intval($_POST["user_id"]);

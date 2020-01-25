@@ -1,5 +1,6 @@
 <?php
 include 'db.php';
+include 'logs.php';
 $orderID = intval($_POST["order_id"]);
 $userID = intval($_POST["user_id"]);
 $invoiceNumber = $_POST["invoice_number"];

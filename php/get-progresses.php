@@ -1,5 +1,6 @@
 <?php
 include 'db.php';
+include 'logs.php';
 $orderID = intval($_POST["id"]);
 $progresses = [];
 $results = $c->query("SELECT * FROM order_progress WHERE order_id=" . $orderID);

@@ -1,5 +1,6 @@
 <?php
 include 'db.php';
+include 'logs.php';
 $orderID = intval($_POST["order_id"]);
 $complaintID = intval($_POST["complaint_id"]);
 $technicianID = intval($_POST["technician_id"]);

@@ -1,5 +1,6 @@
 <?php
 include 'db.php';
+include 'logs.php';include 'logs.php';
 $userID = intval($_POST["user_id"]);
 $fcmID = $_POST["fcm_id"];
 $role = $_POST["role"];

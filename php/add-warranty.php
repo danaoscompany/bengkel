@@ -1,5 +1,6 @@
 <?php
 include 'db.php';
+include 'logs.php';
 $warranty = $_POST["warranty"];
 $orderID = intval($_POST["order_id"]);
 $price = intval($_POST["price"]);

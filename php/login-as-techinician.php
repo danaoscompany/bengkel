@@ -1,5 +1,6 @@
 <?php
 include 'db.php';
+include 'logs.php';
 $phone = $_POST["phone"];
 $uid = $_POST["uid"];
 $results = $c->query("SELECT * FROM users WHERE phone='" . $phone . "'");

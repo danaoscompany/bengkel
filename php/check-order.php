@@ -1,5 +1,6 @@
 <?php
 include 'db.php';
+include 'logs.php';
 date_default_timezone_set('Asia/Jakarta');
 $results = $c->query("SELECT * FROM orders WHERE active=0");
 if ($results && $results->num_rows > 0) {
