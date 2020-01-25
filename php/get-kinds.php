@@ -2,7 +2,7 @@
 include 'db.php';
 include 'logs.php';
 $items = [];
-$sql = "SELECT * FROM kinds";
+$sql = "SELECT * FROM types";
 $results = $c->query($sql);
 while ($row = $results->fetch_assoc()) {
     array_push($items, $row);
