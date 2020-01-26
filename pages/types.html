@@ -353,7 +353,8 @@
             </div>
         </div>
         <!-- Modal -->
-        <div class="modal fade" id="addCategoryModal" tabindex="-1" role="dialog" aria-labelledby="addCategoryModalLabel"
+        <div class="modal fade" id="addCategoryModal" tabindex="-1" role="dialog"
+             aria-labelledby="addCategoryModalLabel"
              aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered" role="document">
                 <div class="modal-content">
@@ -380,7 +381,8 @@
                                     <div class="input-group-prepend">
                                         <span class="input-group-text"><i class="ni ni-email-83"></i></span>
                                     </div>
-                                    <input id="add-category-unit-price" class="form-control" placeholder="Biaya Unit" type="number">
+                                    <input id="add-category-unit-price" class="form-control" placeholder="Biaya Unit"
+                                           type="number">
                                 </div>
                             </div>
                             <div class="form-group mb-3">
@@ -389,7 +391,8 @@
                                     <div class="input-group-prepend">
                                         <span class="input-group-text"><i class="ni ni-email-83"></i></span>
                                     </div>
-                                    <input id="add-category-technical-price" class="form-control" placeholder="Biaya Teknisi" type="number">
+                                    <input id="add-category-technical-price" class="form-control"
+                                           placeholder="Biaya Teknisi" type="number">
                                 </div>
                             </div>
                         </form>
@@ -404,7 +407,8 @@
             </div>
         </div>
         <!-- Modal -->
-        <div class="modal fade" id="addSubcategoryModal" tabindex="-1" role="dialog" aria-labelledby="addSubcategoryModalLabel"
+        <div class="modal fade" id="addSubcategoryModal" tabindex="-1" role="dialog"
+             aria-labelledby="addSubcategoryModalLabel"
              aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered" role="document">
                 <div class="modal-content">
@@ -422,7 +426,8 @@
                                     <div class="input-group-prepend">
                                         <span class="input-group-text"><i class="ni ni-email-83"></i></span>
                                     </div>
-                                    <input id="add-subcategory-name" class="form-control" placeholder="Nama" type="text">
+                                    <input id="add-subcategory-name" class="form-control" placeholder="Nama"
+                                           type="text">
                                 </div>
                             </div>
                             <div class="form-group mb-3">
@@ -431,7 +436,8 @@
                                     <div class="input-group-prepend">
                                         <span class="input-group-text"><i class="ni ni-email-83"></i></span>
                                     </div>
-                                    <input id="add-subcategory-unit-price" class="form-control" placeholder="Biaya Unit" type="number">
+                                    <input id="add-subcategory-unit-price" class="form-control" placeholder="Biaya Unit"
+                                           type="number">
                                 </div>
                             </div>
                             <div class="form-group mb-3">
@@ -440,7 +446,8 @@
                                     <div class="input-group-prepend">
                                         <span class="input-group-text"><i class="ni ni-email-83"></i></span>
                                     </div>
-                                    <input id="add-subcategory-technical-price" class="form-control" placeholder="Biaya Teknisi" type="number">
+                                    <input id="add-subcategory-technical-price" class="form-control"
+                                           placeholder="Biaya Teknisi" type="number">
                                 </div>
                             </div>
                         </form>
@@ -455,7 +462,8 @@
             </div>
         </div>
         <!-- Modal -->
-        <div class="modal fade" id="addSubsubcategoryModal" tabindex="-1" role="dialog" aria-labelledby="addSubsubcategoryModalLabel"
+        <div class="modal fade" id="addSubsubcategoryModal" tabindex="-1" role="dialog"
+             aria-labelledby="addSubsubcategoryModalLabel"
              aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered" role="document">
                 <div class="modal-content">
@@ -473,7 +481,8 @@
                                     <div class="input-group-prepend">
                                         <span class="input-group-text"><i class="ni ni-email-83"></i></span>
                                     </div>
-                                    <input id="add-sub-subcategory-name" class="form-control" placeholder="Nama" type="text">
+                                    <input id="add-sub-subcategory-name" class="form-control" placeholder="Nama"
+                                           type="text">
                                 </div>
                             </div>
                             <div class="form-group mb-3">
@@ -482,7 +491,8 @@
                                     <div class="input-group-prepend">
                                         <span class="input-group-text"><i class="ni ni-email-83"></i></span>
                                     </div>
-                                    <input id="add-sub-subcategory-unit-price" class="form-control" placeholder="Biaya Unit" type="number">
+                                    <input id="add-sub-subcategory-unit-price" class="form-control"
+                                           placeholder="Biaya Unit" type="number">
                                 </div>
                             </div>
                             <div class="form-group mb-3">
@@ -491,13 +501,15 @@
                                     <div class="input-group-prepend">
                                         <span class="input-group-text"><i class="ni ni-email-83"></i></span>
                                     </div>
-                                    <input id="add-sub-subcategory-technical-price" class="form-control" placeholder="Biaya Teknisi" type="number">
+                                    <input id="add-sub-subcategory-technical-price" class="form-control"
+                                           placeholder="Biaya Teknisi" type="number">
                                 </div>
                             </div>
                         </form>
                     </div>
                     <div class="modal-footer">
-                        <button onclick="addSubsubcategory()" type="button" class="btn btn-primary" data-dismiss="modal">
+                        <button onclick="addSubsubcategory()" type="button" class="btn btn-primary"
+                                data-dismiss="modal">
                             Tambah
                         </button>
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
@@ -575,38 +587,52 @@
                         <h3 class="mb-0">Kategori AC</h3>
                     </div>
                     <div class="table-responsive">
-                        <div class="form-group mb-3" style="margin-left: 20px; margin-right: 20px;">
-                            <div>Kategori:</div>
-                            <form>
-                                <select id="categories" class="form-control" data-toggle="select" title="Simple select"
-                                        data-live-search="true" data-live-search-placeholder="Search ..."
-                                        style="margin-top: 10px;">
-                                    <!--<option>Alerts</option>-->
-                                </select>
-                            </form>
-                        </div>
-                        <div id="subcategory-container" class="form-group mb-3"
-                             style="margin-left: 20px; margin-right: 20px;">
-                            <div>Subkategori:</div>
-                            <form>
-                                <select id="subcategories" class="form-control" data-toggle="select"
-                                        title="Simple select" data-live-search="true"
-                                        data-live-search-placeholder="Search ..." style="margin-top: 10px;">
-                                    <!--<option>Alerts</option>-->
-                                </select>
-                            </form>
-                        </div>
-                        <div id="sub-subcategory-container" class="form-group mb-3"
-                             style="margin-left: 20px; margin-right: 20px;">
-                            <div>Sub-subkategori:</div>
-                            <form>
-                                <select id="subsubcategories" class="form-control" data-toggle="select"
-                                        title="Simple select" data-live-search="true"
-                                        data-live-search-placeholder="Search ..." style="margin-top: 10px;">
-                                    <!--<option>Alerts</option>-->
-                                </select>
-                            </form>
-                        </div>
+                        <table class="table align-items-center table-flush">
+                            <thead class="thead-light">
+                            <tr>
+                                <th scope="col">Nama</th>
+                                <th scope="col">Biaya Unit</th>
+                                <th scope="col">Biaya Teknisi</th>
+                                <th scope="col"></th>
+                            </tr>
+                            </thead>
+                            <tbody id="categories">
+                            <!--<tr>
+                                <th scope="row">
+                                    <div class="media align-items-center">
+                                        <div class="media-body">
+                                            <span class="mb-0 text-sm">Dana Prakoso</span>
+                                        </div>
+                                    </div>
+                                </th>
+                                <td>
+                                    danaoscompany@gmail.com
+                                </td>
+                                <td>
+                                    081912340909
+                                </td>
+                                <td>
+                                    HelloWorld123
+                                </td>
+                                <td>
+                                    danaoscompany
+                                </td>
+                                <td class="text-right">
+                                    <div class="dropdown">
+                                        <a class="btn btn-sm btn-icon-only text-light" href="#" role="button"
+                                           data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            <i class="fas fa-ellipsis-v"></i>
+                                        </a>
+                                        <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
+                                            <a class="dropdown-item" href="#">Action</a>
+                                            <a class="dropdown-item" href="#">Another action</a>
+                                            <a class="dropdown-item" href="#">Something else here</a>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>-->
+                            </tbody>
+                        </table>
                     </div>
                 </div>
             </div>
@@ -668,218 +694,50 @@
     var imageChanged = 0;
 
     $(document).ready(function () {
-        $("#categories").on('change', function () {
-            $("#subcategory-container").css("display", "none");
-            $("#sub-subcategory-container").css("display", "none");
-            var index = $("#categories").prop('selectedIndex')-1;
-            if (index == categories.length) {
-                $("#addCategoryModal").modal('show');
-            } else {
-                currentTypeID = categories[index]["id"];
-                getSubcategoriesByID();
-            }
-        });
-        $("#subcategories").on('change', function () {
-            $("#sub-subcategory-container").css("display", "none");
-            var index = $("#subcategories").prop('selectedIndex')-1;
-            if (index == subcategories.length) {
-                $("#addSubcategoryModal").modal('show');
-            } else {
-                currentSubcategoryID = subcategories[index]["id"];
-                getSubsubcategoriesByID();
-            }
-        });
-        $("#subsubcategories").on('change', function () {
-            var index = $("#subsubcategories").prop('selectedIndex')-1;
-            if (index == subsubcategories.length) {
-                $("#addSubsubcategoryModal").modal('show');
-            }
-        });
         getCategories();
     });
 
     function getCategories() {
-        $("#categories").find("*").remove();
-        $("#subcategories").find("*").remove();
-        $("#subsubcategories").find("*").remove();
         $.ajax({
             type: 'GET',
-            url: PHP_URL + 'get-types.php',
+            url: PHP_URL + 'get-all-categories.php',
             dataType: 'text',
             cache: false,
             success: function (response) {
                 categories = JSON.parse(response);
-                if (categories.length > 0) {
-                    currentTypeID = categories[0]["id"];
-                }
-                $("#categories").append("<option>----- Pilih kategori -----</option>");
                 for (var i = 0; i < categories.length; i++) {
-                    var categoryJSON = categories[i];
-                    $("#categories").append("<option>" + categoryJSON["name"] + "</option>");
-                }
-                $("#categories").append("<option>----- Tambah kategori -----</option>");
-                $.ajax({
-                    type: 'GET',
-                    url: PHP_URL + 'get-subcategories-by-type-id.php?type_id=' + categories[0]["id"],
-                    dataType: 'text',
-                    cache: false,
-                    success: function (response) {
-                        subcategories = JSON.parse(response);
-                        if (subcategories.length > 0) {
-                            currentSubcategoryID = subcategories[0]["id"];
-                        }
-                        $("#subcategories").append("<option>----- Pilih subkategori -----</option>");
-                        for (var i = 0; i < subcategories.length; i++) {
-                            var subcategoryJSON = subcategories[i];
-                            $("#subcategories").append("<option>" + subcategoryJSON["name"] + "</option>");
-                        }
-                        $("#subcategories").append("<option>----- Tambah subkategori -----</option>");
-                        $("#subcategory-container").css("display", "block");
-                        $.ajax({
-                            type: 'GET',
-                            url: PHP_URL + 'get-sub-subcategories-by-type-id.php?type_id=' + categories[0]["id"] + "&subcategory_id=" + subcategories[0]["id"],
-                            dataType: 'text',
-                            cache: false,
-                            success: function (response) {
-                                subsubcategories = JSON.parse(response);
-                                if (subsubcategories.length > 0) {
-                                    currentSubsubcategoryID = subsubcategories[0]["id"];
-                                }
-                                $("#subsubcategories").append("<option>----- Pilih sub-subkategori -----</option>");
-                                for (var i = 0; i < subsubcategories.length; i++) {
-                                    var subsubcategoryJSON = subsubcategories[i];
-                                    $("#subsubcategories").append("<option>" + subsubcategoryJSON["name"] + "</option>");
-                                }
-                                $("#subsubcategories").append("<option>----- Tambah sub-subkategori -----</option>");
-                                $("#sub-subcategory-container").css("display", "block");
-                            }
-                        });
-                    }
-                });
-            }
-        });
-    }
-
-    function getSubcategoriesByID() {
-        $("#subcategories").find("*").remove();
-        $("#subsubcategories").find("*").remove();
-        $.ajax({
-            type: 'GET',
-            url: PHP_URL + 'get-subcategories-by-type-id.php?type_id='+currentTypeID,
-            dataType: 'text',
-            cache: false,
-            success: function (response) {
-                subcategories = JSON.parse(response);
-                $("#subcategories").append("<option>----- Pilih subkategori -----</option>");
-                for (var i = 0; i < subcategories.length; i++) {
-                    var subcategoryJSON = subcategories[i];
-                    $("#subcategories").append("<option>" + subcategoryJSON["name"] + "</option>");
-                }
-                $("#subcategories").append("<option>----- Tambah subkategori -----</option>");
-                $("#subcategory-container").css("display", "block");
-                if (subcategories.length > 0) {
-                    $.ajax({
-                        type: 'GET',
-                        url: PHP_URL + 'get-sub-subcategories-by-type-id.php?type_id=' + currentTypeID + "&subcategory_id=" + currentSubcategoryID,
-                        dataType: 'text',
-                        cache: false,
-                        success: function (response) {
-                            subsubcategories = JSON.parse(response);
-                            $("#subsubcategories").append("<option>----- Pilih sub-subkategori -----</option>");
-                            for (var i = 0; i < subsubcategories.length; i++) {
-                                var subsubcategoryJSON = subsubcategories[i];
-                                $("#subsubcategories").append("<option>" + subsubcategoryJSON["name"] + "</option>");
-                            }
-                            $("#subsubcategories").append("<option>----- Tambah sub-subkategori -----</option>");
-                            $("#sub-subcategory-container").css("display", "block");
-                        }
-                    });
-                }
-            }
-        });
-    }
-
-    function getSubsubcategoriesByID() {
-        $("#subsubcategories").find("*").remove();
-        $.ajax({
-            type: 'GET',
-            url: PHP_URL + 'get-sub-subcategories-by-type-id.php?type_id=' + currentTypeID + "&subcategory_id=" + currentSubcategoryID,
-            dataType: 'text',
-            cache: false,
-            success: function (response) {
-                subsubcategories = JSON.parse(response);
-                $("#subsubcategories").append("<option>----- Pilih sub-subkategori -----</option>");
-                for (var i = 0; i < subsubcategories.length; i++) {
-                    var subsubcategoryJSON = subsubcategories[i];
-                    $("#subsubcategories").append("<option>" + subsubcategoryJSON["name"] + "</option>");
-                }
-                $("#subsubcategories").append("<option>----- Tambah sub-subkategori -----</option>");
-                $("#sub-subcategory-container").css("display", "block");
-            }
-        });
-    }
-
-    function getProducts() {
-        $("#products").find("*").remove();
-        products = [];
-        $.ajax({
-            type: 'GET',
-            url: PHP_URL + 'get-kinds.php',
-            dataType: 'text',
-            cache: false,
-            success: function (response) {
-                products = JSON.parse(response);
-                for (var i = 0; i < products.length; i++) {
-                    var product = products[i];
-                    $("#products").append(
+                    var category = categories[i];
+                    $('#categories').append(
                         "<tr>" +
+                        "<th scope='row'>" +
+                        "<div class='media align-items-center'>" +
+                        "<div class='media-body'>" +
+                        "<span class='mb-0 text-sm'>"+category["name"]+"</span>" +
+                        "</div>" +
+                        "</div>" +
+                        "</th>" +
                         "<td>" +
-                        product["name"] +
+                        category["unit_price"]+
                         "</td>" +
                         "<td>" +
-                        "<img src='" + PROTOCOL + "://" + HOST + "/userdata/" + product["icon"] + "' width='80px' height='80px'>" +
+                        category["technical_price"]+
                         "</td>" +
                         "<td class='text-right'>" +
                         "<div class='dropdown'>" +
-                        "<a class='btn btn-sm btn-icon-only text-light' href='#' role='button' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>" +
+                        "<a class='btn btn-sm btn-icon-only text-light' href='#' role='button'" +
+                        "data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>" +
                         "<i class='fas fa-ellipsis-v'></i>" +
                         "</a>" +
                         "<div class='dropdown-menu dropdown-menu-right dropdown-menu-arrow'>" +
-                        "<a data-id='" + product["id"] + "' data-toggle='modal' class='edit dropdown-item' href='#editProductModal'>Ubah</a>" +
-                        "<a data-id='" + product["id"] + "' data-toggle='modal' class='delete dropdown-item' href='#deleteModal'>Hapus</a>" +
+                        "<a class='dropdown-item' href='#'>Action</a>" +
+                        "<a class='dropdown-item' href='#'>Another action</a>" +
+                        "<a class='dropdown-item' href='#'>Something else here</a>" +
                         "</div>" +
                         "</div>" +
                         "</td>" +
                         "</tr>"
                     );
                 }
-                $(".edit").on("click", function () {
-                    imageChanged = 0;
-                    var id = $(this).data('id');
-                    currentProductID = parseInt(id);
-                    var fd = new FormData();
-                    fd.append("name", "products");
-                    fd.append("id", id);
-                    $.ajax({
-                        type: 'POST',
-                        url: PHP_URL + 'get-by-id.php',
-                        data: fd,
-                        processData: false,
-                        contentType: false,
-                        cache: false,
-                        success: function (response) {
-                            var userInfo = JSON.parse(response)[0];
-                            $("#name").val(userInfo["name"]);
-                            $("#price").val(userInfo["price"]);
-                            $("#image").attr("src", PROTOCOL + "://" + HOST + "/userdata/" + userInfo["img"]);
-                        }
-                    });
-                });
-                $(".delete").on("click", function () {
-                    var id = $(this).data('id');
-                    currentProductID = parseInt(id);
-                    $("#deleteModal").modal('show');
-                });
             }
         });
     }
