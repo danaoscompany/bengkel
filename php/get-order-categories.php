@@ -1,7 +1,7 @@
 <?php
 include 'db.php';
 mysqli_set_charset($c, 'utf8');
-$categoryID = intval($_GET["category_id"]);
+$categoryID = intval($_POST["category_id"]);
 $categories = [];
 while (true) {
 	$results = $c->query("SELECT * FROM categories WHERE id=" . $categoryID);
