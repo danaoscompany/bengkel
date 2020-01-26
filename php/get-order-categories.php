@@ -1,5 +1,7 @@
 <?php
 include 'db.php';
+echo 123;
+return;
 $categoryID = intval($_POST["category_id"]);
 $categories = [];
 while (true) {
