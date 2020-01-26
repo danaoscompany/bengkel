@@ -12,5 +12,6 @@ while (true) {
 			break;
 		}
 	}
+	break;
 }
 echo json_encode($categories);
