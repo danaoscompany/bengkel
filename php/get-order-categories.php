@@ -1,6 +1,6 @@
 <?php
 include 'db.php';
-$categoryID = intval($_POST["category_id"]);
+$categoryID = intval($_GET["category_id"]);
 $categories = [];
 	$results = $c->query("SELECT * FROM categories WHERE id=" . $categoryID);
 	if ($results && $results->num_rows > 0) {
