@@ -2,7 +2,7 @@
 include 'db.php';
 $categoryID = intval($_POST["category_id"]);
 $categories = [];
-/*while (true) {
+while (true) {
 	$results = $c->query("SELECT * FROM categories WHERE id=" . $categoryID);
 	if ($results && $results->num_rows > 0) {
 		$row = $results->fetch_assoc();
@@ -12,5 +12,5 @@ $categories = [];
 			break;
 		}
 	}
-}*/
+}
 echo json_encode($categories);
