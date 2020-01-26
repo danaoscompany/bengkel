@@ -1,5 +1,6 @@
 <?php
 include 'db.php';
+mysqli_set_charset($c, 'utf8');
 $categoryID = intval($_GET["category_id"]);
 $categories = [];
 	$results = $c->query("SELECT * FROM categories WHERE id=" . $categoryID);
