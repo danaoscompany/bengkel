@@ -15,7 +15,11 @@ if ($results && $results->num_rows > 0) {
 				}
 			}
 			$row["total_raters"] = $results2->num_rows;
-			$row["rating"] = ($totalRatings/$results2->num_rows);
+			if ($results2->num_rows > 0) {
+				$row["rating"] = ($totalRatings/$results2->num_rows);
+			} else {
+				$row["rating"] = 0;
+			}
 		} else {
 			$row["total_raters"] = 0;
 			$row["rating"] = 0;
