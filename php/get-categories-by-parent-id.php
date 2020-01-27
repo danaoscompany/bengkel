@@ -1,5 +1,6 @@
 <?php
 include 'db.php';
+mysqli_query($c, "SET CHARACTER SET 'utf8'");
 $parentID = intval($_POST["parent_id"]);
 $results = $c->query("SELECT * FROM categories WHERE parent_id=" . $parentID);
 $categories = [];
