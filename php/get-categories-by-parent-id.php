@@ -20,7 +20,6 @@ if ($results && $results->num_rows > 0) {
 		}
 		array_push($categories, $row);
 	}
-	echo $results->num_rows;
 }
 echo json_encode($categories);
 
