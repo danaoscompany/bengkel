@@ -4,7 +4,7 @@ $parentID = intval($_POST["parent_id"]);
 $results = $c->query("SELECT * FROM categories WHERE parent_id=" . $parentID);
 $categories = [];
 if ($results && $results->num_rows > 0) {
-	while ($row = $results->fetch_assoc()) {
+	/*while ($row = $results->fetch_assoc()) {
 		$childCount = getChildCount($row["id"]);
 		if ($childCount == 0) {
 			$results2 = $c->query("SELECT * FROM products WHERE category_id=" . $row["id"]);
@@ -18,9 +18,10 @@ if ($results && $results->num_rows > 0) {
 			$row["has_product"] = 0;
 		}
 		array_push($categories, $row);
-	}
+	}*/
+	echo $results->num_rows;
 }
-echo json_encode($categories);
+//echo json_encode($categories);
 
 function getChildCount($id) {
 	$results2 = $GLOBALS["c"]->query("SELECT * FROM categories WHERE parent_id=" . $id);
