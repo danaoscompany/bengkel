@@ -7,7 +7,7 @@ $categories = [];
 if ($results && $results->num_rows > 0) {
 	while ($row = $results->fetch_assoc()) {
 		$childCount = getChildCount($row["id"]);
-		/*if ($childCount == 0) {
+		if ($childCount == 0) {
 			$results2 = $c->query("SELECT * FROM products WHERE category_id=" . $row["id"]);
 			if ($results2) {
 				$childCount = $results2->num_rows;
@@ -17,7 +17,7 @@ if ($results && $results->num_rows > 0) {
 		} else {
 			$row["child_count"] = $childCount;
 			$row["has_product"] = 0;
-		}*/
+		}
 		array_push($categories, $row);
 	}
 	echo $results->num_rows;
