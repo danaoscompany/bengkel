@@ -694,7 +694,7 @@
                 }
                 $(".edit").on("click", function () {
                     var id = $(this).data('id');
-                    currentUserID = parseInt(id);
+                    currentTypeID = parseInt(id);
                     var fd = new FormData();
                     fd.append("name", "categories");
                     fd.append("id", id);
@@ -715,7 +715,7 @@
                 });
                 $(".delete").on("click", function () {
                     var id = $(this).data('id');
-                    currentUserID = parseInt(id);
+                    currentTypeID = parseInt(id);
                     $("#deleteModal").modal('show');
                 });
             }
@@ -723,9 +723,10 @@
     }
 
     function deleteProduct() {
+        alert(currentTypeID);
         var fd = new FormData();
         fd.append("name", "categories");
-        fd.append("id", currentProductID);
+        fd.append("id", currentTypeID);
         $.ajax({
             type: 'POST',
             url: PHP_URL + 'delete-by-id.php',
@@ -769,7 +770,7 @@
     function editProduct() {
         var name = $("#edit-name").val().trim();
         var fd = new FormData();
-        fd.append("id", currentUserID);
+        fd.append("id", currentTypeID);
         fd.append("name", currentStrip+" "+name);
         $.ajax({
             type: 'POST',
