@@ -2,8 +2,6 @@
 include 'db.php';
 $name = $_POST["name"];
 $categoryID = intval($_POST["category_id"]);
-$unitPrice = intval($_POST["unit_price"]);
-$technicalPrice = intval($_POST["technical_price"]);
 $childCount = getChildCount($categoryID)+1;
 $strips = "";
 for ($i = 0; $i < $childCount; $i++) {
@@ -12,7 +10,7 @@ for ($i = 0; $i < $childCount; $i++) {
 $strips .= " ";
 $strips .= $name;
 $name = $strips;
-$c->query("INSERT INTO categories (name, parent_id, unit_price, technical_price) VALUES ('" . $name . "', " . $categoryID . ", " . $unitPrice . ", " . $technicalPrice . ")");
+$c->query("INSERT INTO categories (name, parent_id) VALUES ('" . $name . "', " . $categoryID . ")");
 echo $categoryID;
 
 function getChildCount($parentID)

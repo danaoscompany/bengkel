@@ -173,16 +173,6 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="subcategories.html">
-                        <i class="ni ni-tag text-yellow"></i> SubKategori
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="subsubcategories.html">
-                        <i class="ni ni-tag text-blue"></i> Sub Subkategori
-                    </a>
-                </li>
-                <li class="nav-item">
                     <a class="nav-link" href="products.html">
                         <i class="ni ni-tag text-purple"></i> Produk
                     </a>
@@ -332,12 +322,21 @@
                                 </div>
                             </div>
                             <div class="form-group mb-3">
-                                <div>Harga:</div>
+                                <div>Harga Beli:</div>
                                 <div class="input-group input-group-alternative" style="margin-top: 10px;">
                                     <div class="input-group-prepend">
                                         <span class="input-group-text"><i class="ni ni-email-83"></i></span>
                                     </div>
-                                    <input id="price" class="form-control" placeholder="Harga" type="number">
+                                    <input id="buy-price" class="form-control" placeholder="Harga Beli" type="number">
+                                </div>
+                            </div>
+                            <div class="form-group mb-3">
+                                <div>Harga Jual:</div>
+                                <div class="input-group input-group-alternative" style="margin-top: 10px;">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text"><i class="ni ni-email-83"></i></span>
+                                    </div>
+                                    <input id="sell-price" class="form-control" placeholder="Harga Jual" type="number">
                                 </div>
                             </div>
                             <div class="form-group mb-3">
@@ -390,12 +389,21 @@
                                 </div>
                             </div>
                             <div class="form-group mb-3">
-                                <div>Harga:</div>
+                                <div>Harga Beli:</div>
                                 <div class="input-group input-group-alternative" style="margin-top: 10px;">
                                     <div class="input-group-prepend">
                                         <span class="input-group-text"><i class="ni ni-email-83"></i></span>
                                     </div>
-                                    <input id="add-product-price" class="form-control" placeholder="Harga" type="number">
+                                    <input id="add-product-buy-price" class="form-control" placeholder="Harga Beli" type="number">
+                                </div>
+                            </div>
+                            <div class="form-group mb-3">
+                                <div>Harga Jual:</div>
+                                <div class="input-group input-group-alternative" style="margin-top: 10px;">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text"><i class="ni ni-email-83"></i></span>
+                                    </div>
+                                    <input id="add-product-sell-price" class="form-control" placeholder="Harga Jual" type="number">
                                 </div>
                             </div>
                             <div class="form-group mb-3">
@@ -491,7 +499,8 @@
                             <thead class="thead-light">
                             <tr>
                                 <th scope="col">Nama</th>
-                                <th scope="col">Harga</th>
+                                <th scope="col">Harga Beli</th>
+                                <th scope="col">Harga Jual</th>
                                 <th scope="col">Kategori</th>
                                 <th scope="col">Gambar</th>
                                 <th scope="col"></th>
@@ -642,17 +651,27 @@
                 products = JSON.parse(response);
                 for (var i = 0; i < products.length; i++) {
                     var product = products[i];
+                    var categories = "";
+                    var categoriesJSON = JSON.parse(product["category"]);
+                    categoriesJSON.reverse();
+                    for (var j=0; j<categoriesJSON.length; j++) {
+                        categories += (categoriesJSON[j].replace(/—/g, "").trim()+" > ");
+                    }
+                    categories = categories.substr(0, categories.lastIndexOf(" > "));
                     $("#products").append(
                         "<tr>" +
                         "<td>" +
                         product["name"]+
                         "</td>" +
                         "<td>" +
-                        "Rp" + product["price"] + ",-" +
+                        "Rp" + product["buy_price"] + ",-" +
+                        "</td>" +
+                        "<td>" +
+                        "Rp" + product["sell_price"] + ",-" +
                         "</td>" +
                         "<td>" +
                         "<span class='badge badge-dot mr-4'>" +
-                        product["category"] +
+                        categories+
                         "</span>" +
                         "</td>" +
                         "<td>" +
@@ -689,7 +708,7 @@
                         success: function(response) {
                             var userInfo = JSON.parse(response)[0];
                             $("#name").val(userInfo["name"]);
-                            $("#price").val(userInfo["price"]);
+                            $("#sell-price").val(userInfo["price"]);
                             $("#image").attr("src", PROTOCOL+"://"+HOST+"/userdata/"+userInfo["img"]);
                         }
                     });
@@ -749,7 +768,7 @@
 
     function editProduct() {
         var name = $("#name").val().trim();
-        var price = parseInt($("#price").val().trim());
+        var price = parseInt($("#sell-price").val().trim());
         var fd = new FormData();
         fd.append("id", currentProductID);
         fd.append("name", name);
@@ -771,13 +790,16 @@
 
     function addProduct() {
         var name = $("#add-product-name").val().trim();
-        var price = parseInt($("#add-product-price").val().trim());
+        var buyPrice = parseInt($("#add-product-buy-price").val().trim());
+        var sellPrice = parseInt($("#add-product-sell-price").val().trim());
         var fd = new FormData();
         var categoryIndex = $("#categories").prop('selectedIndex');
         fd.append("name", name);
-        fd.append("price", price);
+        fd.append("sell_price", sellPrice);
+        fd.append("buy_price", buyPrice);
         fd.append("file", imageFile);
         fd.append("category_id", categories[categoryIndex]["id"]);
+        fd.append("image_changed", 1);
         $.ajax({
             type: 'POST',
             url: PHP_URL+'add-product.php',
@@ -786,6 +808,7 @@
             contentType: false,
             cache: false,
             success: function(response) {
+                console.log("AddProduct Response: "+response);
                 getProducts();
             }
         });

@@ -173,16 +173,6 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="subcategories.html">
-                        <i class="ni ni-tag text-yellow"></i> SubKategori
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="subsubcategories.html">
-                        <i class="ni ni-tag text-blue"></i> Sub Subkategori
-                    </a>
-                </li>
-                <li class="nav-item">
                     <a class="nav-link" href="products.html">
                         <i class="ni ni-tag text-purple"></i> Produk
                     </a>
@@ -346,14 +336,6 @@
                                     <label class="custom-control-label" for="edit-capacity">Kapasitas AC</label>
                                 </div>
                                 <div class="custom-control custom-checkbox mb-3">
-                                    <input class="custom-control-input" id="edit-subcategory" type="checkbox">
-                                    <label class="custom-control-label" for="edit-subcategory">Subkategori</label>
-                                </div>
-                                <div class="custom-control custom-checkbox mb-3">
-                                    <input class="custom-control-input" id="edit-sub-subcategory" type="checkbox">
-                                    <label class="custom-control-label" for="edit-sub-subcategory">Sub Subkategori</label>
-                                </div>
-                                <div class="custom-control custom-checkbox mb-3">
                                     <input class="custom-control-input" id="edit-material" type="checkbox">
                                     <label class="custom-control-label" for="edit-material">Material</label>
                                 </div>
@@ -442,14 +424,6 @@
                                 <div class="custom-control custom-checkbox mb-3">
                                     <input class="custom-control-input" id="capacity" type="checkbox">
                                     <label class="custom-control-label" for="capacity">Kapasitas AC</label>
-                                </div>
-                                <div class="custom-control custom-checkbox mb-3">
-                                    <input class="custom-control-input" id="subcategory" type="checkbox">
-                                    <label class="custom-control-label" for="subcategory">Subkategori</label>
-                                </div>
-                                <div class="custom-control custom-checkbox mb-3">
-                                    <input class="custom-control-input" id="sub-subcategory" type="checkbox">
-                                    <label class="custom-control-label" for="sub-subcategory">Sub Subkategori</label>
                                 </div>
                                 <div class="custom-control custom-checkbox mb-3">
                                     <input class="custom-control-input" id="material" type="checkbox">
@@ -781,10 +755,6 @@
                             servicesString += "&bull; Jaminan<br/>";
                         } else if (service == 11) {
                             servicesString += "&bull; Status pemasangan<br/>";
-                        } else if (service == 14) {
-                            servicesString += "&bull; Subkategori<br/>";
-                        } else if (service == 15) {
-                            servicesString += "&bull; Sub Subkategori<br/>";
                         }
                     }
                     if (servicesString.endsWith("<br/>")) {
